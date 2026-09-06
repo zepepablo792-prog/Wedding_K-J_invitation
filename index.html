@@ -1,0 +1,2861 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<base href="./">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Karen &amp; Juan Pablo — Nuestra Boda</title>
+<meta content="Invitación de boda de Karen y Juan Pablo" name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/><style>
+*{box-sizing:border-box}
+:root{
+  --bg:#f4efe7;
+  --paper:#fffaf3;
+  --ink:#242a24;
+  --muted:#71776c;
+  --accent:#8a7a57;
+  --accent-2:#c8b89a;
+  --line:#d8cfbf;
+  --dark:#1b211c;
+  --glass:rgba(255,255,255,.12);
+}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:
+radial-gradient(circle at top right,rgba(197,182,153,.14),transparent 35%),var(--bg);
+color:var(--ink);line-height:1.6}
+h1,h2,h3,.brand,.countdown strong{font-family:"Cormorant Garamond",Georgia,serif}
+h1,h2,h3,p{margin-top:0}
+a{color:inherit}
+.site-header{position:fixed;z-index:50;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:18px 5vw;color:white;background:linear-gradient(to bottom,rgba(0,0,0,.45),transparent);backdrop-filter:blur(2px)}
+.brand{text-decoration:none;font-size:29px;letter-spacing:.08em}.brand span{opacity:.6}
+.nav{display:flex;gap:24px}.nav a{text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:.12em}
+.menu-btn{display:none;border:0;background:transparent;color:white;font-size:28px}
+.hero,.closing{min-height:100%;position:relative;display:grid;place-items:center;text-align:center;color:white;background:
+linear-gradient(135deg,#706b5d 0%,#394239 45%,#7f715f 100%)}
+.hero:before,.closing:before{content:"";position:absolute;inset:0;background:
+radial-gradient(circle at 25% 25%,rgba(255,255,255,.12),transparent 23%),
+radial-gradient(circle at 75% 40%,rgba(255,255,255,.08),transparent 19%)}
+.hero-overlay,.closing-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,20,15,.2),rgba(15,20,15,.64))}
+.hero-content,.closing-content{position:relative;z-index:2;width:min(900px,90vw);padding:80px 0 40px}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:600}
+.hero h1{font-size:clamp(60px,10vw,126px);font-weight:400;line-height:.78;margin:25px 0}.hero h1 span{display:block;font-size:.55em;font-style:italic}
+.date{letter-spacing:.28em;font-size:14px}
+.hero-quote{max-width:620px;margin:30px auto;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:24px}
+.scroll-cue{text-decoration:none;text-transform:uppercase;letter-spacing:.19em;font-size:11px}
+.countdown-section{padding:60px 5vw 70px;text-align:center;background:rgba(255,250,243,.94);backdrop-filter:blur(8px)}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);max-width:900px;margin:25px auto 0}
+.countdown>div{padding:10px;border-right:1px solid var(--line)}.countdown>div:last-child{border:0}
+.countdown strong{display:block;font-size:clamp(44px,8vw,74px);font-weight:400}.countdown span{text-transform:uppercase;font-size:10px;letter-spacing:.18em}
+.section{padding:100px 7vw}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8vw;align-items:center}
+.section-copy{max-width:590px}.section h2{font-size:clamp(42px,6vw,72px);line-height:.98;font-weight:500}
+.signature{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:34px}
+.photo-placeholder{min-height:390px;border-radius:2px;background:
+linear-gradient(145deg,#bbc0b0,#7f8775);display:grid;place-items:center;color:white;letter-spacing:.2em;font-size:11px;position:relative;overflow:hidden}
+.photo-placeholder:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0 14px,rgba(255,255,255,.03) 14px 28px)}
+.photo-placeholder span{z-index:1}.photo-placeholder.tall{min-height:620px}.photo-placeholder.wide{grid-column:span 2}
+.glass-photo{box-shadow:0 30px 70px rgba(26,31,25,.15)}
+.section-heading{text-align:center;max-width:760px;margin:0 auto 60px}
+.event{background:linear-gradient(180deg,#ece5d9,#e7ded0)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px;max-width:1000px;margin:auto}
+.card{background:rgba(255,250,243,.88);padding:50px;text-align:center;border:1px solid rgba(207,194,173,.75);box-shadow:0 20px 60px rgba(42,46,38,.08);backdrop-filter:blur(12px)}
+.card h3{font-size:42px;margin:8px}.card-icon{font-size:28px}.luxe-card{transition:.25s}.luxe-card:hover{transform:translateY(-6px)}
+.text-link{text-transform:uppercase;font-size:11px;letter-spacing:.14em}
+.itinerary{background:
+radial-gradient(circle at 20% 20%,rgba(191,175,137,.10),transparent 25%),
+var(--dark);color:#f5f1e8}
+.timeline{max-width:780px;margin:auto}
+.timeline-item{display:grid;grid-template-columns:110px 1fr;gap:30px;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.18)}
+.timeline time{font-family:"Cormorant Garamond",serif;font-size:34px}.timeline h3{font-size:30px;margin-bottom:2px}
+.dresscode{text-align:center}.palette{display:flex;justify-content:center;margin-top:35px}
+.palette span{width:55px;height:55px;border-radius:50%;margin-left:-8px;border:3px solid var(--bg);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.palette span:nth-child(1){background:#d9d0bd}.palette span:nth-child(2){background:#859074}.palette span:nth-child(3){background:#5c604c}.palette span:nth-child(4){background:#bda48f}.palette span:nth-child(5){background:#31362f}
+.gallery{background:#e8e1d4}.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1200px;margin:auto}.gallery .photo-placeholder{min-height:320px}.gallery .tall{grid-row:span 2;min-height:655px}
+.gifts{background:
+linear-gradient(180deg,rgba(255,250,243,.96),rgba(245,239,229,.96))}
+.gift-filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:-15px auto 35px}
+.gift-filters button{border:1px solid var(--line);background:rgba(255,255,255,.75);padding:10px 16px;border-radius:999px;cursor:pointer;font:inherit;font-size:12px}
+.gift-filters button.active{background:var(--ink);color:white}
+.gift-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1150px;margin:auto}
+.gift-card{font:inherit;color:inherit;background:rgba(255,255,255,.84);border:1px solid var(--line);padding:0;cursor:pointer;transition:.28s;text-align:left;overflow:hidden;box-shadow:0 18px 50px rgba(35,39,33,.06)}
+.gift-card:hover{transform:translateY(-7px);box-shadow:0 22px 60px rgba(30,35,28,.12)}
+.gift-card-visual{height:170px;background:linear-gradient(135deg,#d6ccb9,#868d7d);display:grid;place-items:center;font-size:46px}
+.gift-card-body{padding:24px}.gift-card .gift-category{font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted)}
+.gift-card strong,.gift-card small,.gift-card b{display:block}.gift-card strong{font-family:"Cormorant Garamond",serif;font-size:29px;line-height:1;margin:8px 0}
+.gift-card small{color:var(--muted);min-height:44px}.gift-card b{margin-top:16px;font-size:13px}
+.fineprint{text-align:center;font-size:12px;color:var(--muted);margin-top:24px}
+.travel{background:#d7d1c2}.mini-cards{display:grid;grid-template-columns:repeat(3,1fr);max-width:1000px;margin:auto;text-align:center;gap:30px}.mini-cards span{font-size:30px}
+.rsvp{background:
+radial-gradient(circle at top right,rgba(185,165,125,.10),transparent 28%),var(--dark);color:white}
+.rsvp-box{max-width:780px;margin:auto;background:rgba(248,244,235,.96);color:var(--ink);padding:60px;box-shadow:0 35px 100px rgba(0,0,0,.28)}
+form{display:grid;gap:18px;margin-top:35px}label{font-size:12px;text-transform:uppercase;letter-spacing:.11em}
+input,select,textarea{width:100%;margin-top:7px;border:1px solid #cfc5b3;background:white;padding:14px;font:inherit;color:var(--ink)}
+.primary-btn,.secondary-btn{border:0;padding:16px 24px;text-transform:uppercase;letter-spacing:.13em;font-size:11px;cursor:pointer}
+.primary-btn{background:var(--ink);color:white}.secondary-btn{background:white;border:1px solid var(--line);color:var(--ink)}
+.success-message{margin-top:24px;padding:20px;border:1px solid #98a289;background:#eef2e9}
+.closing{min-height:70svh}.closing h2{font-size:clamp(52px,7vw,90px)}
+footer{display:flex;justify-content:space-between;gap:20px;padding:30px 5vw;background:#171a16;color:#d9d5ca;font-size:12px}
+
+dialog{max-width:680px;width:92%;border:0;padding:0;background:var(--paper);color:var(--ink);box-shadow:0 30px 100px rgba(0,0,0,.38)}
+dialog::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
+.gift-dialog-inner{padding:46px}.dialog-close{position:absolute;right:18px;top:14px;border:0;background:none;font-size:26px;cursor:pointer}
+.gift-description{font-size:16px;color:var(--muted)}
+.gift-summary{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+.gift-summary>div{border:1px solid var(--line);padding:16px;background:white}.gift-summary span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.bank-box{background:white;border:1px solid var(--line);padding:20px;margin:22px 0}
+.bank-row{display:flex;justify-content:space-between;gap:20px;padding:10px 0;border-bottom:1px solid #eee7da}.bank-row:last-child{border-bottom:0}.bank-row span{color:var(--muted);font-size:12px}
+.gift-actions{display:flex;gap:12px}.gift-actions>*{flex:1}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .gift-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:800px){
+  .menu-btn{display:block}.nav{display:none;position:absolute;top:62px;right:5vw;flex-direction:column;background:#22281f;padding:22px;min-width:210px}.nav.open{display:flex}
+  .split,.cards,.mini-cards{grid-template-columns:1fr}
+  .section{padding:75px 6vw}.photo-placeholder.tall{min-height:460px}.countdown{grid-template-columns:repeat(2,1fr);gap:20px}.countdown>div{border:0}
+  .gallery-grid{grid-template-columns:1fr 1fr}.photo-placeholder.wide{grid-column:span 2}.gallery .tall{grid-row:auto;min-height:320px}
+  .rsvp-box{padding:34px 22px}.timeline-item{grid-template-columns:80px 1fr;gap:15px}footer{flex-direction:column}
+}
+@media(max-width:620px){
+  .gift-grid{grid-template-columns:1fr}.gift-dialog-inner{padding:36px 20px}.gift-summary{grid-template-columns:1fr}.gift-actions{flex-direction:column}
+}
+
+
+/* ===== MOBILE-FIRST OVERRIDES ===== */
+html { scroll-padding-top: 64px; }
+body { overflow-x: hidden; }
+
+.site-header {
+  padding: 14px 18px;
+  background: linear-gradient(to bottom, rgba(15,18,15,.78), rgba(15,18,15,.28), transparent);
+}
+.brand { font-size: 24px; }
+.menu-btn { display:block; font-size:24px; }
+
+.nav {
+  display:none;
+  position:fixed;
+  top:0; right:0;
+  width:min(82vw, 320px);
+  height:100%;
+  padding:86px 28px 28px;
+  background:rgba(22,27,22,.97);
+  backdrop-filter:blur(18px);
+  flex-direction:column;
+  gap:22px;
+  box-shadow:-20px 0 60px rgba(0,0,0,.25);
+}
+.nav.open { display:flex; }
+.nav a { font-size:13px; }
+
+.hero { min-height:100%; }
+.hero-content {
+  width:100%;
+  padding:115px 22px 55px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  min-height:100%;
+}
+.hero h1 {
+  font-size:clamp(54px, 19vw, 86px);
+  line-height:.82;
+  margin:18px 0;
+}
+.hero .date {
+  font-size:11px;
+  letter-spacing:.18em;
+}
+.hero-quote {
+  font-size:20px;
+  line-height:1.25;
+  margin:24px auto;
+}
+.scroll-cue { font-size:10px; }
+
+.countdown-section { padding:42px 14px 48px; }
+.countdown {
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  margin-top:18px;
+}
+.countdown>div {
+  padding:6px 4px;
+  border-right:1px solid var(--line);
+}
+.countdown>div:last-child { border-right:0; }
+.countdown strong { font-size:36px; }
+.countdown span { font-size:8px; letter-spacing:.12em; }
+
+.section { padding:70px 20px; }
+.section h2 {
+  font-size:clamp(40px, 13vw, 58px);
+  line-height:.96;
+}
+.section-heading { margin-bottom:38px; }
+
+.split {
+  grid-template-columns:1fr;
+  gap:34px;
+}
+.photo-placeholder.tall {
+  min-height:58svh;
+  order:0;
+}
+.section-copy { order:1; }
+
+.cards {
+  grid-template-columns:1fr;
+  gap:14px;
+}
+.card {
+  padding:34px 22px;
+  border-radius:18px;
+}
+.card h3 { font-size:38px; }
+
+.timeline-item {
+  grid-template-columns:72px 1fr;
+  gap:14px;
+  padding:22px 0;
+}
+.timeline time { font-size:30px; }
+.timeline h3 { font-size:27px; }
+
+.palette span {
+  width:48px;
+  height:48px;
+}
+
+.gallery-grid {
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  gap:12px;
+  padding-bottom:8px;
+}
+.gallery-grid .photo-placeholder,
+.gallery-grid .photo-placeholder.wide,
+.gallery-grid .photo-placeholder.tall {
+  flex:0 0 82vw;
+  min-height:58svh;
+  grid-column:auto;
+  grid-row:auto;
+  scroll-snap-align:center;
+  border-radius:16px;
+}
+
+.gift-filters {
+  justify-content:flex-start;
+  overflow-x:auto;
+  flex-wrap:nowrap;
+  padding:0 0 8px;
+  margin:-6px -4px 24px;
+}
+.gift-filters button {
+  white-space:nowrap;
+  flex:0 0 auto;
+}
+
+.gift-grid {
+  grid-template-columns:1fr;
+  gap:14px;
+}
+.gift-card {
+  border-radius:18px;
+}
+.gift-card-visual {
+  height:135px;
+}
+.gift-card-body {
+  padding:20px;
+}
+.gift-card strong { font-size:28px; }
+
+.mini-cards {
+  grid-template-columns:1fr;
+  gap:12px;
+}
+.mini-cards > div {
+  background:rgba(255,255,255,.45);
+  border:1px solid rgba(255,255,255,.45);
+  padding:24px;
+  border-radius:16px;
+}
+
+.rsvp { padding-left:14px; padding-right:14px; }
+.rsvp-box {
+  padding:32px 18px;
+  border-radius:20px;
+}
+input, select, textarea {
+  font-size:16px; /* evita zoom automático en iPhone */
+  border-radius:12px;
+  padding:15px;
+}
+.primary-btn, .secondary-btn {
+  min-height:50px;
+  border-radius:12px;
+}
+
+dialog {
+  width:100%;
+  max-width:none;
+  margin:auto 0 0;
+  border-radius:24px 24px 0 0;
+  max-height:92svh;
+  overflow:auto;
+}
+.gift-dialog-inner { padding:34px 18px 24px; }
+.gift-summary { grid-template-columns:1fr; }
+.bank-row {
+  flex-direction:column;
+  gap:3px;
+}
+.gift-actions {
+  position:sticky;
+  bottom:0;
+  background:linear-gradient(to top,var(--paper) 78%,transparent);
+  padding-top:16px;
+  flex-direction:column;
+}
+
+.closing { min-height:75svh; }
+.closing-content { padding:80px 22px; }
+footer {
+  flex-direction:column;
+  padding:28px 20px;
+}
+
+
+/* --- Ajuste v6: detalles discretos + mesa de regalos interna --- */
+.discreet-details{
+  background:linear-gradient(180deg,var(--cream,#f7f2e8),#f2eadf);
+}
+.detail-access-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  max-width:1050px;
+  margin:0 auto;
+}
+.detail-access-card{
+  min-height:155px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.62);
+  padding:22px 16px;
+  cursor:pointer;
+  transition:.2s ease;
+  color:var(--ink);
+}
+.detail-access-card:hover{transform:translateY(-2px);background:#fff}
+.detail-access-icon{
+  display:grid;
+  place-items:center;
+  width:54px;height:54px;
+  margin:0 auto 12px;
+  border:1px solid #c8ad72;
+  border-radius:50%;
+  font-family:Georgia,serif;
+  font-size:25px;
+  color:#9d7f43;
+}
+.detail-access-card strong,.detail-access-card small{display:block;text-align:center}
+.detail-access-card strong{font-family:Georgia,serif;font-size:21px;font-weight:400}
+.detail-access-card small{margin-top:5px;color:var(--muted);font-size:11px;line-height:1.45}
+.gift-access-card{background:#eee6d8}
+.gift-access-card .detail-access-icon{font-size:27px}
+
+.gift-shell{
+  width:min(760px,calc(100% - 18px));
+  max-height:90dvh;
+  padding:0;
+  border:0;
+  border-radius:24px 24px 0 0;
+  overflow:hidden;
+}
+.gift-dialog-nav{
+  position:sticky;
+  top:0;
+  z-index:5;
+  height:58px;
+  display:grid;
+  grid-template-columns:48px 1fr 48px;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+  background:rgba(250,246,238,.97);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.gift-dialog-mark{text-align:center;color:#a88648;font-family:Georgia,serif;font-size:22px}
+.gift-back,.gift-dialog-nav .dialog-close{
+  position:static;
+  width:44px;height:44px;
+  margin:auto;
+  border:0;background:transparent;
+  font-size:24px;
+  color:var(--ink);
+}
+.gift-dialog-nav .dialog-close{grid-column:3}
+.gift-dialog-inner{
+  padding:26px 22px max(34px,env(safe-area-inset-bottom));
+  overflow:auto;
+  max-height:calc(90dvh - 58px);
+  -webkit-overflow-scrolling:touch;
+}
+.gift-catalog-view>h3,.gift-dialog-inner>h3{
+  font-size:clamp(36px,8vw,52px);
+  line-height:1;
+  margin:8px 0 12px;
+}
+.gift-filters-dialog{
+  justify-content:flex-start;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  margin:24px -4px 22px;
+  padding:4px;
+  scrollbar-width:none;
+}
+.gift-filters-dialog::-webkit-scrollbar{display:none}
+.gift-filters-dialog button{white-space:nowrap}
+.gift-grid{scroll-margin-top:80px}
+@media(max-width:720px){
+  .detail-access-grid{grid-template-columns:1fr 1fr}
+  .detail-access-card{min-height:135px;padding:18px 12px}
+  .detail-access-card strong{font-size:18px}
+  .gift-shell{
+    width:100%;
+    max-width:none;
+    max-height:92dvh;
+    margin:auto 0 0;
+    border-radius:24px 24px 0 0;
+  }
+  .gift-dialog-inner{max-height:calc(92dvh - 58px)}
+}
+
+
+/* Mantener recorrido editorial, pero sin alargar demasiado */
+@media(min-width:721px){.section{padding-top:90px;padding-bottom:90px}}
+@media(max-width:720px){.section{padding-top:66px;padding-bottom:66px}}
+
+/* --- v7: hospedaje, ubicación, FAQ y preferencias alimentarias --- */
+.venue-feature{
+  max-width:1050px;margin:34px auto 26px;padding:22px 24px;
+  display:grid;grid-template-columns:64px 1fr auto;gap:18px;align-items:center;
+  border:1px solid var(--line);background:rgba(255,255,255,.55);
+}
+.venue-mark{width:54px;height:54px;border:1px solid #b99a5c;border-radius:50%;
+  display:grid;place-items:center;color:#9a7a3e;font-size:24px}
+.venue-copy h3{margin:2px 0 6px;font:400 28px/1 Georgia,serif}
+.venue-copy p{margin:0 0 5px}.venue-copy small{color:var(--muted);line-height:1.5}
+.venue-map-btn{border:1px solid #b99a5c;padding:11px 15px;text-decoration:none;color:var(--ink);white-space:nowrap}
+
+.detail-dialog{width:min(720px,calc(100% - 18px));max-height:90dvh;padding:0;border:0;border-radius:24px 24px 0 0;overflow:hidden}
+.detail-dialog-body{padding:28px 24px max(36px,env(safe-area-inset-bottom));overflow:auto;max-height:calc(90dvh - 58px);-webkit-overflow-scrolling:touch}
+.detail-dialog-body h2{font:400 clamp(38px,8vw,54px)/1 Georgia,serif;margin:7px 0 13px}
+.detail-lead{color:var(--muted);max-width:580px;line-height:1.65}
+.stay-list{display:grid;gap:12px;margin-top:25px}
+.stay-card{display:grid;grid-template-columns:54px 1fr auto;gap:14px;align-items:center;padding:17px;border:1px solid var(--line);background:#fff}
+.stay-icon{width:48px;height:48px;border:1px solid #c6aa70;border-radius:50%;display:grid;place-items:center;color:#9c7c40;font-size:21px}
+.stay-card strong,.stay-card small{display:block}.stay-card strong{font:400 20px Georgia,serif}.stay-card small{margin-top:4px;color:var(--muted);line-height:1.4}
+.stay-card a,.detail-link{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid #b99a5c;padding-bottom:3px}
+.stay-more{margin-top:16px;padding:18px;text-align:center;background:#eee5d7;border:1px solid var(--line)}
+.stay-more a{display:inline-block;margin-top:8px}
+
+.transport-list{display:grid;gap:0;margin-top:24px;border-top:1px solid var(--line)}
+.transport-row{display:grid;grid-template-columns:48px 1fr;gap:15px;padding:19px 4px;border-bottom:1px solid var(--line)}
+.transport-row b{display:block;font:400 19px Georgia,serif}.transport-row p{margin:5px 0 0;color:var(--muted);line-height:1.5}
+
+.faq-minimal{margin-top:20px;border-top:1px solid var(--line)}
+.faq-minimal details{border-bottom:1px solid var(--line)}
+.faq-minimal summary{list-style:none;cursor:pointer;padding:18px 2px;display:flex;justify-content:space-between;gap:16px;font:400 18px Georgia,serif}
+.faq-minimal summary::-webkit-details-marker{display:none}
+.faq-minimal summary::after{content:"+";font-family:Arial;font-weight:300;color:#a28347}
+.faq-minimal details[open] summary::after{content:"−"}
+.faq-answer{padding:0 30px 19px 2px;color:var(--muted);line-height:1.65;font-size:14px}
+.faq-answer a{color:var(--ink);text-decoration:none;border-bottom:1px solid #b99a5c}
+
+.dietary-fieldset{border:1px solid var(--line);padding:18px;margin:20px 0}
+.dietary-fieldset legend{padding:0 7px;font-family:Georgia,serif;font-size:17px}
+.form-hint{font-size:12px;color:var(--muted);margin:0 0 13px}
+.dietary-options{display:flex;flex-wrap:wrap;gap:8px}
+.dietary-options label{display:block;cursor:pointer}
+.dietary-options input{position:absolute;opacity:0;pointer-events:none}
+.dietary-options span{display:block;border:1px solid var(--line);padding:9px 12px;border-radius:999px;font-size:12px;background:#fff}
+.dietary-options input:checked+span{border-color:#a8894e;background:#eee5d7}
+.dietary-detail{display:block;margin-top:14px}
+
+@media(max-width:720px){
+ .venue-feature{grid-template-columns:54px 1fr;padding:18px}.venue-map-btn{grid-column:1/-1;text-align:center}
+ .detail-dialog{width:100%;max-width:none;max-height:92dvh;margin:auto 0 0}
+ .detail-dialog-body{max-height:calc(92dvh - 58px);padding:25px 18px max(34px,env(safe-area-inset-bottom))}
+ .stay-card{grid-template-columns:48px 1fr}.stay-card a{grid-column:2;justify-self:start;margin-top:3px}
+}
+
+
+.hero{
+  background-image:
+    linear-gradient(to bottom,rgba(18,17,14,.08),rgba(18,17,14,.48)),
+    url("assets/photo_6e722ab2e13b.jpg");
+  background-size:cover;
+  background-position:center 46%;
+}
+.hero-overlay{
+  background:linear-gradient(to bottom,rgba(15,18,14,.08),rgba(15,18,14,.48));
+}
+.real-photo{
+  position:relative;overflow:hidden;background:#d8d0c2;
+}
+.real-photo img{
+  width:100%;height:100%;display:block;object-fit:cover;
+}
+.story-photo img{object-position:center 42%;}
+.gallery-grid .real-photo{min-height:320px}
+.gallery-grid .real-photo.tall{min-height:655px}
+.gallery-grid .real-photo.wide{grid-column:span 2}
+.gallery-grid .real-photo::after{
+  content:"";position:absolute;inset:0;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);
+  pointer-events:none;
+}
+@media(max-width:720px){
+  .hero{background-position:58% center}
+  .story-photo{min-height:520px}
+  .story-photo img{object-position:center center}
+  .gallery-grid .real-photo,.gallery-grid .real-photo.tall{min-height:310px}
+  .gallery-grid .real-photo.wide{grid-column:span 2}
+}
+
+
+.gallery-grid .real-photo img[alt="Karen y Juan Pablo juntos en un momento especial"]{
+  object-position:center 38%;
+}
+
+
+/* --- v9: tratamiento fotográfico no destructivo + dress code minimalista --- */
+.real-photo img{
+  filter:brightness(1.035) contrast(1.035) saturate(.94);
+  transform:scale(1.01);
+  transition:transform .5s ease, filter .5s ease;
+}
+.real-photo.photo-night img{
+  filter:brightness(1.10) contrast(1.04) saturate(.90);
+}
+.real-photo.photo-bright img{
+  filter:brightness(.99) contrast(1.04) saturate(.91);
+}
+.real-photo.photo-soft img{
+  filter:brightness(1.025) contrast(1.025) saturate(.90);
+}
+.real-photo.photo-editorial img{
+  filter:brightness(1.075) contrast(1.06) saturate(.88);
+}
+
+/* Reencuadres únicamente con CSS: no modifican caras ni contenido */
+.photo-redkiss img{object-position:48% 43%;}
+.photo-lakekiss img{object-position:42% 48%;}
+.photo-coral img{object-position:50% 38%;}
+.photo-formal img{object-position:50% 44%;}
+.photo-redfull img{object-position:50% 38%;}
+.photo-helmets img{object-position:50% 42%;}
+.story-photo img{object-position:center 58%;}
+
+.dresscode{background:var(--paper);}
+.dress-copy{
+  max-width:620px;
+  margin:16px auto 0;
+  color:var(--muted);
+  line-height:1.8;
+}
+.dress-copy strong{
+  color:var(--ink);
+  font-weight:500;
+}
+.dress-minimal-line{
+  width:110px;
+  margin:28px auto 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#a4864c;
+}
+.dress-minimal-line::before,.dress-minimal-line::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:#cbbb99;
+}
+.dress-minimal-line span{padding:0 12px;font-size:12px;}
+
+@media(max-width:720px){
+  .photo-redkiss img{object-position:47% 45%;}
+  .photo-lakekiss img{object-position:38% 50%;}
+  .story-photo img{object-position:55% 52%;}
+}
+
+
+/* --- v10: galería editorial interactiva + hoteles Booking --- */
+.story-gallery{
+  background:#e8e1d4;
+}
+.story-feature{
+  max-width:1120px;
+  margin:0 auto;
+}
+.story-main-photo{
+  display:block;
+  width:100%;
+  height:clamp(420px,62vw,720px);
+  padding:0;
+  border:0;
+  background:#d8d0c2;
+  overflow:hidden;
+  cursor:zoom-in;
+}
+.story-main-photo img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center 40%;
+  filter:brightness(1.03) contrast(1.025) saturate(.93) sepia(.035);
+}
+.story-thumbs{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:12px;
+}
+.story-thumb{
+  padding:0;
+  height:145px;
+  border:1px solid rgba(138,110,61,.22);
+  background:#d8d0c2;
+  overflow:hidden;
+  cursor:zoom-in;
+}
+.story-thumb img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  filter:brightness(1.035) contrast(1.035) saturate(.92);
+}
+
+/* Reencuadres: solo recorte visual, sin tocar rostros */
+.story-thumb:nth-child(1) img{object-position:48% 42%;}
+.story-thumb:nth-child(2) img{object-position:42% 46%;}
+.story-thumb:nth-child(3) img{object-position:52% 54%;}
+.story-thumb:nth-child(4) img{object-position:50% 42%;}
+.story-thumb:nth-child(5) img{object-position:50% 38%;}
+
+.story-gallery-hint{
+  margin:14px 0 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.photo-lightbox{
+  width:100vw;
+  max-width:none;
+  height:100%;
+  max-height:none;
+  margin:0;
+  padding:0;
+  border:0;
+  background:rgba(16,15,13,.96);
+}
+.photo-lightbox::backdrop{background:rgba(16,15,13,.96);}
+.photo-lightbox-stage{
+  width:100%;
+  height:100%;
+  display:grid;
+  place-items:center;
+  padding:64px 18px 24px;
+}
+.photo-lightbox-stage img{
+  max-width:min(1100px,96vw);
+  max-height:88dvh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  box-shadow:0 18px 60px rgba(0,0,0,.25);
+}
+.photo-lightbox-close{
+  position:fixed;
+  z-index:2;
+  top:max(14px,env(safe-area-inset-top));
+  right:18px;
+  width:44px;
+  height:44px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:50%;
+  background:rgba(0,0,0,.25);
+  color:white;
+  font-size:28px;
+  line-height:1;
+}
+.hotel-stay-card{
+  background:#fbf8f1;
+}
+.hotel-stay-card .stay-icon{
+  background:#f4eddf;
+}
+
+@media(max-width:720px){
+  .story-main-photo{
+    height:470px;
+  }
+  .story-main-photo img{
+    object-position:50% 38%;
+  }
+  .story-thumbs{
+    grid-template-columns:repeat(5,108px);
+    overflow-x:auto;
+    padding:2px 1px 8px;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+  }
+  .story-thumb{
+    height:132px;
+    scroll-snap-align:start;
+  }
+}
+
+
+/* --- v10.1: hospedaje ordenado por hoteles y Airbnb --- */
+.stay-group-label{
+  margin:7px 0 -2px;
+  padding:8px 2px 5px;
+  font-size:10px;
+  letter-spacing:.22em;
+  color:#8d7548;
+  text-align:left;
+  border-bottom:1px solid rgba(145,118,70,.22);
+}
+.stay-group-label-airbnb{
+  margin-top:16px;
+}
+
+
+/* --- v11: espacios de la hacienda, dress code y RSVP personalizado --- */
+.venue-space-cards .card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+}
+.venue-line-icon{
+  width:72px;height:72px;
+  display:grid;place-items:center;
+  margin:0 auto 6px;
+  color:#927640;
+}
+.venue-line-icon svg{
+  width:62px;height:62px;
+  fill:none;stroke:currentColor;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.salon-icon-wrap{
+  width:84px;height:84px;
+  margin:0 auto 8px;
+  overflow:hidden;
+  border-radius:42px 42px 7px 7px;
+  border:1px solid #b99a5c;
+  background:#e8dfcf;
+}
+.salon-icon-wrap img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  filter:sepia(.28) saturate(.72) contrast(1.03) brightness(1.05);
+  transform:scale(1.04);
+}
+
+.dress-icons{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+  margin:30px auto 8px;
+}
+.dress-icon-item{
+  min-width:155px;
+  display:grid;
+  place-items:center;
+  gap:9px;
+  color:#8f7440;
+}
+.dress-icon-item span{
+  color:var(--muted);
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.dress-svg{
+  width:62px;height:62px;
+  fill:none;stroke:currentColor;stroke-width:1.65;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.dress-icon-divider{
+  width:1px;height:66px;background:var(--line);
+}
+
+.guest-identity{
+  margin:22px 0 26px;
+  padding:20px 18px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  text-align:center;
+}
+.guest-identity span,.guest-identity small{
+  display:block;color:var(--muted);
+}
+.guest-identity span{
+  font-size:10px;letter-spacing:.17em;text-transform:uppercase;
+}
+.guest-identity strong{
+  display:block;
+  margin:6px 0;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:30px;
+  font-weight:500;
+}
+.guest-identity small{line-height:1.5}
+
+.rsvp-response{
+  min-height:440px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:38px 18px;
+}
+.rsvp-response h2{
+  max-width:650px;
+  margin:10px auto 18px;
+}
+.rsvp-response p{
+  max-width:610px;
+  line-height:1.75;
+  color:var(--muted);
+}
+.rsvp-response strong{
+  margin-top:12px;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:22px;
+  font-weight:500;
+}
+.celebration-sparkles{
+  display:flex;gap:18px;
+  color:#a8894e;
+  font-size:28px;
+  animation:rsvpFloat 2.4s ease-in-out infinite;
+}
+.celebration-sparkles span:nth-child(2){font-size:36px}
+.rsvp-soft-mark{
+  width:66px;height:66px;
+  border:1px solid #b9a47b;
+  border-radius:50%;
+  display:grid;place-items:center;
+  color:#9c8355;font-size:28px;
+  margin-bottom:8px;
+}
+.rsvp-edit-btn{
+  margin-top:28px;
+  padding:10px 0 4px;
+  border:0;
+  border-bottom:1px solid #a98b52;
+  background:transparent;
+  color:var(--ink);
+  font:inherit;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+@keyframes rsvpFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
+
+#yesRsvpFields{
+  transition:.25s ease;
+}
+#yesRsvpFields.is-hidden{
+  display:none;
+}
+
+@media(max-width:720px){
+  .venue-space-cards{grid-template-columns:1fr;}
+  .dress-icons{gap:12px}
+  .dress-icon-item{min-width:130px}
+  .dress-icon-divider{height:58px}
+  .guest-identity strong{font-size:27px}
+  .rsvp-response{min-height:390px;padding:28px 8px}
+}
+
+
+/* --- v11.1: Salón Palacio minimalista + estados RSVP --- */
+.palacio-line-icon{
+  width:86px;
+  height:72px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 8px;
+}
+.palacio-line-icon svg{
+  width:82px;
+  height:64px;
+  fill:none;
+  stroke-width:1.65;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.palacio-line-icon .palacio-gold{
+  stroke:#a8894e;
+}
+.palacio-line-icon .palacio-ink{
+  stroke:#2f2b24;
+}
+.rsvp-response[hidden]{
+  display:none !important;
+}
+#rsvpFormView[hidden]{
+  display:none !important;
+}
+
+
+/* v11.2 — Salón Palacio con alas laterales */
+.palacio-line-icon{
+  width:104px;
+  height:74px;
+}
+.palacio-line-icon svg{
+  width:102px;
+  height:69px;
+}
+
+
+/* --- v12: soundtrack opcional --- */
+.music-dock{
+  position:fixed;
+  right:18px;
+  bottom:max(18px,env(safe-area-inset-bottom));
+  z-index:70;
+  width:min(390px,calc(100vw - 36px));
+  font-family:inherit;
+}
+.music-main-btn{
+  margin-left:auto;
+  min-height:58px;
+  max-width:250px;
+  padding:8px 13px 8px 10px;
+  border:1px solid rgba(154,126,74,.34);
+  border-radius:999px;
+  background:rgba(247,243,234,.94);
+  color:var(--ink);
+  box-shadow:0 10px 32px rgba(45,38,27,.12);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  display:grid;
+  grid-template-columns:40px 1fr 20px;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+}
+.music-note{
+  width:40px;height:40px;
+  border-radius:50%;
+  display:grid;place-items:center;
+  background:#2f2b24;
+  color:#f7f1e5;
+  font-size:19px;
+}
+.music-main-copy{
+  min-width:0;
+  text-align:left;
+}
+.music-main-copy small{
+  display:block;
+  color:#8b7654;
+  font-size:8px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.music-main-copy strong{
+  display:block;
+  margin-top:2px;
+  font-size:11px;
+  font-weight:500;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.music-chevron{
+  font-size:16px;
+  color:#8d7548;
+  transition:transform .25s ease;
+}
+.music-main-btn[aria-expanded="true"] .music-chevron{
+  transform:rotate(180deg);
+}
+
+.music-panel{
+  position:absolute;
+  right:0;
+  bottom:68px;
+  width:100%;
+  max-height:min(610px,74dvh);
+  overflow:auto;
+  padding:20px;
+  border:1px solid rgba(154,126,74,.28);
+  border-radius:22px;
+  background:rgba(249,246,239,.985);
+  box-shadow:0 24px 70px rgba(38,32,23,.22);
+  -webkit-overflow-scrolling:touch;
+}
+.music-panel[hidden]{display:none !important}
+.music-panel-head{
+  display:grid;
+  grid-template-columns:1fr 34px;
+  gap:12px;
+  align-items:start;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--line);
+}
+.music-panel-head h3{
+  margin:3px 0 4px;
+  font:400 23px/1.08 Georgia,serif;
+}
+.music-panel-head small{
+  display:block;
+  color:var(--muted);
+  line-height:1.45;
+}
+.music-close{
+  width:34px;height:34px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:transparent;
+  font-size:22px;
+  color:var(--ink);
+}
+
+.music-controls{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin:14px 0;
+}
+.music-control-btn{
+  min-height:42px;
+  border:1px solid #b99a5c;
+  background:transparent;
+  color:var(--ink);
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-size:10px;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.music-track-list{
+  border-top:1px solid var(--line);
+}
+.music-track{
+  width:100%;
+  padding:13px 2px;
+  border:0;
+  border-bottom:1px solid var(--line);
+  background:transparent;
+  color:var(--ink);
+  display:grid;
+  grid-template-columns:28px 1fr 25px;
+  gap:10px;
+  align-items:center;
+  text-align:left;
+}
+.music-track.active{
+  background:linear-gradient(90deg,rgba(185,154,92,.10),transparent);
+}
+.track-index{
+  font-size:9px;
+  color:#9a835b;
+  letter-spacing:.12em;
+}
+.track-copy strong{
+  display:block;
+  font:400 16px/1.1 Georgia,serif;
+}
+.track-copy small{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:10px;
+}
+.track-play{
+  color:#9c804b;
+  font-size:11px;
+}
+.music-track.is-playing .track-play::before{content:"";}
+.music-track.is-playing .track-play{font-size:0}
+.music-track.is-playing .track-play::after{
+  content:"♪";
+  font-size:15px;
+}
+.music-note-copy{
+  margin:13px 0 0;
+  color:var(--muted);
+  font-size:10px;
+  text-align:center;
+}
+.youtube-player{
+  position:absolute;
+  width:1px;height:1px;
+  overflow:hidden;
+  opacity:.001;
+  pointer-events:none;
+}
+
+@media(max-width:720px){
+  .music-dock{
+    right:12px;
+    bottom:max(12px,env(safe-area-inset-bottom));
+    width:calc(100vw - 24px);
+  }
+  .music-main-btn{
+    max-width:220px;
+    min-height:54px;
+  }
+  .music-panel{
+    bottom:64px;
+    max-height:72dvh;
+    padding:18px 16px;
+    border-radius:20px;
+  }
+}
+
+
+/* --- v12.1: música visible y botón volver arriba corregido --- */
+.youtube-player,
+#youtubePlayer{
+  width:100% !important;
+  height:100% !important;
+}
+.music-player-frame{
+  width:100%;
+  aspect-ratio:16/9;
+  margin-top:14px;
+  overflow:hidden;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:#1f1d19;
+}
+.music-player-frame iframe{
+  width:100% !important;
+  height:100% !important;
+  border:0;
+  display:block;
+}
+.back-to-top-fixed{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  cursor:pointer;
+}
+
+
+/* --- v12.2: soundtrack visible en página --- */
+.soundtrack-section{
+  padding:96px 6vw;
+  background:#f5f0e6;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.soundtrack-section .section-head{
+  width:min(760px,100%);
+  margin:0 auto 28px;
+  text-align:center;
+}
+.soundtrack-section .section-head h2{margin:8px 0 12px}
+.soundtrack-intro{
+  max-width:620px;
+  margin:0 auto;
+  color:var(--muted);
+  line-height:1.65;
+}
+.soundtrack-card{
+  width:min(720px,100%);
+  margin:0 auto;
+  padding:24px;
+  border:1px solid rgba(168,137,78,.30);
+  border-radius:24px;
+  background:rgba(255,255,255,.64);
+  box-shadow:0 18px 60px rgba(47,43,36,.07);
+}
+.soundtrack-now{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--line);
+}
+.soundtrack-disc{
+  width:54px;height:54px;
+  flex:0 0 auto;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#2f2b24;
+  color:#f5ead5;
+  font-size:21px;
+  box-shadow:inset 0 0 0 8px rgba(255,255,255,.07);
+}
+.soundtrack-now small,.soundtrack-now span{display:block;color:var(--muted)}
+.soundtrack-now small{
+  margin-bottom:3px;
+  font-size:8px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.soundtrack-now strong{
+  display:block;
+  font:400 21px/1.1 Georgia,serif;
+}
+.soundtrack-now span{margin-top:3px;font-size:11px}
+.soundtrack-section-controls{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:16px 0 10px;
+}
+.soundtrack-primary,.soundtrack-secondary{
+  min-height:46px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:10px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.soundtrack-primary{
+  border:1px solid #2f2b24;
+  background:#2f2b24;
+  color:#fffaf0;
+}
+.soundtrack-secondary{
+  border:1px solid #aa8c52;
+  background:transparent;
+  color:#2f2b24;
+}
+.soundtrack-list{border-top:1px solid var(--line)}
+.soundtrack-choice{
+  width:100%;
+  display:grid;
+  grid-template-columns:34px 1fr 26px;
+  gap:10px;
+  align-items:center;
+  padding:14px 2px;
+  border:0;
+  border-bottom:1px solid var(--line);
+  background:transparent;
+  color:var(--ink);
+  text-align:left;
+  cursor:pointer;
+}
+.soundtrack-choice.active{
+  background:linear-gradient(90deg,rgba(168,137,78,.11),transparent);
+}
+.soundtrack-choice>span{
+  font-size:9px;color:#9b8252;letter-spacing:.12em;
+}
+.soundtrack-choice strong{
+  display:block;font:400 16px/1.1 Georgia,serif;
+}
+.soundtrack-choice small{
+  display:block;margin-top:3px;color:var(--muted);font-size:10px;
+}
+.soundtrack-choice b{font-size:11px;font-weight:400;color:#9a7a43}
+.soundtrack-video{
+  width:100%;
+  aspect-ratio:16/9;
+  margin-top:16px;
+  overflow:hidden;
+  border-radius:16px;
+  background:#201e1a;
+  border:1px solid var(--line);
+}
+.soundtrack-video iframe{
+  width:100% !important;
+  height:100% !important;
+  display:block;
+  border:0;
+}
+.soundtrack-hint{
+  margin:10px 0 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:10px;
+}
+
+/* Botón flotante musical, visible siempre */
+.music-dock{
+  left:14px !important;
+  right:auto !important;
+  bottom:max(14px,env(safe-area-inset-bottom)) !important;
+  width:auto !important;
+  z-index:9999 !important;
+}
+.music-main-btn{
+  width:60px !important;
+  height:60px !important;
+  min-height:60px !important;
+  max-width:60px !important;
+  padding:0 !important;
+  display:grid !important;
+  place-items:center !important;
+  grid-template-columns:1fr !important;
+  overflow:hidden;
+  border:1px solid rgba(168,137,78,.48) !important;
+  box-shadow:0 12px 34px rgba(40,33,22,.20) !important;
+}
+.music-main-btn .music-main-copy,
+.music-main-btn .music-chevron{display:none !important}
+.music-main-btn .music-note{
+  width:44px !important;
+  height:44px !important;
+}
+.music-panel{
+  left:0 !important;
+  right:auto !important;
+  width:min(390px,calc(100vw - 28px)) !important;
+}
+@media(max-width:720px){
+  .soundtrack-section{padding:72px 18px}
+  .soundtrack-card{padding:18px}
+  .soundtrack-section-controls{grid-template-columns:1fr}
+}
+
+
+/* --- v12.3: soundtrack compacto y sin embeds de YouTube --- */
+.soundtrack-section,
+.music-dock{
+  display:none !important;
+}
+
+.soundtrack-compact{
+  width:min(720px,calc(100% - 36px));
+  margin:28px auto 60px;
+  border:1px solid rgba(168,137,78,.30);
+  border-radius:20px;
+  background:rgba(249,246,239,.82);
+  overflow:hidden;
+}
+.soundtrack-compact-toggle{
+  width:100%;
+  min-height:72px;
+  padding:14px 16px;
+  border:0;
+  background:transparent;
+  color:var(--ink);
+  display:grid;
+  grid-template-columns:44px 1fr 28px;
+  align-items:center;
+  gap:12px;
+  text-align:left;
+  cursor:pointer;
+}
+.soundtrack-compact-icon{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#2f2b24;
+  color:#f4ead8;
+  font-size:18px;
+}
+.soundtrack-compact-toggle small{
+  display:block;
+  margin-bottom:3px;
+  color:#9a8052;
+  font-size:8px;
+  letter-spacing:.15em;
+}
+.soundtrack-compact-toggle strong{
+  display:block;
+  font:400 16px/1.2 Georgia,serif;
+}
+.soundtrack-compact-toggle b{
+  font-size:22px;
+  font-weight:300;
+  color:#9a8052;
+  transition:transform .2s ease;
+}
+.soundtrack-compact-toggle[aria-expanded="true"] b{
+  transform:rotate(45deg);
+}
+.soundtrack-compact-panel{
+  padding:0 16px 16px;
+  border-top:1px solid var(--line);
+}
+.soundtrack-compact-panel[hidden]{
+  display:none !important;
+}
+.soundtrack-compact-panel>p{
+  margin:14px 0 10px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.55;
+}
+.soundtrack-compact-list{
+  display:grid;
+  gap:0;
+  border-top:1px solid var(--line);
+}
+.soundtrack-link{
+  display:grid;
+  grid-template-columns:30px 1fr 24px;
+  gap:10px;
+  align-items:center;
+  min-height:58px;
+  padding:10px 2px;
+  border-bottom:1px solid var(--line);
+  color:var(--ink);
+  text-decoration:none;
+}
+.soundtrack-link>span{
+  color:#9a8052;
+  font-size:9px;
+  letter-spacing:.12em;
+}
+.soundtrack-link strong{
+  display:block;
+  font:400 15px/1.15 Georgia,serif;
+}
+.soundtrack-link small{
+  display:block;
+  margin-top:2px;
+  color:var(--muted);
+  font-size:10px;
+}
+.soundtrack-link b{
+  color:#9a8052;
+  font-size:13px;
+  font-weight:400;
+}
+
+.soundtrack-float{
+  position:fixed;
+  left:14px;
+  bottom:max(14px,env(safe-area-inset-bottom));
+  z-index:9999;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  border:1px solid rgba(168,137,78,.48);
+  background:rgba(247,243,234,.96);
+  color:#2f2b24;
+  box-shadow:0 12px 34px rgba(40,33,22,.18);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.soundtrack-float span{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#2f2b24;
+  color:#f4ead8;
+  font-size:18px;
+}
+
+@media(max-width:720px){
+  .soundtrack-compact{
+    width:calc(100% - 24px);
+    margin:22px auto 44px;
+  }
+}
+
+
+/* --- v12.4: soundtrack embebido en la misma página con Spotify --- */
+.soundtrack-link{display:none !important}
+
+.soundtrack-inline-copy{
+  margin:14px 0 10px !important;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.55;
+}
+.soundtrack-choice-inline{
+  width:100%;
+  display:grid;
+  grid-template-columns:30px 1fr 24px;
+  gap:10px;
+  align-items:center;
+  min-height:58px;
+  padding:10px 2px;
+  border:0;
+  border-bottom:1px solid var(--line);
+  background:transparent;
+  color:var(--ink);
+  text-align:left;
+  cursor:pointer;
+}
+.soundtrack-choice-inline.active{
+  background:linear-gradient(90deg,rgba(168,137,78,.11),transparent);
+}
+.soundtrack-choice-inline>span{
+  color:#9a8052;
+  font-size:9px;
+  letter-spacing:.12em;
+}
+.soundtrack-choice-inline strong{
+  display:block;
+  font:400 15px/1.15 Georgia,serif;
+}
+.soundtrack-choice-inline small{
+  display:block;
+  margin-top:2px;
+  color:var(--muted);
+  font-size:10px;
+}
+.soundtrack-choice-inline b{
+  color:#9a8052;
+  font-size:12px;
+  font-weight:400;
+}
+.spotify-inline-shell{
+  margin-top:14px;
+  border-radius:14px;
+  overflow:hidden;
+  min-height:152px;
+  background:#ece7dd;
+}
+.spotify-inline-shell iframe{
+  display:block;
+  width:100%;
+  height:152px;
+  border:0;
+}
+.soundtrack-inline-note{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.5;
+  text-align:center;
+}
+
+
+/* v12.5 — nuevas fotos de historia */
+.story-thumb img{
+  object-fit:cover;
+  object-position:center center;
+}
+
+
+/* --- v12.6: miniaturas más pequeñas + lightbox centrado --- */
+.story-thumbs{
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  gap:8px !important;
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  padding:4px 2px 8px !important;
+  scroll-snap-type:x proximity;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.story-thumbs::-webkit-scrollbar{
+  display:none;
+}
+.story-thumb{
+  flex:0 0 72px !important;
+  width:72px !important;
+  height:72px !important;
+  min-width:72px !important;
+  min-height:72px !important;
+  max-width:72px !important;
+  max-height:72px !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  border-radius:12px !important;
+  scroll-snap-align:start;
+}
+.story-thumb img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  display:block !important;
+}
+
+#photoLightbox{
+  position:fixed !important;
+  inset:0 !important;
+  width:100vw !important;
+  max-width:none !important;
+  height:100% !important;
+  max-height:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  background:rgba(20,18,15,.92) !important;
+  overflow:hidden !important;
+}
+#photoLightbox::backdrop{
+  background:rgba(20,18,15,.92) !important;
+}
+#photoLightbox[open]{
+  display:grid !important;
+  place-items:center !important;
+}
+#photoLightbox .lightbox-card,
+#photoLightbox .dialog-card,
+#photoLightbox > div{
+  position:relative !important;
+  width:100vw !important;
+  height:100% !important;
+  max-width:none !important;
+  max-height:none !important;
+  margin:0 !important;
+  padding:18px !important;
+  box-sizing:border-box !important;
+  display:grid !important;
+  place-items:center !important;
+  background:transparent !important;
+  overflow:hidden !important;
+}
+#photoLightbox img{
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  max-width:min(94vw,1100px) !important;
+  max-height:88dvh !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  margin:auto !important;
+  transform:none !important;
+}
+#photoLightbox .close,
+#photoLightbox .dialog-close,
+#photoLightbox button[aria-label*="Cerrar"],
+#photoLightbox button[aria-label*="cerrar"]{
+  position:absolute !important;
+  top:max(14px,env(safe-area-inset-top)) !important;
+  right:14px !important;
+  z-index:3 !important;
+}
+
+@media(max-width:720px){
+  .story-thumb{
+    flex-basis:64px !important;
+    width:64px !important;
+    height:64px !important;
+    min-width:64px !important;
+    min-height:64px !important;
+    max-width:64px !important;
+    max-height:64px !important;
+  }
+  #photoLightbox .lightbox-card,
+  #photoLightbox .dialog-card,
+  #photoLightbox > div{
+    padding:12px !important;
+  }
+  #photoLightbox img{
+    max-width:94vw !important;
+    max-height:86dvh !important;
+  }
+}
+
+
+/* --- v12.7: modales móviles centrados y sin zoom manual --- */
+html,body{
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+#detailDialog,
+#giftDialog{
+  position:fixed !important;
+  inset:0 !important;
+  width:100vw !important;
+  max-width:none !important;
+  height:100% !important;
+  max-height:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  background:rgba(24,21,17,.72) !important;
+  overflow:hidden !important;
+}
+
+#detailDialog::backdrop,
+#giftDialog::backdrop{
+  background:rgba(24,21,17,.72) !important;
+}
+
+#detailDialog[open],
+#giftDialog[open]{
+  display:grid !important;
+  place-items:center !important;
+}
+
+/* Contenedor visible del modal */
+#detailDialog > *,
+#giftDialog > *{
+  box-sizing:border-box !important;
+  width:min(92vw,560px) !important;
+  max-width:min(92vw,560px) !important;
+  max-height:88dvh !important;
+  margin:auto !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  border-radius:22px !important;
+}
+
+/* Evita que elementos internos rompan el ancho */
+#detailDialog *,
+#giftDialog *{
+  box-sizing:border-box !important;
+  max-width:100% !important;
+}
+
+#detailDialog img,
+#giftDialog img{
+  width:auto;
+  max-width:100% !important;
+  height:auto;
+  object-fit:contain;
+}
+
+#detailDialog input,
+#detailDialog select,
+#detailDialog textarea,
+#detailDialog button,
+#giftDialog input,
+#giftDialog select,
+#giftDialog textarea,
+#giftDialog button{
+  font-size:16px !important;
+  max-width:100% !important;
+}
+
+/* Tarjetas, grids y columnas dentro de popups pasan a una sola columna en móvil */
+@media(max-width:720px){
+  #detailDialog,
+  #giftDialog{
+    padding:
+      max(12px,env(safe-area-inset-top))
+      12px
+      max(12px,env(safe-area-inset-bottom))
+      12px !important;
+  }
+
+  #detailDialog > *,
+  #giftDialog > *{
+    width:100% !important;
+    max-width:100% !important;
+    max-height:calc(100% - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) !important;
+    border-radius:18px !important;
+  }
+
+  #detailDialog .grid,
+  #detailDialog .cols,
+  #detailDialog .columns,
+  #detailDialog .detail-grid,
+  #detailDialog .stay-grid,
+  #giftDialog .grid,
+  #giftDialog .cols,
+  #giftDialog .columns,
+  #giftDialog .gift-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  #detailDialog [style*="grid-template-columns"],
+  #giftDialog [style*="grid-template-columns"]{
+    grid-template-columns:1fr !important;
+  }
+
+  #detailDialog table,
+  #giftDialog table{
+    width:100% !important;
+    table-layout:fixed !important;
+    word-break:break-word !important;
+  }
+}
+
+/* Botones de cierre siempre accesibles */
+#detailDialog button[aria-label*="Cerrar"],
+#detailDialog button[aria-label*="cerrar"],
+#giftDialog button[aria-label*="Cerrar"],
+#giftDialog button[aria-label*="cerrar"]{
+  position:sticky !important;
+  top:0 !important;
+  z-index:5 !important;
+}
+
+
+/* --- v12.8: contraste y legibilidad de ventanas emergentes --- */
+#detailDialog > *,
+#giftDialog > *{
+  background:#fbf8f1 !important;
+  color:#29261f !important;
+  border:1px solid rgba(151,121,66,.34) !important;
+  box-shadow:0 24px 70px rgba(24,21,17,.28) !important;
+}
+
+/* Textos principales */
+#detailDialog h1,#detailDialog h2,#detailDialog h3,#detailDialog h4,
+#giftDialog h1,#giftDialog h2,#giftDialog h3,#giftDialog h4,
+#detailDialog strong,#giftDialog strong{
+  color:#29261f !important;
+}
+
+/* Textos secundarios */
+#detailDialog p,#detailDialog li,#detailDialog label,#detailDialog span,
+#detailDialog small,#detailDialog div,
+#giftDialog p,#giftDialog li,#giftDialog label,#giftDialog span,
+#giftDialog small,#giftDialog div{
+  color:#5e584d;
+}
+
+/* Eyebrows, acentos y pequeños títulos */
+#detailDialog .eyebrow,
+#giftDialog .eyebrow,
+#detailDialog [class*="label"],
+#giftDialog [class*="label"]{
+  color:#8a6c38 !important;
+}
+
+/* Tarjetas interiores: marfil ligeramente distinto para distinguir niveles */
+#detailDialog .card,
+#detailDialog [class*="stay"],
+#detailDialog [class*="hotel"],
+#detailDialog [class*="detail-card"],
+#giftDialog .card,
+#giftDialog [class*="gift-card"],
+#giftDialog [class*="gift-item"]{
+  background:#f4eee2 !important;
+  color:#29261f !important;
+  border-color:rgba(151,121,66,.25) !important;
+}
+
+/* Inputs y select: fondo blanco cálido + texto oscuro */
+#detailDialog input,#detailDialog select,#detailDialog textarea,
+#giftDialog input,#giftDialog select,#giftDialog textarea{
+  background:#fffdf8 !important;
+  color:#29261f !important;
+  border:1px solid #bca77f !important;
+  caret-color:#29261f !important;
+}
+#detailDialog input::placeholder,#detailDialog textarea::placeholder,
+#giftDialog input::placeholder,#giftDialog textarea::placeholder{
+  color:#817a6d !important;
+  opacity:1 !important;
+}
+#detailDialog option,#giftDialog option{
+  background:#fffdf8 !important;
+  color:#29261f !important;
+}
+
+/* Botones principales */
+#detailDialog .btn.primary,
+#detailDialog .primary,
+#giftDialog .btn.primary,
+#giftDialog .primary,
+#detailDialog button[type="submit"],
+#giftDialog button[type="submit"]{
+  background:#2f2b24 !important;
+  color:#fffaf0 !important;
+  border-color:#2f2b24 !important;
+}
+#detailDialog .btn.primary *,
+#detailDialog .primary *,
+#giftDialog .btn.primary *,
+#giftDialog .primary *,
+#detailDialog button[type="submit"] *,
+#giftDialog button[type="submit"] *{
+  color:#fffaf0 !important;
+}
+
+/* Botones secundarios y enlaces */
+#detailDialog a,
+#giftDialog a{
+  color:#72582d !important;
+}
+#detailDialog button:not([type="submit"]),
+#giftDialog button:not([type="submit"]){
+  border-color:rgba(151,121,66,.45);
+}
+
+/* Botón cerrar claramente visible */
+#detailDialog button[aria-label*="Cerrar"],
+#detailDialog button[aria-label*="cerrar"],
+#giftDialog button[aria-label*="Cerrar"],
+#giftDialog button[aria-label*="cerrar"]{
+  background:#fbf8f1 !important;
+  color:#29261f !important;
+  border:1px solid #aa8b53 !important;
+}
+
+/* Separadores */
+#detailDialog hr,#giftDialog hr{
+  border-color:rgba(151,121,66,.24) !important;
+}
+
+
+/* --- v13 iOS SAFE --- */
+html{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+}
+
+
+
+/* Evita auto-zoom de formularios en iPhone */
+input,select,textarea,button{
+  font-size:16px;
+}
+
+/* Modales robustos en Safari */
+#photoLightbox,
+#detailDialog,
+#giftDialog{
+  position:fixed !important;
+  inset:0 !important;
+  width:100vw !important;
+  max-width:none !important;
+  height:100vh !important;
+  max-height:none !important;
+  margin:0 !important;
+}
+
+
+}
+
+/* No depender de blur/backdrop-filter en Safari iOS */
+@supports (-webkit-touch-callout:none){
+  .site-header,
+  .soundtrack-float,
+  .music-main-btn{
+    -webkit-backdrop-filter:none !important;
+    backdrop-filter:none !important;
+  }
+  .site-header{
+    background:rgba(244,239,231,.97) !important;
+  }
+  .soundtrack-float{
+    background:#f7f3ea !important;
+  }
+}
+
+/* Safe areas */
+.soundtrack-float{
+  left:max(14px,env(safe-area-inset-left)) !important;
+  bottom:max(14px,env(safe-area-inset-bottom)) !important;
+}
+
+@media(max-width:720px){
+  #detailDialog,#giftDialog,#photoLightbox{
+    padding:
+      max(10px,env(safe-area-inset-top))
+      max(10px,env(safe-area-inset-right))
+      max(10px,env(safe-area-inset-bottom))
+      max(10px,env(safe-area-inset-left)) !important;
+  }
+}
+
+
+
+/* v13.1 — restauración tipográfica sin sacrificar compatibilidad iOS */
+body,button,input,select,textarea{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+h1,h2,h3,.brand,.countdown strong,.hero-quote,.signature,
+.timeline time,.gift-card strong,.story-main-copy strong,.track-copy strong{
+  font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+}
+</style>
+<style>
+/* v13.2 — jerarquía tipográfica minimalista */
+.section-title,
+.story-title,
+.detail-title,
+h2{
+  font-weight:600 !important;
+  letter-spacing:.01em;
+}
+.eyebrow,
+.kicker,
+.section-kicker{
+  font-weight:600 !important;
+  letter-spacing:.14em;
+}
+h3,
+.card-title,
+.timeline strong,
+.detail-card strong{
+  font-weight:600 !important;
+}
+</style><style>
+/* ===== v14 Safari/iPhone legacy-safe ===== */
+html, body{
+  width:100%;
+  max-width:100%;
+  margin:0;
+  overflow-x:hidden;
+  -webkit-text-size-adjust:100%;
+}
+body{
+  min-height:100%;
+  -webkit-overflow-scrolling:touch;
+}
+input, select, textarea, button{
+  font-size:16px !important;
+}
+
+.ios-modal{
+  position:fixed !important;
+  top:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  left:0 !important;
+  z-index:99990 !important;
+  width:100% !important;
+  height:100% !important;
+  margin:0 !important;
+  padding:12px !important;
+  box-sizing:border-box !important;
+  background:rgba(24,21,17,.82) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+}
+.ios-modal.is-hidden{
+  display:none !important;
+}
+.ios-modal > *{
+  box-sizing:border-box !important;
+  max-width:100% !important;
+}
+#detailDialog > .detail-dialog-body,
+#giftDialog > .gift-dialog-inner,
+#giftDialog > .gift-dialog-nav{
+  width:100%;
+}
+#detailDialog,
+#giftDialog{
+  align-items:center !important;
+}
+#detailDialog .detail-dialog-body,
+#giftDialog .gift-dialog-inner{
+  width:min(92%,560px) !important;
+  max-height:82% !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  -webkit-overflow-scrolling:touch;
+  background:#fbf8f1 !important;
+  color:#29261f !important;
+}
+#giftDialog{
+  flex-direction:column !important;
+}
+#giftDialog .gift-dialog-nav{
+  width:min(92%,560px) !important;
+  background:#fbf8f1 !important;
+  color:#29261f !important;
+}
+#photoLightbox .photo-lightbox-stage{
+  width:100% !important;
+  height:100% !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+}
+#photoLightboxImg{
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  max-width:94% !important;
+  max-height:86% !important;
+  object-fit:contain !important;
+  margin:auto !important;
+}
+#closePhotoLightbox,
+#closeDetailDialog,
+#closeGift{
+  z-index:100001 !important;
+}
+.site-header,
+.soundtrack-float,
+.music-main-btn{
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+}
+@media(max-width:720px){
+  #detailDialog .detail-dialog-body,
+  #giftDialog .gift-dialog-inner,
+  #giftDialog .gift-dialog-nav{
+    width:96% !important;
+    max-width:96% !important;
+  }
+}
+</style>
+<style id="ios-production-fixes">
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+*,*::before,*::after{box-sizing:border-box}
+img,svg,video,iframe{max-width:100%}
+iframe{display:block}
+input,select,textarea,button{font-size:16px}
+@media(max-width:480px){
+  .wrap,.container,.section-inner{max-width:100%;padding-left:16px;padding-right:16px}
+}
+</style>
+
+</head>
+<body id="top">
+<header class="site-header" id="top">
+<button class="back-to-top-fixed" id="backToTopBtn" type="button">K <span>|</span> JP</button>
+<button aria-expanded="false" aria-label="Abrir menú" class="menu-btn" id="menuBtn">☰</button>
+<nav class="nav" id="nav">
+<a href="#historia">Nosotros</a>
+<a href="#evento">Evento</a>
+<a href="#itinerario">Itinerario</a>
+<a href="#galeria">Galería</a>
+<a href="#detalles">Detalles</a>
+<a href="#rsvp">RSVP</a>
+</nav>
+</header>
+<main>
+<section class="hero">
+<div class="hero-overlay"></div>
+<div class="hero-content reveal">
+<p class="eyebrow">NUESTRA BODA</p>
+<h1>Karen <span>&amp;</span> Juan Pablo</h1>
+<p class="date">19 · FEBRERO · 2027</p>
+<p class="hero-quote">Y así, sin buscarte, te encontré. Y desde entonces, todo tiene sentido.</p>
+<a class="scroll-cue" href="#countdown">Descubre nuestra historia ↓</a>
+</div>
+</section>
+<section class="countdown-section" id="countdown">
+<p class="eyebrow">FALTAN</p>
+<div aria-live="polite" class="countdown">
+<div><strong id="days">000</strong><span>Días</span></div>
+<div><strong id="hours">00</strong><span>Horas</span></div>
+<div><strong id="minutes">00</strong><span>Minutos</span></div>
+<div><strong id="seconds">00</strong><span>Segundos</span></div>
+</div>
+</section>
+<section class="section split" id="historia">
+<div class="photo-placeholder tall glass-photo real-photo story-photo photo-soft">
+<img alt="Karen y Juan Pablo de espaldas contemplando el lago y las montañas" loading="lazy" src="assets/photo_f2824f781443.jpg"/>
+</div>
+<div class="section-copy reveal">
+<p class="eyebrow">NUESTRA HISTORIA</p>
+<h2 class="section-title">Un día cualquiera se convirtió en nuestra historia favorita.</h2>
+<p>
+          Este texto será editable. Aquí podemos contar brevemente cómo se conocieron,
+          algún momento importante y por qué decidieron celebrar este día con las personas
+          que más quieren.
+        </p>
+<p class="signature">K &amp; JP</p>
+</div>
+</section>
+<section class="section event" id="evento">
+<div class="section-heading reveal">
+<p class="eyebrow">EL GRAN DÍA</p>
+<h2 class="section-title">Todo sucede en un mismo lugar</h2>
+<p>La ceremonia y la celebración serán dentro de Hacienda Benazuza, en espacios diferentes.</p>
+</div>
+<div class="venue-feature reveal">
+<div class="venue-mark">⌖</div>
+<div class="venue-copy">
+<p class="eyebrow">CEREMONIA &amp; CELEBRACIÓN</p>
+<h3>Hacienda Benazuza</h3>
+<p>Carretera a Colotlán Km 5.3 · Ejido Copalita · Zapopan, Jalisco</p>
+<small>No será necesario trasladarse a otro lugar después de la misa.</small>
+</div>
+<a class="venue-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Hacienda+Benazuza+Zapopan+Jalisco" rel="noreferrer" target="_blank">Abrir mapa ↗</a>
+</div>
+<div class="cards venue-space-cards">
+<article class="card reveal luxe-card">
+<div aria-hidden="true" class="venue-line-icon church-icon">
+<svg viewbox="0 0 64 64">
+<path d="M17 54V27l15-12 15 12v27M25 54V39h14v15M32 15V7M27 10h10M13 54h38"></path>
+</svg>
+</div>
+<p class="eyebrow">CEREMONIA</p>
+<h3>Capilla</h3>
+<p>5:00 PM</p>
+<p>Dentro de Hacienda Benazuza</p>
+</article>
+<article class="card reveal luxe-card salon-card">
+<div aria-hidden="true" class="palacio-line-icon">
+<svg viewbox="0 0 112 76">
+<!-- estructura principal / dos aguas -->
+<g class="palacio-gold">
+<path d="M29 66V30L56 10l27 20v36"></path>
+<path d="M35 66V34h42v32"></path>
+<path d="M45 66V38h22v28"></path>
+<path d="M39 30h34"></path>
+<path d="M46 23h20"></path>
+</g>
+<!-- niveles laterales del salón -->
+<g class="palacio-ink">
+<path d="M8 66V43l21-10v33"></path>
+<path d="M83 66V33l21 10v23"></path>
+<path d="M14 66V47h15M83 47h15v19"></path>
+<path d="M3 66h106"></path>
+<path d="M20 42l9-4M83 38l9 4"></path>
+</g>
+</svg>
+</div>
+<p class="eyebrow">RECEPCIÓN</p>
+<h3>Salón Palacio</h3>
+<p>6:00 PM · Cóctel y celebración</p>
+<p>Dentro de Hacienda Benazuza</p>
+</article>
+</div>
+</section>
+<section class="section itinerary" id="itinerario">
+<div class="section-heading reveal">
+<p class="eyebrow">ITINERARIO</p>
+<h2 class="section-title">Así viviremos el día</h2>
+</div>
+<div class="timeline">
+<div class="timeline-item reveal"><time>17:00</time><div><h3>Ceremonia</h3><p>Nos damos el sí.</p></div></div>
+<div class="timeline-item reveal"><time>18:30</time><div><h3>Traslado &amp; cóctel</h3><p>Un momento para brindar y comenzar la celebración.</p></div></div>
+<div class="timeline-item reveal"><time>20:00</time><div><h3>Cena</h3><p>Compartimos la mesa con nuestras personas favoritas.</p></div></div>
+<div class="timeline-item reveal"><time>21:00</time><div><h3>Fiesta</h3><p>Ahora sí: a celebrar.</p></div></div>
+</div>
+</section>
+<section class="section dresscode">
+<div class="section-heading reveal">
+<p class="eyebrow">CÓDIGO DE VESTIMENTA</p>
+<h2 class="section-title">Formal / Etiqueta</h2>
+<div aria-hidden="true" class="dress-icons">
+<div class="dress-icon-item">
+<svg class="dress-svg tux-svg" viewbox="0 0 64 64">
+<path d="M20 8l12 10L44 8l7 10-7 38H20l-7-38 7-10z"></path>
+<path d="M20 8l7 18 5-8 5 8 7-18M28 28h8M32 28v28"></path>
+<path d="M27 18l5 4 5-4"></path>
+</svg>
+<span>Smoking / traje formal</span>
+</div>
+<div class="dress-icon-divider"></div>
+<div class="dress-icon-item">
+<svg class="dress-svg gown-svg" viewbox="0 0 64 64">
+<path d="M27 8h10l2 10 7 9-11 29H17l12-29-6-9 4-10z"></path>
+<path d="M27 8c0 6 10 6 10 0M23 18h18"></path>
+</svg>
+<span>Vestido formal / de noche</span>
+</div>
+</div>
+<p class="dress-copy">
+          Queremos verte increíble, pero también que disfrutes toda la noche.
+          <br/><strong>Los tenis están permitidos por comodidad.</strong>
+</p>
+</div>
+</section>
+<section class="section gallery story-gallery" id="galeria">
+<div class="section-heading reveal">
+<p class="eyebrow">CONOCE NUESTRA HISTORIA</p>
+<h2 class="section-title">Momentos que nos trajeron hasta aquí</h2>
+<p>Recuerdos distintos, etapas distintas y la misma historia.</p>
+</div>
+<div class="story-feature reveal">
+<button aria-label="Ampliar fotografía principal" class="story-main-photo" data-alt="Karen y Juan Pablo en un retrato romántico" type="button">
+<img alt="Karen y Juan Pablo en un retrato romántico" loading="lazy" src="assets/photo_847165f0d4d3.jpg"/>
+</button>
+<div aria-label="Más fotografías de Karen y Juan Pablo" class="story-thumbs"><button class="story-thumb" data-alt="Karen y Juan Pablo en un día cálido al aire libre" type="button"><img alt="Karen y Juan Pablo en un día cálido al aire libre" loading="lazy" src="assets/photo_1621b4289730.jpg"/></button>
+<button class="story-thumb" data-alt="Karen y Juan Pablo compartiendo un beso" type="button">
+<img alt="Karen y Juan Pablo compartiendo un beso" loading="lazy" src="assets/photo_ab16a8399d88.jpg"/>
+</button>
+<button class="story-thumb" data-alt="Karen y Juan Pablo frente al lago esmeralda" type="button">
+<img alt="Karen y Juan Pablo frente al lago esmeralda" loading="lazy" src="assets/photo_faa3867afbd8.jpg"/>
+</button>
+<button class="story-thumb" data-alt="Karen y Juan Pablo vestidos de gala" type="button">
+<img alt="Karen y Juan Pablo vestidos de gala" loading="lazy" src="assets/photo_64155bf091b6.jpg"/>
+</button>
+<button class="story-thumb" data-alt="Karen y Juan Pablo en una aventura juntos" type="button">
+<img alt="Karen y Juan Pablo en una aventura juntos" loading="lazy" src="assets/photo_dc310b4accb2.jpg"/>
+</button>
+<button class="story-thumb" data-alt="Karen y Juan Pablo compartiendo una mirada" type="button">
+<img alt="Karen y Juan Pablo compartiendo una mirada" loading="lazy" src="assets/photo_dca4e2050fbf.jpg"/>
+</button>
+<button class="story-thumb" data-alt="Karen y Juan Pablo en un recuerdo juntos" type="button">
+<img alt="Karen y Juan Pablo en un recuerdo juntos" loading="lazy" src="assets/photo_595714c379e9.jpg"/>
+</button>
+</div>
+<p class="story-gallery-hint">Toca una foto para verla completa.</p>
+</div>
+</section>
+<section class="section discreet-details" id="detalles">
+<div class="section-heading reveal">
+<p class="eyebrow">ALGUNOS DETALLES MÁS</p>
+<h2 class="section-title">Todo lo útil, sin quitarle protagonismo a lo importante.</h2>
+<p>Hospedaje, recomendaciones y algunos detalles opcionales para quienes los necesiten.</p>
+</div>
+<div class="detail-access-grid">
+<button class="detail-access-card" id="openStay" type="button">
+<span class="detail-access-icon">⌂</span>
+<strong>Hospedaje</strong>
+<small>Opciones para quienes vienen de fuera</small>
+</button>
+<button class="detail-access-card" id="openTransport" type="button">
+<span class="detail-access-icon">↗</span>
+<strong>Transporte</strong>
+<small>Cómo llegar y moverse</small>
+</button>
+<button class="detail-access-card" id="openFaq" type="button">
+<span class="detail-access-icon">?</span>
+<strong>Dudas rápidas</strong>
+<small>Información práctica del evento</small>
+</button>
+<button class="detail-access-card gift-access-card" id="openGiftCatalog" type="button">
+<span class="detail-access-icon">♡</span>
+<strong>Si quieres tener un detalle</strong>
+<small>Solo para quienes nos lo han preguntado</small>
+</button>
+</div>
+</section>
+<section class="section rsvp" id="rsvp">
+<div class="rsvp-box reveal">
+<div id="rsvpFormView">
+<p class="eyebrow">RSVP</p>
+<h2 class="section-title">¿Nos acompañas?</h2>
+<div class="guest-identity">
+<span>Esta invitación es para</span>
+<strong id="rsvpGuestName">Invitado especial</strong>
+<small id="rsvpSeatsText">Hemos reservado tus lugares especialmente para ti.</small>
+</div>
+<form id="rsvpForm">
+<input id="rsvpGuestCode" name="guestCode" type="hidden" value=""/>
+<input id="rsvpGuestNameInput" name="guestName" type="hidden" value="Invitado especial"/>
+<label>
+              ¿Podrás acompañarnos?
+              <select id="attendanceSelect" name="attendance" required="">
+<option value="">Selecciona una opción</option>
+<option value="Sí">Sí, con mucha alegría estaré ahí</option>
+<option value="No">No podré acompañarlos</option>
+</select>
+</label>
+<div id="yesRsvpFields">
+<label>
+                ¿Cuántos de los lugares reservados asistirán?
+                <select id="guestCountSelect" name="guests"></select>
+</label>
+<fieldset class="dietary-fieldset">
+<legend>¿Tienes alguna restricción alimentaria o alergia?</legend>
+<p class="form-hint">Queremos que puedas disfrutar la cena con tranquilidad.</p>
+<div class="dietary-options">
+<label><input checked="" name="dietaryType" type="radio" value="Ninguna"/> <span>Ninguna</span></label>
+<label><input name="dietaryType" type="radio" value="Vegetariana"/> <span>Vegetariana</span></label>
+<label><input name="dietaryType" type="radio" value="Vegana"/> <span>Vegana</span></label>
+<label><input name="dietaryType" type="radio" value="Alergia"/> <span>Alergia</span></label>
+<label><input name="dietaryType" type="radio" value="Otra"/> <span>Otra</span></label>
+</div>
+<label class="dietary-detail" hidden="" id="dietaryDetailWrap">
+                  Cuéntanos cuál
+                  <input name="dietaryDetail" placeholder="Ej. alergia a nueces, mariscos..." type="text"/>
+</label>
+</fieldset>
+</div>
+<label>
+              ¿Quieres dejarnos un mensaje?
+              <textarea name="message" placeholder="Opcional" rows="4"></textarea>
+</label>
+<button class="primary-btn" type="submit">Confirmar respuesta</button>
+</form>
+</div>
+<div class="rsvp-response rsvp-response-yes" hidden="" id="rsvpYesResponse">
+<div aria-hidden="true" class="celebration-sparkles">
+<span>✦</span><span>♡</span><span>✦</span>
+</div>
+<p class="eyebrow">NOS HACE MUCHA ILUSIÓN</p>
+<h2 class="section-title">¡Qué alegría que puedas estar!</h2>
+<p id="rsvpYesPersonal">
+            Eres una persona importante para nosotros y saber que compartirás este día a nuestro lado lo hace todavía más especial.
+          </p>
+<strong>Nos vemos el 19 de febrero. ♡</strong>
+<button class="rsvp-edit-btn" id="editRsvpYes" type="button">Cambiar mi respuesta</button>
+</div>
+<div class="rsvp-response rsvp-response-no" hidden="" id="rsvpNoResponse">
+<div aria-hidden="true" class="rsvp-soft-mark">♡</div>
+<p class="eyebrow">TE VAMOS A EXTRAÑAR</p>
+<h2 class="section-title">Entendemos completamente.</h2>
+<p id="rsvpNoPersonal">
+            Nos habría encantado compartir este momento contigo, pero sabemos que a veces no es posible.
+            Gracias por ser parte de nuestra historia, incluso desde la distancia.
+          </p>
+<strong>Te llevaremos con nosotros ese día.</strong>
+<button class="rsvp-edit-btn" id="editRsvpNo" type="button">Cambiar mi respuesta</button>
+</div>
+</div>
+</section>
+<section class="soundtrack-compact" id="soundtrack">
+<button aria-expanded="false" class="soundtrack-compact-toggle" id="soundtrackCompactToggle" type="button">
+<span class="soundtrack-compact-icon">♪</span>
+<span>
+<small>NUESTRO SOUNDTRACK</small>
+<strong>4 canciones que nos encantan</strong>
+</span>
+<b>＋</b>
+</button>
+<div class="soundtrack-compact-panel" hidden="" id="soundtrackCompactPanel">
+<p class="soundtrack-inline-copy">Escúchalas aquí mismo, sin salir de la invitación.</p>
+<div class="soundtrack-compact-list">
+<button class="soundtrack-choice-inline active" data-artist="The Killers" data-title="Dying Breed" data-track="1cS6quzGhImyJPMiNxfxkA" type="button">
+<span>01</span>
+<div><strong>Dying Breed</strong><small>The Killers</small></div>
+<b>▶</b>
+</button>
+<button class="soundtrack-choice-inline" data-artist="Alex Warren" data-title="Ordinary · Wedding Version" data-track="33KXzlrk0MlVcvndKzsTum" type="button">
+<span>02</span>
+<div><strong>Ordinary · Wedding Version</strong><small>Alex Warren</small></div>
+<b>▶</b>
+</button>
+<button class="soundtrack-choice-inline" data-artist="Sam Smith" data-title="Latch · Acoustic" data-track="1dOQwrGmaSWotCvZwD9CK3" type="button">
+<span>03</span>
+<div><strong>Latch · Acoustic</strong><small>Sam Smith</small></div>
+<b>▶</b>
+</button>
+<button class="soundtrack-choice-inline" data-artist="Arctic Monkeys" data-title="Baby I'm Yours" data-track="0SzvmWfOhoxZVGrmvb56YL" type="button">
+<span>04</span>
+<div><strong>Baby I'm Yours</strong><small>Arctic Monkeys</small></div>
+<b>▶</b>
+</button>
+</div>
+<div class="spotify-inline-shell">
+<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://open.spotify.com/embed/track/1cS6quzGhImyJPMiNxfxkA?utm_source=generator&amp;theme=0" frameborder="0" height="152" id="spotifyInlinePlayer" loading="lazy" src="about:blank" title="Soundtrack de la boda" width="100%">
+</iframe>
+</div>
+<p class="soundtrack-inline-note">Puedes reproducir, pausar o bajar el volumen desde el reproductor. La música nunca inicia sola.</p>
+</div>
+</section>
+<section class="closing">
+<div class="closing-overlay"></div>
+<div class="closing-content reveal">
+<p class="eyebrow">19 · 02 · 2027</p>
+<h2 class="section-title">Nos vemos en nuestra boda.</h2>
+<p>Karen &amp; Juan Pablo</p>
+</div>
+</section>
+</main>
+<footer>
+<p>Karen &amp; Juan Pablo · 19 de febrero de 2027</p>
+<a href="#top">Volver arriba ↑</a>
+</footer>
+<button aria-label="Abrir soundtrack" class="soundtrack-float" id="soundtrackFloat" type="button">
+<span>♪</span>
+</button>
+<div aria-hidden="true" aria-modal="true" class="photo-lightbox ios-modal is-hidden" id="photoLightbox" role="dialog">
+<button aria-label="Cerrar fotografía" class="photo-lightbox-close" id="closePhotoLightbox">×</button>
+<div class="photo-lightbox-stage">
+<img alt="" id="photoLightboxImg" src=""/>
+</div>
+</div>
+<div aria-hidden="true" aria-modal="true" class="detail-dialog ios-modal is-hidden" id="detailDialog" role="dialog">
+<div class="gift-dialog-nav">
+<span></span>
+<span class="gift-dialog-mark" id="detailDialogMark">✦</span>
+<button aria-label="Cerrar" class="dialog-close" id="closeDetailDialog">×</button>
+</div>
+<div class="detail-dialog-body" id="detailDialogBody"></div>
+</div>
+<div aria-hidden="true" aria-modal="true" class="gift-shell ios-modal is-hidden" id="giftDialog" role="dialog">
+<div class="gift-dialog-nav">
+<button aria-label="Volver" class="gift-back" hidden="" id="giftBack" type="button">←</button>
+<span class="gift-dialog-mark">♡</span>
+<button aria-label="Cerrar" class="dialog-close" id="closeGift">×</button>
+</div>
+<div class="gift-dialog-inner gift-catalog-view" id="giftCatalogView">
+<p class="eyebrow">UN DETALLE, SOLO SI TE NACE</p>
+<h3>Tu presencia ya es suficiente.</h3>
+<p class="gift-description">
+        Para quienes nos han preguntado si tendremos mesa de regalos, dejamos algunas ideas.
+        No es necesario traer nada; esta sección está aquí únicamente para quien quiera usarla.
+      </p>
+<div class="gift-filters gift-filters-dialog" id="giftFilters">
+<button class="active" data-filter="Todos">Todos</button>
+<button data-filter="Hogar">Hogar</button>
+<button data-filter="Luna de miel">Luna de miel</button>
+<button data-filter="Experiencias">Experiencias</button>
+<button data-filter="Aportaciones">Aportaciones</button>
+</div>
+<div class="gift-grid" id="giftGrid"></div>
+<p class="fineprint">Los datos bancarios mostrados en este prototipo son de ejemplo.</p>
+</div>
+<div class="gift-dialog-inner" hidden="" id="giftDetailView">
+<p class="eyebrow">DETALLE ELEGIDO</p>
+<h3 id="giftTitle"></h3>
+<p class="gift-description" id="giftDescription"></p>
+<div class="gift-summary">
+<div><span>Regalo</span><strong id="giftSummaryTitle"></strong></div>
+<div><span>Monto sugerido</span><strong id="giftAmount"></strong></div>
+</div>
+<form id="giftForm">
+<label>
+          Tu nombre
+          <input name="giverName" placeholder="Nombre de quien envía el regalo" required="" type="text"/>
+</label>
+<label>
+          Mensaje para los novios
+          <textarea name="giftMessage" placeholder="Opcional" rows="4"></textarea>
+</label>
+<label hidden="" id="customAmountWrap">
+          Monto
+          <input min="100" name="customAmount" placeholder="Monto en MXN" step="100" type="number"/>
+</label>
+<div class="bank-box">
+<p class="eyebrow">DATOS BANCARIOS</p>
+<div class="bank-row"><span>Banco</span><strong>Banco Ejemplo</strong></div>
+<div class="bank-row"><span>Beneficiario</span><strong>Karen / Juan Pablo</strong></div>
+<div class="bank-row"><span>CLABE</span><strong id="clabeText">000 000 000000000000</strong></div>
+<div class="bank-row"><span>Concepto sugerido</span><strong id="conceptText">Regalo de boda</strong></div>
+</div>
+<button class="primary-btn" type="submit">Elegir este detalle</button>
+<button class="secondary-btn" id="copyClabe" type="button">Copiar CLABE</button>
+</form>
+<div class="success-message" hidden="" id="giftSuccess">
+<strong>Gracias por el detalle ♡</strong>
+<p>Guardamos tu elección y tu mensaje en este prototipo.</p>
+<button class="secondary-btn" id="giftChooseAnother" type="button">Ver otras opciones</button>
+</div>
+</div>
+</div>
+<script>
+var CONFIG = {
+  weddingDate: "2027-02-19T17:00:00-06:00",
+  demoClabe: "000000000000000000",
+  bank: "Banco Ejemplo",
+  beneficiary: "Karen / Juan Pablo"
+};
+var GIFTS = [
+  {id:1, category:"Luna de miel", icon:"🌅", title:"Atardecer para dos", description:"Una experiencia romántica para disfrutar juntos durante la luna de miel.", amount:"$1,800 MXN"},
+  {id:2, category:"Luna de miel", icon:"✈️", title:"Aportación para vuelos", description:"Una aportación para ayudarnos a comenzar nuestro viaje de recién casados.", amount:"Monto libre", custom:true},
+  {id:3, category:"Luna de miel", icon:"🏝️", title:"Noche de hotel", description:"Una noche especial en nuestro destino de luna de miel.", amount:"$3,500 MXN"},
+  {id:4, category:"Experiencias", icon:"🍽️", title:"Cena especial", description:"Una cena memorable para celebrar esta nueva etapa juntos.", amount:"$1,500 MXN"},
+  {id:5, category:"Experiencias", icon:"🚤", title:"Tour para dos", description:"Una actividad para descubrir un lugar nuevo y guardar un recuerdo más.", amount:"$2,500 MXN"},
+  {id:6, category:"Experiencias", icon:"💆", title:"Spa para dos", description:"Un momento de relajación para disfrutar durante el viaje.", amount:"$2,000 MXN"},
+  {id:7, category:"Hogar", icon:"☕", title:"Cafetera", description:"Un detalle para llenar de buenos desayunos nuestra nueva vida juntos.", amount:"$2,200 MXN"},
+  {id:8, category:"Hogar", icon:"🍷", title:"Copas para brindar", description:"Un set especial para los brindis que vendrán después de la boda.", amount:"$1,200 MXN"},
+  {id:9, category:"Hogar", icon:"🛏️", title:"Ropa de cama", description:"Un detalle para hacer aún más especial nuestro hogar.", amount:"$1,700 MXN"},
+  {id:10, category:"Hogar", icon:"🍳", title:"Set de cocina", description:"Para cocinar juntos muchas historias nuevas.", amount:"$2,800 MXN"},
+  {id:11, category:"Aportaciones", icon:"💛", title:"Fondo para nuestro hogar", description:"Una aportación libre para proyectos y detalles de nuestra nueva casa.", amount:"Monto libre", custom:true},
+  {id:12, category:"Aportaciones", icon:"✨", title:"Regalo sorpresa", description:"Si prefieres dejarnos elegir, esta opción puede ser por el monto que tú decidas.", amount:"Monto libre", custom:true}
+];
+var GUESTS = {};
+
+function qs(s){ return document.querySelector(s); }
+function qsa(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); }
+function pad2(n){ return n < 10 ? "0"+n : String(n); }
+function pad3(n){ if(n<10)return "00"+n; if(n<100)return "0"+n; return String(n); }
+
+function setBodyLocked(lock){
+  document.documentElement.style.overflow = lock ? "hidden" : "";
+  document.body.style.overflow = lock ? "hidden" : "";
+}
+function openModal(el){
+  if(!el) return;
+  el.classList.remove("is-hidden");
+  el.setAttribute("aria-hidden","false");
+  setBodyLocked(true);
+}
+function closeModal(el){
+  if(!el) return;
+  el.classList.add("is-hidden");
+  el.setAttribute("aria-hidden","true");
+  setBodyLocked(false);
+}
+
+function updateCountdown(){
+  var target = new Date(CONFIG.weddingDate).getTime();
+  var now = new Date().getTime();
+  var diff = Math.max(0, target-now);
+  var days = Math.floor(diff/86400000); diff%=86400000;
+  var hours = Math.floor(diff/3600000); diff%=3600000;
+  var minutes = Math.floor(diff/60000); diff%=60000;
+  var seconds = Math.floor(diff/1000);
+  if(qs("#days")) qs("#days").textContent = pad3(days);
+  if(qs("#hours")) qs("#hours").textContent = pad2(hours);
+  if(qs("#minutes")) qs("#minutes").textContent = pad2(minutes);
+  if(qs("#seconds")) qs("#seconds").textContent = pad2(seconds);
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+/* Menú */
+var menuBtn=qs("#menuBtn"), nav=qs("#nav");
+if(menuBtn && nav){
+  menuBtn.addEventListener("click",function(){
+    var isOpen=nav.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded",isOpen?"true":"false");
+  });
+  qsa(".nav a").forEach(function(a){
+    a.addEventListener("click",function(){ nav.classList.remove("open"); });
+  });
+}
+
+/* Reveal: con fallback si IntersectionObserver no existe */
+if("IntersectionObserver" in window){
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.12});
+  qsa(".reveal").forEach(function(el){ observer.observe(el); });
+}else{
+  qsa(".reveal").forEach(function(el){ el.classList.add("visible"); });
+}
+
+/* Soundtrack */
+var soundtrackCompactToggle=qs("#soundtrackCompactToggle");
+var soundtrackCompactPanel=qs("#soundtrackCompactPanel");
+var spotifyInlinePlayer=qs("#spotifyInlinePlayer");
+if(soundtrackCompactToggle && soundtrackCompactPanel){
+  soundtrackCompactToggle.addEventListener("click",function(){
+    if(spotifyInlinePlayer && spotifyInlinePlayer.getAttribute("src")==="about:blank" && spotifyInlinePlayer.getAttribute("data-src")){
+      spotifyInlinePlayer.setAttribute("src",spotifyInlinePlayer.getAttribute("data-src"));
+    }
+    var open=soundtrackCompactPanel.hasAttribute("hidden");
+    if(open) soundtrackCompactPanel.removeAttribute("hidden");
+    else soundtrackCompactPanel.setAttribute("hidden","");
+    soundtrackCompactToggle.setAttribute("aria-expanded",open?"true":"false");
+  });
+}
+var soundtrackFloat=qs("#soundtrackFloat");
+if(soundtrackFloat){
+  soundtrackFloat.addEventListener("click",function(){
+    var target=qs("#soundtrack");
+    if(target && target.scrollIntoView){
+      try{ target.scrollIntoView({behavior:"smooth",block:"center"}); }
+      catch(e){ target.scrollIntoView(); }
+    }
+    setTimeout(function(){
+      if(soundtrackCompactPanel && soundtrackCompactPanel.hasAttribute("hidden")){
+        soundtrackCompactPanel.removeAttribute("hidden");
+        if(soundtrackCompactToggle) soundtrackCompactToggle.setAttribute("aria-expanded","true");
+      }
+    },450);
+  });
+}
+qsa(".soundtrack-choice-inline").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    qsa(".soundtrack-choice-inline").forEach(function(x){ x.classList.remove("active"); });
+    btn.classList.add("active");
+    var track=btn.getAttribute("data-track");
+    if(spotifyInlinePlayer && track){
+      var u="https://open.spotify.com/embed/track/"+track+"?utm_source=generator&theme=0";
+      spotifyInlinePlayer.setAttribute("src",u);
+      spotifyInlinePlayer.setAttribute("data-src",u);
+    }
+  });
+});
+
+/* Lightbox */
+var photoLightbox=qs("#photoLightbox");
+var photoLightboxImg=qs("#photoLightboxImg");
+function openPhotoLightbox(src,alt){
+  if(!photoLightbox || !photoLightboxImg) return;
+  photoLightboxImg.setAttribute("src",src||"");
+  photoLightboxImg.setAttribute("alt",alt||"");
+  openModal(photoLightbox);
+}
+qsa(".story-main-photo,.story-thumb").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    var img=btn.querySelector("img");
+    if(img) openPhotoLightbox(img.getAttribute("src"), btn.getAttribute("data-alt") || img.getAttribute("alt") || "");
+  });
+});
+var closePhoto=qs("#closePhotoLightbox");
+if(closePhoto) closePhoto.addEventListener("click",function(){ closeModal(photoLightbox); });
+if(photoLightbox){
+  photoLightbox.addEventListener("click",function(e){
+    if(e.target===photoLightbox) closeModal(photoLightbox);
+  });
+}
+
+/* Detalles / Hospedaje */
+var detailDialog=qs("#detailDialog"), detailDialogBody=qs("#detailDialogBody");
+function openDetail(html){
+  if(detailDialogBody) detailDialogBody.innerHTML=html;
+  openModal(detailDialog);
+}
+qsa("[data-detail]").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    var target=btn.getAttribute("data-detail");
+    var tpl=qs("#"+target);
+    if(tpl) openDetail(tpl.innerHTML);
+  });
+});
+var closeDetail=qs("#closeDetailDialog");
+if(closeDetail) closeDetail.addEventListener("click",function(){ closeModal(detailDialog); });
+if(detailDialog){
+  detailDialog.addEventListener("click",function(e){ if(e.target===detailDialog) closeModal(detailDialog); });
+}
+
+/* Mesa de regalos */
+var giftDialog=qs("#giftDialog"), giftGrid=qs("#giftGrid");
+var giftCatalogView=qs("#giftCatalogView"), giftDetailView=qs("#giftDetailView"), giftBack=qs("#giftBack");
+var selectedGift=null;
+
+function renderGifts(filter){
+  if(!giftGrid) return;
+  var items=GIFTS.filter(function(g){ return !filter || filter==="Todos" || g.category===filter; });
+  giftGrid.innerHTML="";
+  items.forEach(function(g){
+    var b=document.createElement("button");
+    b.type="button";
+    b.className="gift-card";
+    b.innerHTML='<span class="gift-icon">'+g.icon+'</span><strong>'+g.title+'</strong><small>'+g.category+'</small>';
+    b.addEventListener("click",function(){ showGift(g); });
+    giftGrid.appendChild(b);
+  });
+}
+function showGift(g){
+  selectedGift=g;
+  if(qs("#giftTitle")) qs("#giftTitle").textContent=g.title;
+  if(qs("#giftDescription")) qs("#giftDescription").textContent=g.description;
+  if(qs("#giftSummaryTitle")) qs("#giftSummaryTitle").textContent=g.title;
+  if(qs("#giftAmount")) qs("#giftAmount").textContent=g.amount;
+  if(qs("#customAmountWrap")){
+    if(g.custom) qs("#customAmountWrap").removeAttribute("hidden");
+    else qs("#customAmountWrap").setAttribute("hidden","");
+  }
+  if(qs("#conceptText")) qs("#conceptText").textContent="Regalo: "+g.title;
+  if(giftCatalogView) giftCatalogView.setAttribute("hidden","");
+  if(giftDetailView) giftDetailView.removeAttribute("hidden");
+  if(giftBack) giftBack.removeAttribute("hidden");
+}
+function openGiftCatalog(){
+  if(giftCatalogView) giftCatalogView.removeAttribute("hidden");
+  if(giftDetailView) giftDetailView.setAttribute("hidden","");
+  if(giftBack) giftBack.setAttribute("hidden","");
+  renderGifts("Todos");
+  openModal(giftDialog);
+}
+qsa("[data-open-gifts],#openGiftDialog").forEach(function(btn){
+  btn.addEventListener("click",openGiftCatalog);
+});
+qsa("#giftFilters button").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    qsa("#giftFilters button").forEach(function(x){ x.classList.remove("active"); });
+    btn.classList.add("active");
+    renderGifts(btn.getAttribute("data-filter"));
+  });
+});
+if(giftBack) giftBack.addEventListener("click",function(){
+  if(giftCatalogView) giftCatalogView.removeAttribute("hidden");
+  if(giftDetailView) giftDetailView.setAttribute("hidden","");
+  giftBack.setAttribute("hidden","");
+});
+var closeGift=qs("#closeGift");
+if(closeGift) closeGift.addEventListener("click",function(){ closeModal(giftDialog); });
+if(giftDialog){
+  giftDialog.addEventListener("click",function(e){ if(e.target===giftDialog) closeModal(giftDialog); });
+}
+renderGifts("Todos");
+
+/* Copiar CLABE */
+var copyClabe=qs("#copyClabe");
+if(copyClabe){
+  copyClabe.addEventListener("click",function(){
+    var clabe=CONFIG.demoClabe || "";
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(clabe);
+    }
+    copyClabe.textContent="CLABE copiada";
+    setTimeout(function(){ copyClabe.textContent="Copiar CLABE"; },1400);
+  });
+}
+
+/* Formulario de regalo */
+var giftForm=qs("#giftForm");
+if(giftForm){
+  giftForm.addEventListener("submit",function(e){
+    e.preventDefault();
+    var giftThanks=qs("#giftThanks");
+    if(giftThanks) giftThanks.removeAttribute("hidden");
+  });
+}
+
+/* RSVP */
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var code=params.get("i") || "";
+  var guest=GUESTS[code] || {name:"Invitado especial",seats:2};
+  var guestName=qs("#guestName"), guestSeats=qs("#guestSeats"), seatCount=qs("#seatCount");
+  if(guestName) guestName.textContent=guest.name;
+  if(guestSeats) guestSeats.textContent=guest.seats;
+  if(seatCount){
+    seatCount.innerHTML="";
+    for(var i=1;i<=guest.seats;i++){
+      var opt=document.createElement("option");
+      opt.value=String(i); opt.textContent=String(i);
+      seatCount.appendChild(opt);
+    }
+  }
+  var yes=qs("#rsvpYes"), no=qs("#rsvpNo"), confirm=qs("#rsvpConfirm");
+  var response=qs("#rsvpResponse"), responseText=qs("#rsvpResponseText");
+  var answer="";
+  function select(v){
+    answer=v;
+    if(yes) yes.classList.toggle("active",v==="yes");
+    if(no) no.classList.toggle("active",v==="no");
+    if(confirm) confirm.disabled=false;
+  }
+  if(yes) yes.addEventListener("click",function(){ select("yes"); });
+  if(no) no.addEventListener("click",function(){ select("no"); });
+  if(confirm) confirm.addEventListener("click",function(){
+    if(!answer) return;
+    if(responseText){
+      responseText.textContent=answer==="yes"
+        ? "¡Nos hace muchísima ilusión saber que estarás con nosotros!"
+        : "Te vamos a extrañar, pero entendemos y agradecemos que nos lo hagas saber.";
+    }
+    if(response) response.removeAttribute("hidden");
+  });
+  var change=qs("#rsvpChange");
+  if(change) change.addEventListener("click",function(){ if(response) response.setAttribute("hidden",""); });
+})();
+
+/* ESC */
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape" || e.keyCode===27){
+    [photoLightbox,detailDialog,giftDialog].forEach(function(m){
+      if(m && !m.classList.contains("is-hidden")) closeModal(m);
+    });
+  }
+});
+</script>
+</body>
+</html>
