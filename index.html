@@ -3611,6 +3611,44 @@ body,p,li,label,small,time,button,a,.section *{color:var(--v8-ink)!important}
 .primary-btn,.primary-btn *{color:#fffdf8!important}
 .secondary-btn{background:#fffdf8!important;color:#1e1d1a!important}
 .secondary-btn,.secondary-btn *{color:#1e1d1a!important}
+
+/* V11.2: contraste definitivo de las pantallas RSVP. */
+#rsvp #rsvpYesResponse{
+  background:linear-gradient(155deg,#344a3d 0%,#263b31 100%)!important;
+  border:1px solid rgba(240,223,189,.65)!important;
+  box-shadow:inset 0 0 0 8px rgba(255,253,248,.035)!important;
+}
+#rsvp #rsvpYesResponse h2{
+  color:#fff8e9!important;
+  text-shadow:0 2px 16px rgba(0,0,0,.22)!important;
+}
+#rsvp #rsvpYesResponse p{
+  color:#fffdf8!important;
+  opacity:1!important;
+}
+#rsvp #rsvpYesResponse strong{
+  color:#f0dfbd!important;
+}
+#rsvp #rsvpYesResponse .eyebrow,
+#rsvp #rsvpYesResponse .celebration-sparkles,
+#rsvp #rsvpYesResponse .celebration-sparkles *{
+  color:#e3b183!important;
+  opacity:1!important;
+}
+#rsvp #rsvpNoResponse{
+  background:linear-gradient(155deg,#fffdf8 0%,#f4eadb 100%)!important;
+  border:1px solid rgba(63,85,72,.42)!important;
+}
+#rsvp #rsvpNoResponse h2,
+#rsvp #rsvpNoResponse p{
+  color:#24231f!important;
+  opacity:1!important;
+}
+#rsvp #rsvpNoResponse strong,
+#rsvp #rsvpNoResponse .eyebrow,
+#rsvp #rsvpNoResponse .rsvp-soft-mark{
+  color:#3f5548!important;
+}
 @media(max-width:720px){
   .gift-grid{grid-template-columns:1fr!important}
   .gift-card{grid-template-columns:74px minmax(0,1fr)!important}
