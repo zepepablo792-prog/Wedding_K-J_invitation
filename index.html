@@ -3656,6 +3656,21 @@ body,p,li,label,small,time,button,a,.section *{color:var(--v8-ink)!important}
   .soundtrack-compact-list{grid-template-columns:1fr!important}
   .soundtrack-float{left:12px!important;bottom:max(12px,env(safe-area-inset-bottom))!important}
 }
+
+/* <!-- actualización-boda-oct2026 --> Fotografía única con fundido discreto. */
+.story-gallery .memory-carousel{
+  width:min(100%,420px);aspect-ratio:9/16;max-height:720px;
+  margin:0 auto;border-radius:6px;
+  box-shadow:0 22px 58px rgba(30,28,25,.12);
+}
+.story-gallery .memory-slide{
+  transition:opacity 1.8s ease-in-out,visibility 1.8s ease-in-out!important;
+  animation:none!important;
+}
+.story-gallery .memory-slide img{object-fit:cover;object-position:center}
+@media(prefers-reduced-motion:reduce){
+  .story-gallery .memory-slide{transition:none!important}
+}
 </style>
 </head>
 <body id="top">
@@ -3836,18 +3851,18 @@ body,p,li,label,small,time,button,a,.section *{color:var(--v8-ink)!important}
 </section>
 <section class="section gallery story-gallery" id="galeria">
 <div class="section-heading reveal">
-<p class="eyebrow">CONOCE NUESTRA HISTORIA</p>
+<p class="eyebrow">NUESTROS RECUERDOS</p>
 <h2 class="section-title">Momentos que nos trajeron hasta aquí</h2>
-<p>Recuerdos distintos, etapas distintas y la misma historia.</p>
+<p>Pequeños instantes de una gran historia.</p>
 </div>
-<div class="memory-carousel" aria-label="Recuerdos de Karen y Juan Pablo" aria-live="off">
-<figure class="memory-slide is-active"><img alt="Karen y Juan Pablo, un recuerdo de su historia" src="recuerdo-01.webp" decoding="async" fetchpriority="high"/><figcaption>Hay lugares que se vuelven parte de nuestra historia.</figcaption></figure>
-<figure class="memory-slide"><img alt="Karen y Juan Pablo compartiendo una aventura" loading="lazy" src="recuerdo-02.webp" decoding="async"/><figcaption>Viajes que todavía seguimos recordando.</figcaption></figure>
-<figure class="memory-slide"><img alt="Karen y Juan Pablo en uno de sus momentos favoritos" loading="lazy" src="recuerdo-03.webp" decoding="async"/><figcaption>La vida juntos también está hecha de aventuras.</figcaption></figure>
-<figure class="memory-slide"><img alt="Karen y Juan Pablo celebrando su historia" loading="lazy" src="recuerdo-04.webp" decoding="async"/><figcaption>Instantes que guardaremos para siempre.</figcaption></figure>
-<figure class="memory-slide"><img alt="Retrato de Karen y Juan Pablo" loading="lazy" src="recuerdo-05.webp" decoding="async"/><figcaption>Y todos esos momentos que nos trajeron hasta aquí.</figcaption></figure>
-</div>
-<div class="memory-progress" aria-hidden="true"><span class="is-active"></span><span></span><span></span><span></span><span></span></div>
+<div class="memory-carousel" aria-label="Fotografías de Karen y Juan Pablo">
+<figure class="memory-slide is-active"><img alt="Karen y Juan Pablo — recuerdo 1" src="assets/fotos/foto-01.webp" decoding="async" fetchpriority="high"/></figure>
+<figure class="memory-slide"><img alt="Karen y Juan Pablo — recuerdo 2" src="assets/fotos/foto-02.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Karen y Juan Pablo — recuerdo 3" src="assets/fotos/foto-03.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Karen y Juan Pablo — recuerdo 4" src="assets/fotos/foto-04.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Karen y Juan Pablo — recuerdo 5" src="assets/fotos/foto-05.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Karen y Juan Pablo — recuerdo 6" src="assets/fotos/foto-06.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Karen y Juan Pablo — recuerdo 7" src="assets/fotos/foto-07.webp" decoding="async"/></figure>
 </div>
 </section>
 <section class="section discreet-details" id="detalles">
@@ -4503,39 +4518,540 @@ $("#giftForm").addEventListener("submit", (e) => {
 
 /* RSVP personalizado. Cada invitación usa una URL con su código: ?i=CODIGO */
 const RSVP_GUESTS = {
-  "JP-ZG01": {name:"Familia Zepeda Gonzalez", seats:4, host:"Juan Pablo", option:"A"},
-  "JP-PR02": {name:"Princess", seats:1, host:"Juan Pablo", option:"A"},
-  "JP-MO03": {name:"Moruza", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-GM04": {name:"Fam. Gonzalez Meierhans", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-PL05": {name:"Fam. Perez Lopez", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-HP06": {name:"Heber y Paola", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-JJ07": {name:"Josue y Jazmin", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-DA08": {name:"Fam. De Anda Lopez", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-AG09": {name:"Fam. Aguirre", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-CM10": {name:"Carlos y Maria", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-LL11": {name:"Fam. Lara Lopez", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-GO12": {name:"Fam. Gonzalez", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-KE13": {name:"Kevin", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-EP14": {name:"Erick Pacheco", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-EJ15": {name:"Elisa y Juan Jose", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-HV16": {name:"Hector Vargas", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-SP17": {name:"Sebastian Perez", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-NM18": {name:"Noel Macias", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-EC19": {name:"Edgar Caratachea", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-PM20": {name:"Pedro Morfin", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-NA21": {name:"Natalie", seats:2, host:"Juan Pablo", option:"B"},
-  "JP-AL22": {name:"Alon", seats:2, host:"Juan Pablo", option:"B"},
-  "JP-YA23": {name:"Yanet", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-AD24": {name:"Adrian Lopez", seats:2, host:"Juan Pablo", option:"B"},
-  "JP-FR25": {name:"Frank", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-LC26": {name:"Luis Coria", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-AS27": {name:"Alex Silva", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-AV28": {name:"Ariel Vargas", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-AF29": {name:"Andrea y Felipe", seats:2, host:"Juan Pablo", option:"A"},
-  "JP-EE30": {name:"Eva Espinoza", seats:1, host:"Juan Pablo", option:"A"},
-  "JP-RG31": {name:"Rita Gastelum", seats:1, host:"Juan Pablo", option:"A"},
-  "JP-GL32": {name:"Fam. Gonzalez Lugo", seats:2, host:"Juan Pablo", option:"B"},
-  "JP-MY33": {name:"Miriam Yarena", seats:2, host:"Juan Pablo", option:"B"}
+  "JP-ZG01": {
+    "name": "Familia Zepeda Gonzalez",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-ZB34": {
+    "name": "Familia Zepeda Basseto",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-PR02": {
+    "name": "Princess",
+    "seats": 1,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-MO03": {
+    "name": "Moruza",
+    "seats": 1,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-GM04": {
+    "name": "Fam. Gonzalez Meierhans",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-PL05": {
+    "name": "Fam. Perez Lopez",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-HP06": {
+    "name": "Fam. Garcia",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-JJ07": {
+    "name": "Josue y Jazmin",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-DA08": {
+    "name": "Fam. De Anda Lopez",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-AG09": {
+    "name": "Fam. Aguirre",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-CM10": {
+    "name": "Carlos y Maria",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-LL11": {
+    "name": "Fam. Lara Lopez",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-GO12": {
+    "name": "Fam. Gonzalez",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-KE13": {
+    "name": "Kevin Olivares",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-EP14": {
+    "name": "Erick Pacheco",
+    "seats": 1,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-EJ15": {
+    "name": "Elisa y Juan Jose",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-HV16": {
+    "name": "Hector Vargas",
+    "seats": 1,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-SP17": {
+    "name": "Sebastian Perez",
+    "seats": 1,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-NM18": {
+    "name": "Noel Macias",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-EC19": {
+    "name": "Edgar Caratachea",
+    "seats": 1,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-PM20": {
+    "name": "Pedro Morfin",
+    "seats": 1,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-NA21": {
+    "name": "Natalie Nateras",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "B"
+  },
+  "JP-AL22": {
+    "name": "Alon Wiener",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "B"
+  },
+  "JP-YA23": {
+    "name": "Yanet Centeno",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-AD24": {
+    "name": "Adrian Lopez",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "B"
+  },
+  "JP-FR25": {
+    "name": "Francisco Medina",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-LC26": {
+    "name": "Luis Coria",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-AS27": {
+    "name": "Alex Silva",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-AV28": {
+    "name": "Ariel Vargas",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-AF29": {
+    "name": "Andrea Gutierrez y Felipe Nuñez",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-EE30": {
+    "name": "Eva Espinoza",
+    "seats": 1,
+    "host": "Juan Pablo",
+    "option": "B"
+  },
+  "JP-RG31": {
+    "name": "Rita Gastelum",
+    "seats": 1,
+    "host": "Juan Pablo",
+    "option": "A"
+  },
+  "JP-GL32": {
+    "name": "Fam. Gonzalez Lugo",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "B"
+  },
+  "JP-MY33": {
+    "name": "Miriam Yarena",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "B"
+  },
+  "JP-RG35": {
+    "name": "Rodrigo Gonzalez",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "B"
+  },
+  "JP-RC36": {
+    "name": "Rafael Correa",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "B"
+  },
+  "JP-AD37": {
+    "name": "Arat Duran",
+    "seats": 1,
+    "host": "Juan Pablo",
+    "option": "B"
+  },
+  "JP-GO38": {
+    "name": "Gabi Ortiz",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "B"
+  },
+  "JP-ML39": {
+    "name": "Micky y Lucila",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "B"
+  },
+  "JP-LO40": {
+    "name": "Lorena",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "B"
+  },
+  "JP-BG41": {
+    "name": "Betty y Gustavo",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "B"
+  },
+  "KA-001": {
+    "name": "Erika Olmedo",
+    "seats": 1,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-002": {
+    "name": "Paola Núñez y Leo Santillan",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-003": {
+    "name": "Michelle Núñez",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-004": {
+    "name": "Manuel y Zoe Nuñez",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-005": {
+    "name": "Antonio Olmedo y Blanca Valencia",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-006": {
+    "name": "Tania Olmedo",
+    "seats": 1,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-007": {
+    "name": "Fabiola Olmedo",
+    "seats": 1,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-008": {
+    "name": "Familia Olmedo Ramos",
+    "seats": 5,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-009": {
+    "name": "Denith Olmedo y Familia",
+    "seats": 6,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-010": {
+    "name": "Familia Jimenez Lopez",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-011": {
+    "name": "Carolina Jimenez y Sergio Mendoza",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-012": {
+    "name": "Paulina Cardenas y Nahúm Mendez",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-013": {
+    "name": "Odont. Juan Francisco O´Shea",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-014": {
+    "name": "Dr. Emiliano O´Shea",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-015": {
+    "name": "Carlos Agraz y Jannette Flores",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-016": {
+    "name": "Fernando Valencia y Beatriz Islas",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-017": {
+    "name": "Manuel Núñez y Gabriela Turanzas",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-018": {
+    "name": "Luis Nuñez",
+    "seats": 1,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-019": {
+    "name": "Abirl y Melanie Núñez",
+    "seats": 2,
+    "host": "Karen",
+    "option": "B"
+  },
+  "KA-020": {
+    "name": "Familia Perez Lopez",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-021": {
+    "name": "Joseline Lopez y Luis Contreras",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-022": {
+    "name": "Familia Guerrero Brandt",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-023": {
+    "name": "Familia Torres Cruz",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-024": {
+    "name": "Familia Garcia Nowek",
+    "seats": 2,
+    "host": "Karen",
+    "option": "B"
+  },
+  "KA-025": {
+    "name": "Adrian Dehesa y Carolina Belloso",
+    "seats": 2,
+    "host": "Karen",
+    "option": "B"
+  },
+  "KA-026": {
+    "name": "Familia Betancourt Petarra",
+    "seats": 2,
+    "host": "Karen",
+    "option": "B"
+  },
+  "KA-027": {
+    "name": "Daniela Guerrero",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-028": {
+    "name": "Familia Amador Avelar",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-029": {
+    "name": "Daniel Godinez",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-030": {
+    "name": "Maritza Robles",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-031": {
+    "name": "Familia Martinez De La Torre",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-032": {
+    "name": "Susana Ortiz",
+    "seats": 1,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-033": {
+    "name": "Eduardo Cumplido",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-034": {
+    "name": "Carlos De La Mora y Karina Hernandez",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-035": {
+    "name": "Hassiel Hernandez",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-036": {
+    "name": "Yessica Esparza",
+    "seats": 1,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-037": {
+    "name": "Patricia Astorga y Pablo Aguirre",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-038": {
+    "name": "Gabriela Magaña",
+    "seats": 1,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-039": {
+    "name": "Fatima Alonso",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-040": {
+    "name": "Robert Mueller",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-041": {
+    "name": "Esmeralda Duran",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-042": {
+    "name": "Familia Espinola Alvarez",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-043": {
+    "name": "Oscar Garcia",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-044": {
+    "name": "Cristian Santiago",
+    "seats": 2,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-045": {
+    "name": "Jose Antonio Rodriguez",
+    "seats": 2,
+    "host": "Karen",
+    "option": "B"
+  },
+  "KA-046": {
+    "name": "Adalberto Ramos",
+    "seats": 1,
+    "host": "Karen",
+    "option": "A"
+  },
+  "KA-047": {
+    "name": "David Curi",
+    "seats": 1,
+    "host": "Karen",
+    "option": "B"
+  },
+  "KA-048": {
+    "name": "Arturo Calderon",
+    "seats": 2,
+    "host": "Karen",
+    "option": "B"
+  }
 };
 
 
@@ -4643,33 +5159,50 @@ rsvpForm.addEventListener("submit", async (e) => {
   }
 });
 
-/* Recuerdos: una sola imagen a la vez, cambio automático y pausa fuera de pantalla */
+/* Recuerdos: orden aleatorio, transición suave y pausa fuera de pantalla */
 const memorySlides = Array.from(document.querySelectorAll(".memory-slide"));
-const memorySteps = Array.from(document.querySelectorAll(".memory-progress span"));
 const memoryCarousel = document.querySelector(".memory-carousel");
+const reducedMemoryMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 let memoryIndex = 0;
+let memoryQueue = [];
 let memoryTimer = null;
-
-function showMemory(index){
-  memoryIndex = index % memorySlides.length;
-  memorySlides.forEach((slide,i)=>slide.classList.toggle("is-active",i===memoryIndex));
-  memorySteps.forEach((step,i)=>step.classList.toggle("is-active",i===memoryIndex));
+let memoryOnScreen = false;
+function nextMemoryIndex(){
+  if(memoryQueue.length === 0){
+    memoryQueue = memorySlides.map((_, i) => i).filter(i => i !== memoryIndex);
+    for(let i = memoryQueue.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [memoryQueue[i], memoryQueue[j]] = [memoryQueue[j], memoryQueue[i]];
+    }
+  }
+  return memoryQueue.pop();
 }
-function startMemories(){
-  if(memoryTimer || memorySlides.length < 2) return;
-  memoryTimer = window.setInterval(()=>showMemory(memoryIndex + 1),5200);
+function showMemory(index){
+  if(index === undefined || index === memoryIndex) return;
+  memorySlides[index].classList.add("is-active");
+  memorySlides[memoryIndex].classList.remove("is-active");
+  memoryIndex = index;
 }
 function stopMemories(){
-  window.clearInterval(memoryTimer);
+  if(memoryTimer !== null) window.clearInterval(memoryTimer);
   memoryTimer = null;
 }
-if(memoryCarousel && memorySlides.length){
-  const memoryObserver = new IntersectionObserver(entries=>{
-    entries[0].isIntersecting ? startMemories() : stopMemories();
-  },{threshold:.18});
-  memoryObserver.observe(memoryCarousel);
-  document.addEventListener("visibilitychange",()=>document.hidden ? stopMemories() : startMemories());
+function syncMemories(){
+  if(!memoryOnScreen || document.hidden || reducedMemoryMotion || memorySlides.length < 2){
+    stopMemories();
+    return;
+  }
+  if(memoryTimer === null) memoryTimer = window.setInterval(() => showMemory(nextMemoryIndex()), 7000);
 }
+if(memoryCarousel && memorySlides.length){
+  const memoryObserver = new IntersectionObserver(entries => {
+    memoryOnScreen = entries[0].isIntersecting;
+    syncMemories();
+  }, {threshold:.18});
+  memoryObserver.observe(memoryCarousel);
+  document.addEventListener("visibilitychange", syncMemories);
+}
+
 
 
 </script>
