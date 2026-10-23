@@ -2918,6 +2918,11 @@ footer,footer *{
   }
 }
 
+
+.dietary-person { margin: 14px 0; padding: 15px; border: 1px solid rgba(90,75,70,.2); border-radius: 12px; display: grid; gap: 8px; }
+.dietary-person-head { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.dietary-remove { background:transparent; border:0; text-decoration:underline; cursor:pointer; color:inherit; font:inherit; }
+#addDietaryPerson { margin-top: 6px; }
 </style>
 <style>
 /* v13.2 — jerarquía tipográfica minimalista */
@@ -3470,7 +3475,7 @@ body,p,li,label,small,time,button,a,.section *{color:var(--v8-ink)!important}
 /* reduce “empty decorative space” */
 .soundtrack-compact{margin-bottom:0!important}
 
-/* v9: recuerdos en secuencia, sin selector ni miniaturas */
+/* Galería de fotografías, sin selector ni miniaturas */
 .story-feature{max-width:980px;margin:0 auto}
 .memory-carousel{
   position:relative;overflow:hidden;aspect-ratio:4/5;max-height:820px;
@@ -3854,13 +3859,13 @@ body,p,li,label,small,time,button,a,.section *{color:var(--v8-ink)!important}
 <p>Pequeños instantes de una gran historia.</p>
 </div>
 <div class="memory-carousel" aria-label="Fotografías de Karen y Juan Pablo">
-<figure class="memory-slide is-active"><img alt="Karen y Juan Pablo — recuerdo 1" src="assets/fotos/foto-01.webp" decoding="async" fetchpriority="high"/></figure>
-<figure class="memory-slide"><img alt="Karen y Juan Pablo — recuerdo 2" src="assets/fotos/foto-02.webp" decoding="async"/></figure>
-<figure class="memory-slide"><img alt="Karen y Juan Pablo — recuerdo 3" src="assets/fotos/foto-03.webp" decoding="async"/></figure>
-<figure class="memory-slide"><img alt="Karen y Juan Pablo — recuerdo 4" src="assets/fotos/foto-04.webp" decoding="async"/></figure>
-<figure class="memory-slide"><img alt="Karen y Juan Pablo — recuerdo 5" src="assets/fotos/foto-05.webp" decoding="async"/></figure>
-<figure class="memory-slide"><img alt="Karen y Juan Pablo — recuerdo 6" src="assets/fotos/foto-06.webp" decoding="async"/></figure>
-<figure class="memory-slide"><img alt="Karen y Juan Pablo — recuerdo 7" src="assets/fotos/foto-07.webp" decoding="async"/></figure>
+<figure class="memory-slide is-active"><img alt="Fotografía 1 de Karen y Juan Pablo" src="foto-01.webp" decoding="async" fetchpriority="high"/></figure>
+<figure class="memory-slide"><img alt="Fotografía 2 de Karen y Juan Pablo" src="foto-02.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Fotografía 3 de Karen y Juan Pablo" src="foto-03.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Fotografía 4 de Karen y Juan Pablo" src="foto-04.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Fotografía 5 de Karen y Juan Pablo" src="foto-05.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Fotografía 6 de Karen y Juan Pablo" src="foto-06.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Fotografía 7 de Karen y Juan Pablo" src="foto-07.webp" decoding="async"/></figure>
 </div>
 </section>
 <section class="section discreet-details" id="detalles">
@@ -3929,20 +3934,22 @@ body,p,li,label,small,time,button,a,.section *{color:var(--v8-ink)!important}
                 ¿Cuántos de los lugares reservados asistirán?
                 <select id="guestCountSelect" name="guests"></select>
 </label>
-<fieldset class="dietary-fieldset">
-<legend>¿Tienes alguna restricción alimentaria o alergia?</legend>
-<p class="form-hint">Queremos que puedas disfrutar la cena con tranquilidad.</p>
+<fieldset class="dietary-fieldset" id="dietaryFieldset">
+<legend>¿Alguno de los asistentes tiene una restricción alimentaria o alergia?</legend>
+<p class="form-hint">Indícanos el nombre de cada persona para avisar al equipo de catering.</p>
 <div class="dietary-options">
-<label><input checked="" name="dietaryType" type="radio" value="Ninguna"/> <span>Ninguna</span></label>
-<label><input name="dietaryType" type="radio" value="Vegetariana"/> <span>Vegetariana</span></label>
-<label><input name="dietaryType" type="radio" value="Vegana"/> <span>Vegana</span></label>
-<label><input name="dietaryType" type="radio" value="Alergia"/> <span>Alergia</span></label>
-<label><input name="dietaryType" type="radio" value="Otra"/> <span>Otra</span></label>
+<label><input type="radio" name="dietaryAnswer" value="No" checked/> <span>No, ninguna</span></label>
+<label><input type="radio" name="dietaryAnswer" value="Sí"/> <span>Sí, hay restricciones</span></label>
 </div>
-<label class="dietary-detail" hidden="" id="dietaryDetailWrap">
-                  Cuéntanos cuál
-                  <input name="dietaryDetail" placeholder="Ej. alergia a nueces, mariscos..." type="text"/>
-</label>
+<div id="dietaryPeopleSection" hidden>
+<p class="form-hint">Agrega una ficha por cada persona con alguna restricción (máximo el número de asistentes confirmados).</p>
+<div id="dietaryPeopleList"></div>
+<button type="button" class="secondary-btn" id="addDietaryPerson">+ Agregar otra persona</button>
+<p class="form-hint">Esta información será compartida con el equipo de catering para preparar la cena. Para alergias graves, también recomendamos contactar directamente al organizador.</p>
+</div>
+<input type="hidden" name="dietaryType" id="dietaryTypeValue" value="Ninguna"/>
+<input type="hidden" name="dietaryDetail" id="dietaryDetailValue" value=""/>
+<input type="hidden" name="dietaryPeople" id="dietaryPeopleValue" value="[]"/>
 </fieldset>
 </div>
 <label>
@@ -4390,13 +4397,71 @@ $("#openTransport").addEventListener("click",()=>openDetailPanel("transport","�
 $("#openFaq").addEventListener("click",()=>openDetailPanel("faq","?"));
 $("#closeDetailDialog").addEventListener("click",()=>detailDialog.close());
 
-$$('input[name="dietaryType"]').forEach(radio=>{
-  radio.addEventListener("change",()=>{
-    const show = ["Alergia","Otra"].includes(radio.value) && radio.checked;
-    $("#dietaryDetailWrap").hidden = !show;
-    if(!show) $("#dietaryDetailWrap").querySelector("input").value="";
+// Restricciones alimentarias por asistente, manteniendo campos compatibles con Netlify Forms.
+const dietaryPeopleList = $("#dietaryPeopleList");
+const dietaryPeopleSection = $("#dietaryPeopleSection");
+const addDietaryPersonButton = $("#addDietaryPerson");
+let dietaryPersonSerial = 0;
+function dietaryIsYes(){
+  return document.querySelector('input[name="dietaryAnswer"]:checked')?.value === "Sí";
+}
+function dietaryCapacity(){ return Number($("#guestCountSelect").value) || 1; }
+function addDietaryPerson(){
+  if(dietaryPeopleList.children.length >= dietaryCapacity()) return;
+  const item = document.createElement("div");
+  item.className = "dietary-person";
+  const id = ++dietaryPersonSerial;
+  item.innerHTML = `
+    <div class="dietary-person-head"><strong>Persona con restricción</strong><button class="dietary-remove" type="button" aria-label="Quitar esta persona">Quitar</button></div>
+    <label for="dietary-person-name-${id}">Nombre de la persona</label>
+    <input id="dietary-person-name-${id}" class="dietary-person-name" type="text" placeholder="Nombre y apellido" maxlength="120" autocomplete="off" required>
+    <label for="dietary-person-type-${id}">Tipo de restricción</label>
+    <select id="dietary-person-type-${id}" class="dietary-person-type" required>
+      <option value="">Selecciona una opción</option><option value="Vegetariana">Vegetariana</option><option value="Vegana">Vegana</option><option value="Alergia">Alergia</option><option value="Otra">Otra</option>
+    </select>
+    <label class="dietary-person-detail-label" hidden for="dietary-person-detail-${id}">¿Cuál es la alergia o restricción?</label>
+    <input id="dietary-person-detail-${id}" class="dietary-person-detail" type="text" placeholder="Ej. alergia a nueces, mariscos..." maxlength="250" hidden>
+  `;
+  item.querySelector(".dietary-remove").addEventListener("click",()=>{
+    item.remove();
+    if(dietaryIsYes() && !dietaryPeopleList.children.length) addDietaryPerson();
+    refreshDietaryLimits();
   });
-});
+  item.querySelector(".dietary-person-type").addEventListener("change",e=>{
+    const show = e.target.value === "Alergia" || e.target.value === "Otra";
+    const detail = item.querySelector(".dietary-person-detail");
+    detail.hidden = !show;
+    detail.required = show;
+    item.querySelector(".dietary-person-detail-label").hidden = !show;
+    if(!show) detail.value = "";
+  });
+  dietaryPeopleList.appendChild(item);
+  refreshDietaryLimits();
+}
+function refreshDietaryLimits(){
+  const on = dietaryIsYes();
+  dietaryPeopleSection.hidden = !on;
+  dietaryPeopleList.querySelectorAll("input,select,button").forEach(el=>{el.disabled = !on;});
+  while(on && dietaryPeopleList.children.length > dietaryCapacity()) dietaryPeopleList.lastElementChild.remove();
+  addDietaryPersonButton.disabled = !on || dietaryPeopleList.children.length >= dietaryCapacity();
+}
+document.querySelectorAll('input[name="dietaryAnswer"]').forEach(el=>el.addEventListener("change",()=>{
+  if(dietaryIsYes() && !dietaryPeopleList.children.length) addDietaryPerson();
+  refreshDietaryLimits();
+}));
+addDietaryPersonButton.addEventListener("click",addDietaryPerson);
+$("#guestCountSelect").addEventListener("change",refreshDietaryLimits);
+function captureDietaryPeople(){
+  const people = dietaryIsYes() ? Array.from(dietaryPeopleList.children).map(item=>({
+    name:item.querySelector(".dietary-person-name").value.trim(),
+    type:item.querySelector(".dietary-person-type").value,
+    detail:item.querySelector(".dietary-person-detail").value.trim()
+  })) : [];
+  $("#dietaryPeopleValue").value = JSON.stringify(people);
+  $("#dietaryTypeValue").value = people.length ? "Individualizada" : "Ninguna";
+  $("#dietaryDetailValue").value = people.map(p=>`${p.name}: ${p.type}${p.detail ? " — " + p.detail : ""}`).join(" | ");
+}
+refreshDietaryLimits();
 
 const giftGrid = $("#giftGrid");
 const giftDialog = $("#giftDialog");
@@ -4493,6 +4558,7 @@ $("#copyClabe").addEventListener("click", async () => {
 
 $("#giftForm").addEventListener("submit", (e) => {
   e.preventDefault();
+  captureDietaryPeople();
   const form = new FormData(e.currentTarget);
   const payload = Object.fromEntries(form.entries());
 
@@ -5093,9 +5159,8 @@ const yesFields = $("#yesRsvpFields");
 function syncAttendanceFields(){
   const isNo = attendanceSelect.value === "No";
   yesFields.classList.toggle("is-hidden", isNo);
-  yesFields.querySelectorAll("input,select").forEach(el=>{
-    if(el.name !== "attendance") el.disabled = isNo;
-  });
+  yesFields.querySelectorAll("input,select,button").forEach(el=>{el.disabled = isNo;});
+  if(!isNo) refreshDietaryLimits();
 }
 attendanceSelect.addEventListener("change", syncAttendanceFields);
 syncAttendanceFields();
@@ -5129,6 +5194,7 @@ rsvpForm.addEventListener("submit", async (e) => {
   response.host = invitedGuest.host;
   response.option = invitedGuest.option;
   response.submittedAt = new Date().toISOString();
+  response.dietaryPeople = $("#dietaryPeopleValue").value;
   $("#rsvpSubmittedAt").value = response.submittedAt;
 
   const submitButton = e.currentTarget.querySelector('button[type="submit"]');
@@ -5157,7 +5223,7 @@ rsvpForm.addEventListener("submit", async (e) => {
   }
 });
 
-/* Recuerdos: orden aleatorio, transición suave y pausa fuera de pantalla */
+/* Fotografías: orden aleatorio, transición suave y pausa fuera de pantalla */
 const memorySlides = Array.from(document.querySelectorAll(".memory-slide"));
 const memoryCarousel = document.querySelector(".memory-carousel");
 const reducedMemoryMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
