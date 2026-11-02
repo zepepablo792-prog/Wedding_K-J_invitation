@@ -5111,9 +5111,14 @@ function showFinalRsvp(response){
   }
 }
 
-const savedRsvp = inviteCode ? localStorage.getItem(`wedding_rsvp_${inviteCode}`) : null;
+// Nueva etapa oficial: no mostrar confirmaciones locales guardadas durante las pruebas.
+// El registro persistido en Netlify es independiente de estos datos del navegador.
+if (inviteCode) {
+  try { localStorage.removeItem(`wedding_rsvp_${inviteCode}`); } catch (_error) {}
+}
+const savedRsvp = inviteCode ? localStorage.getItem(`wedding_rsvp_live_v1_${inviteCode}`) : null;
 if(savedRsvp){
-  try { showFinalRsvp(JSON.parse(savedRsvp)); } catch(_error) { localStorage.removeItem(`wedding_rsvp_${inviteCode}`); }
+  try { showFinalRsvp(JSON.parse(savedRsvp)); } catch(_error) { localStorage.removeItem(`wedding_rsvp_live_v1_${inviteCode}`); }
 }
 
 rsvpForm.addEventListener("submit", async (e) => {
@@ -5147,7 +5152,7 @@ rsvpForm.addEventListener("submit", async (e) => {
       body:new URLSearchParams(payload).toString()
     });
     if(!result.ok) throw new Error("No fue posible guardar la respuesta");
-    localStorage.setItem(`wedding_rsvp_${inviteCode}`, JSON.stringify(response));
+    localStorage.setItem(`wedding_rsvp_live_v1_${inviteCode}`, JSON.stringify(response));
     showFinalRsvp(response);
     document.querySelector("#rsvp").scrollIntoView({behavior:"smooth", block:"center"});
   }catch(_error){
