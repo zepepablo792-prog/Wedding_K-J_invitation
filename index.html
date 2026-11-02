@@ -2923,6 +2923,51 @@ footer,footer *{
 .dietary-person-head { display:flex; justify-content:space-between; align-items:center; gap:12px; }
 .dietary-remove { background:transparent; border:0; text-decoration:underline; cursor:pointer; color:inherit; font:inherit; }
 #addDietaryPerson { margin-top: 6px; }
+
+/* Opciones definitivas de regalo: sin datos bancarios ficticios. */
+.registry-four-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0}
+.registry-option{border:1px solid rgba(115,93,75,.23);border-radius:18px;background:rgba(255,255,255,.55);padding:24px 20px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-align:left}
+.registry-option h4{font-size:20px;line-height:1.2;margin:0;font-family:inherit;color:#37302a}
+.registry-option p{margin:0;font-size:14px;line-height:1.6}
+.registry-symbol{font-size:29px;color:#95786b}
+.registry-setup{font-style:italic;color:#786b60}
+.registry-action{display:inline-flex;align-items:center;text-decoration:none;margin-top:auto;justify-content:center;width:100%;min-height:44px}
+.registry-unavailable{display:block;border:1px dashed #bcb0a4;border-radius:12px;padding:12px;color:#6d655f;font-size:13px;margin-top:auto;width:100%;text-align:center}
+.registry-experiences{display:flex;flex-wrap:wrap;gap:7px}
+.registry-experiences span{font-size:12px;border-radius:20px;padding:6px 9px;background:#f4eee8;color:#67574c}
+@media(max-width:650px){.registry-four-grid{grid-template-columns:1fr}.registry-option{padding:20px}}
+
+/* Catalogo de 26 experiencias para luna de miel */
+.registry-honeymoon{grid-column:1/-1;align-items:stretch}
+.registry-honeymoon>h4,.registry-honeymoon>p{max-width:760px}
+.honeymoon-explainer{font-size:13px!important;color:#60564b}
+.honeymoon-countries{display:grid;gap:10px;width:100%;margin-top:6px}
+.honeymoon-country{border:1px solid rgba(115,93,75,.25);border-radius:14px;background:#fffaf6;overflow:hidden}
+.honeymoon-country summary{cursor:pointer;padding:15px 18px;font-size:18px;font-weight:650;display:flex;align-items:center;justify-content:space-between}
+.honeymoon-country summary span{font-size:12px;font-weight:400;color:#756b63}
+.honeymoon-experience-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:10px 14px 16px}
+.honeymoon-experience{border:1px solid #e7dcd1;border-radius:12px;padding:14px;background:white;display:flex;flex-direction:column;gap:7px}
+.honeymoon-experience-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.honeymoon-experience h5{font-size:17px;font-weight:600;margin:0;color:#42352c}
+.honeymoon-experience small{display:block;color:#857668;font-size:12px;margin-top:3px}
+.honeymoon-price{font-size:13px;font-weight:650;color:#69513e;white-space:nowrap}
+.honeymoon-experience p{font-size:13px;line-height:1.5;margin:0;flex:1;color:#63584f}
+.honeymoon-choose{border:1px solid #a18b78;background:#f8f1ea;color:#493d32;border-radius:8px;padding:10px;font-size:13px;font-weight:600;cursor:pointer;text-align:center}
+.honeymoon-choose:hover,.honeymoon-choose:focus-visible{background:#eee0d1}
+.honeymoon-selection{border-radius:14px;border:1px solid #baa38d;background:#fff8ec;padding:18px;display:grid;gap:9px}
+.honeymoon-selection[hidden]{display:none!important}
+.honeymoon-selection>strong{font-size:17px}
+.honeymoon-selection>p{font-size:13px}
+.honeymoon-selection code{font-size:12px;white-space:normal;overflow-wrap:anywhere}
+.honeymoon-selection .registry-action{align-self:flex-start}
+.honeymoon-selection small{color:#766b61;font-size:12px}
+#honeymoonContributionForm{display:grid;gap:12px;padding-top:10px}
+#honeymoonContributionForm label{display:grid;gap:5px;font-size:13px;color:#4a4038}
+#honeymoonContributionForm input:not([type="hidden"]):not([type="checkbox"]){width:100%;padding:11px;border:1px solid #baa38d;border-radius:8px;font-size:16px;background:#fff}
+#honeymoonContributionForm .contribution-check{display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.contribution-preset{display:flex;flex-wrap:wrap;gap:7px}
+.contribution-preset button{border:1px solid #a18b78;background:#fff;border-radius:7px;padding:8px 12px;cursor:pointer}
+@media(max-width:650px){.honeymoon-experience-grid{grid-template-columns:1fr;padding:8px}.honeymoon-experience-head{flex-wrap:wrap}}
 </style>
 <style>
 /* v13.2 — jerarquía tipográfica minimalista */
@@ -3677,6 +3722,17 @@ body,p,li,label,small,time,button,a,.section *{color:var(--v8-ink)!important}
   .story-gallery .memory-slide{transition:none!important}
 }
 </style>
+<style id="wedding-failsafe">
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.story-gallery{padding-top:54px!important;padding-bottom:64px!important}
+.story-gallery .memory-carousel{background:#e8e1d4!important}
+.story-gallery .memory-slide img{width:100%!important;height:100%!important;display:block!important;object-fit:cover!important}
+@media(max-width:720px){.story-gallery{padding-top:34px!important;padding-bottom:42px!important}}
+
+html:not(.wedding-enhanced) .reveal { opacity: 1 !important; transform: none !important; }
+.soundtrack-float #musicFloatIcon { display:grid !important; place-items:center!important; width:36px!important; height:36px!important; border-radius:50%!important; background:#2f2b24!important; color:#f4ead8!important; font-size:16px!important; }
+.soundtrack-float #musicFloatLabel { display:inline!important; width:auto!important; height:auto!important; border-radius:0!important; background:transparent!important; color:#24231f!important; font-size:10px!important; font-family:inherit!important; line-height:1.2!important; }
+</style>
 </head>
 <body id="top">
 <header class="site-header">
@@ -3853,11 +3909,7 @@ body,p,li,label,small,time,button,a,.section *{color:var(--v8-ink)!important}
   </div>
 </section>
 <section class="section gallery story-gallery" id="galeria">
-<div class="section-heading reveal">
-<p class="eyebrow">NUESTROS RECUERDOS</p>
-<h2 class="section-title">Momentos que nos trajeron hasta aquí</h2>
-<p>Pequeños instantes de una gran historia.</p>
-</div>
+<h2 class="sr-only">Fotografías de Karen y Juan Pablo</h2>
 <div class="memory-carousel" aria-label="Fotografías de Karen y Juan Pablo">
 <figure class="memory-slide is-active"><img alt="Fotografía 1 de Karen y Juan Pablo" src="foto-01.webp" decoding="async" fetchpriority="high"/></figure>
 <figure class="memory-slide"><img alt="Fotografía 2 de Karen y Juan Pablo" src="foto-02.webp" decoding="async"/></figure>
@@ -3995,22 +4047,22 @@ body,p,li,label,small,time,button,a,.section *{color:var(--v8-ink)!important}
 <div class="soundtrack-compact-panel" hidden="" id="soundtrackCompactPanel">
 <p class="soundtrack-inline-copy">Escúchalas aquí mismo, sin salir de la invitación.</p>
 <div class="soundtrack-compact-list">
-<button class="soundtrack-choice-inline active" data-artist="The Killers" data-title="Dying Breed" data-track="1cS6quzGhImyJPMiNxfxkA" type="button">
+<button class="soundtrack-choice-inline active" data-artist="The Killers" data-title="Dying Breed" data-track="cancion-01.mp3" type="button">
 <span>01</span>
 <div><strong>Dying Breed</strong><small>The Killers</small></div>
 <b>▶</b>
 </button>
-<button class="soundtrack-choice-inline" data-artist="Alex Warren" data-title="Ordinary · Wedding Version" data-track="33KXzlrk0MlVcvndKzsTum" type="button">
+<button class="soundtrack-choice-inline" data-artist="Alex Warren" data-title="Ordinary · Wedding Version" data-track="cancion-02.mp3" type="button">
 <span>02</span>
 <div><strong>Ordinary · Wedding Version</strong><small>Alex Warren</small></div>
 <b>▶</b>
 </button>
 </div>
-<div class="spotify-inline-shell">
-<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://open.spotify.com/embed/track/1cS6quzGhImyJPMiNxfxkA?utm_source=generator&amp;theme=0&amp;autoplay=1" frameborder="0" height="152" id="spotifyInlinePlayer" src="https://open.spotify.com/embed/track/1cS6quzGhImyJPMiNxfxkA?utm_source=generator&amp;theme=0&amp;autoplay=1" title="Soundtrack de la boda" width="100%">
-</iframe>
+<div class="native-audio-shell">
+<audio id="weddingAudio" preload="auto" autoplay playsinline></audio>
+<div class="native-audio-status" id="weddingAudioStatus" aria-live="polite">Toca ▶ para escuchar nuestra música</div>
 </div>
-<p class="soundtrack-inline-note">La música intentará comenzar al abrir la invitación. Algunos navegadores pueden pedir una primera interacción; el botón de pausa permanecerá visible.</p>
+<p class="soundtrack-inline-note">Nuestra música para acompañarte. Pulsa ▶ para escucharla cuando quieras.</p>
 </div>
 </section>
 <section class="closing">
@@ -4025,8 +4077,8 @@ body,p,li,label,small,time,button,a,.section *{color:var(--v8-ink)!important}
   </div>
 </section>
 </main>
-<button aria-label="Pausar música" class="soundtrack-float" id="soundtrackFloat" type="button">
-<span id="musicFloatIcon">❚❚</span><span class="music-state" id="musicFloatLabel">Pausar</span>
+<button aria-label="Reproducir música" class="soundtrack-float" id="soundtrackFloat" type="button">
+<span id="musicFloatIcon">▶</span><span class="music-state" id="musicFloatLabel">Reproducir</span>
 </button>
 <dialog class="photo-lightbox" id="photoLightbox">
 <button aria-label="Cerrar fotografía" class="photo-lightbox-close" id="closePhotoLightbox">×</button>
@@ -4050,94 +4102,33 @@ body,p,li,label,small,time,button,a,.section *{color:var(--v8-ink)!important}
 </div>
 <div class="gift-dialog-inner gift-catalog-view" id="giftCatalogView">
 <p class="eyebrow">UN DETALLE, SOLO SI TE NACE</p>
-<h3>Tu presencia ya es suficiente.</h3>
-<p class="gift-description">
-        Para quienes nos han preguntado si tendremos mesa de regalos, dejamos algunas ideas.
-        No es necesario traer nada; esta sección está aquí únicamente para quien quiera usarla.
-      </p>
-<figure class="gift-source-list">
-  <img src="mesa-regalos.webp" loading="lazy" decoding="async" alt="Lista original de ideas para la mesa de regalos"/>
-  <figcaption>Nuestra lista de ideas para hogar y luna de miel.</figcaption>
-</figure>
+<h3>Tu presencia es nuestro mejor regalo.</h3>
+<p class="gift-description">Si deseas tener un detalle con nosotros, elegimos cuatro maneras de hacerlo. Cada una es completamente opcional y significa muchísimo para nosotros. ♡</p>
+<div class="registry-four-grid">
+  <article class="registry-option"><span class="registry-symbol">♡</span><h4>Mesa de regalos Liverpool</h4><p>Encuentra nuestra lista en Liverpool y elige un detalle para nuestro hogar.</p><p class="registry-setup"><strong>Número de evento: 60057016</strong><br>Ingresa a Mesa de Regalos de Liverpool y busca el evento con este número.</p><a href="https://mesaderegalos.liverpool.com.mx/" target="_blank" rel="noopener noreferrer" class="secondary-btn registry-action">Buscar en Liverpool ↗</a></article>
+  <article class="registry-option"><span class="registry-symbol">✦</span><h4>Mesa de regalos Amazon</h4><p>Una selección de regalos que nos ayudarán en esta nueva etapa.</p><p class="registry-setup">Nuestra lista de bodas en Amazon.</p><a href="https://www.amazon.com.mx/wedding/guest-view/364SMX2EENM3N" target="_blank" rel="noopener noreferrer" class="secondary-btn registry-action">Ver mesa de regalos en Amazon ↗</a></article>
+  <article class="registry-option"><span class="registry-symbol">↗</span><h4>Transferencia electrónica</h4><p>Si prefieres hacer una aportación de cualquier monto, será recibida con mucho cariño.</p><p class="registry-setup"><strong>Banco:</strong> BBVA<br><strong>Titular:</strong> Karen Andrea Nuñez Olmedo<br><strong>CLABE:</strong> <span id="giftClabe">012320004560740228</span></p><button type="button" class="secondary-btn registry-action" id="copyGiftClabe">Copiar CLABE</button><p class="form-hint" id="copyGiftClabeStatus" aria-live="polite"></p></article>
+  <article class="registry-option registry-honeymoon"><span class="registry-symbol">☼</span><h4>Experiencias para nuestra luna de miel</h4><p>Ayúdanos a escribir nuestra primera aventura como esposos: historia, mitología, gastronomía y momentos inolvidables en Grecia, Turquía, Italia y Puerto Escondido.</p><p class="honeymoon-explainer">Elige la experiencia que te gustaría regalarnos y aporta la cantidad que tú prefieras. Cada detalle será parte de nuestra historia.</p><div class="honeymoon-countries"><details class="honeymoon-country" open><summary>Grecia <span>7 experiencias</span></summary><div class="honeymoon-experience-grid"><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>El laberinto del Minotauro</h5><small>Creta · Palacio de Cnosos</small></div></div><p>Recorrer el antiguo palacio minoico y descubrir los relatos del laberinto y el Minotauro.</p><button class="honeymoon-choose" type="button" data-experience="El laberinto del Minotauro" data-country="Grecia" data-concept="Luna de miel - Grecia - El laberinto del Minotauro">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Nuestra propia Odisea</h5><small>Ítaca</small></div></div><p>Navegar por la isla vinculada al regreso de Odiseo y descubrir sus calas.</p><button class="honeymoon-choose" type="button" data-experience="Nuestra propia Odisea" data-country="Grecia" data-concept="Luna de miel - Grecia - Nuestra propia Odisea">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>El oráculo de Apolo</h5><small>Delfos</small></div></div><p>Explorar el santuario y sus misterios con un guía especializado.</p><button class="honeymoon-choose" type="button" data-experience="El oráculo de Apolo" data-country="Grecia" data-concept="Luna de miel - Grecia - El oráculo de Apolo">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Tras las huellas de Atenea</h5><small>Atenas · Acrópolis</small></div></div><p>Visitar el Partenón y conocer el mundo de la antigua Atenas.</p><button class="honeymoon-choose" type="button" data-experience="Tras las huellas de Atenea" data-country="Grecia" data-concept="Luna de miel - Grecia - Tras las huellas de Atenea">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Un atardecer sobre el Egeo</h5><small>Santorini</small></div></div><p>Navegar juntos en un catamarán mientras cae el sol sobre la caldera.</p><button class="honeymoon-choose" type="button" data-experience="Un atardecer sobre el Egeo" data-country="Grecia" data-concept="Luna de miel - Grecia - Un atardecer sobre el Egeo">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Una cena bajo el cielo de Oía</h5><small>Santorini · Oía</small></div></div><p>Compartir una cena romántica con vistas al mar Egeo.</p><button class="honeymoon-choose" type="button" data-experience="Una cena bajo el cielo de Oía" data-country="Grecia" data-concept="Luna de miel - Grecia - Una cena bajo el cielo de Oía">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Los sabores de una isla griega</h5><small>Naxos</small></div></div><p>Descubrir pueblos y probar quesos, dulces y especialidades locales.</p><button class="honeymoon-choose" type="button" data-experience="Los sabores de una isla griega" data-country="Grecia" data-concept="Luna de miel - Grecia - Los sabores de una isla griega">Elegir esta experiencia</button></article></div></details><details class="honeymoon-country" ><summary>Turquía <span>7 experiencias</span></summary><div class="honeymoon-experience-grid"><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Los secretos bajo tierra</h5><small>Capadocia · Derinkuyu</small></div></div><p>Explorar túneles y cámaras de una antigua ciudad subterránea.</p><button class="honeymoon-choose" type="button" data-experience="Los secretos bajo tierra" data-country="Turquía" data-concept="Luna de miel - Turquía - Los secretos bajo tierra">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Una ciudad de mármol</h5><small>Selçuk · Éfeso</small></div></div><p>Pasear por las calles y monumentos de la antigua ciudad grecorromana.</p><button class="honeymoon-choose" type="button" data-experience="Una ciudad de mármol" data-country="Turquía" data-concept="Luna de miel - Turquía - Una ciudad de mármol">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Entre dos imperios</h5><small>Estambul</small></div></div><p>Recorrer monumentos bizantinos y otomanos con un guía histórico.</p><button class="honeymoon-choose" type="button" data-experience="Entre dos imperios" data-country="Turquía" data-concept="Luna de miel - Turquía - Entre dos imperios">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Sabores y especias de Estambul</h5><small>Estambul</small></div></div><p>Conocer mercados, puestos locales y la gastronomía tradicional turca.</p><button class="honeymoon-choose" type="button" data-experience="Sabores y especias de Estambul" data-country="Turquía" data-concept="Luna de miel - Turquía - Sabores y especias de Estambul">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Las terrazas de algodón</h5><small>Pamukkale</small></div></div><p>Admirar las terrazas blancas y recorrer la antigua Hierápolis.</p><button class="honeymoon-choose" type="button" data-experience="Las terrazas de algodón" data-country="Turquía" data-concept="Luna de miel - Turquía - Las terrazas de algodón">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Un amanecer entre las nubes</h5><small>Capadocia</small></div></div><p>Sobrevolar los valles en globo al amanecer, si el tiempo lo permite.</p><button class="honeymoon-choose" type="button" data-experience="Un amanecer entre las nubes" data-country="Turquía" data-concept="Luna de miel - Turquía - Un amanecer entre las nubes">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Una travesía entre continentes</h5><small>Estambul · Bósforo</small></div></div><p>Navegar en privado entre Europa y Asia al atardecer.</p><button class="honeymoon-choose" type="button" data-experience="Una travesía entre continentes" data-country="Turquía" data-concept="Luna de miel - Turquía - Una travesía entre continentes">Elegir esta experiencia</button></article></div></details><details class="honeymoon-country" ><summary>Italia <span>7 experiencias</span></summary><div class="honeymoon-experience-grid"><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Los pasadizos de los gladiadores</h5><small>Roma · Coliseo</small></div></div><p>Descender a los espacios subterráneos del anfiteatro romano.</p><button class="honeymoon-choose" type="button" data-experience="Los pasadizos de los gladiadores" data-country="Italia" data-concept="Luna de miel - Italia - Los pasadizos de los gladiadores">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Un viaje a Pompeya</h5><small>Campania</small></div></div><p>Explorar una ciudad romana preservada por la erupción del Vesubio.</p><button class="honeymoon-choose" type="button" data-experience="Un viaje a Pompeya" data-country="Italia" data-concept="Luna de miel - Italia - Un viaje a Pompeya">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Nuestra primera pizza napolitana</h5><small>Nápoles</small></div></div><p>Aprender juntos el arte de preparar una auténtica pizza napolitana.</p><button class="honeymoon-choose" type="button" data-experience="Nuestra primera pizza napolitana" data-country="Italia" data-concept="Luna de miel - Italia - Nuestra primera pizza napolitana">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>El tesoro escondido de Toscana</h5><small>Toscana</small></div></div><p>Buscar trufas con un guía y su perro y disfrutar una degustación.</p><button class="honeymoon-choose" type="button" data-experience="El tesoro escondido de Toscana" data-country="Italia" data-concept="Luna de miel - Italia - El tesoro escondido de Toscana">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Amor entre canales</h5><small>Venecia</small></div></div><p>Compartir un paseo tradicional en góndola por los canales.</p><button class="honeymoon-choose" type="button" data-experience="Amor entre canales" data-country="Italia" data-concept="Luna de miel - Italia - Amor entre canales">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Los secretos de los Médici</h5><small>Florencia · Uffizi y Corredor de Vasari</small></div></div><p>Descubrir las obras del Renacimiento y un corredor histórico de la familia Médici; requiere disponibilidad y reserva.</p><button class="honeymoon-choose" type="button" data-experience="Los secretos de los Médici" data-country="Italia" data-concept="Luna de miel - Italia - Los secretos de los Médici">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>En lo alto del Renacimiento</h5><small>Florencia · Cúpula de Brunelleschi</small></div></div><p>Subir a la cúpula de Santa María del Fiore y contemplar Florencia desde las alturas; hay numerosos escalones.</p><button class="honeymoon-choose" type="button" data-experience="En lo alto del Renacimiento" data-country="Italia" data-concept="Luna de miel - Italia - En lo alto del Renacimiento">Elegir esta experiencia</button></article></div></details><details class="honeymoon-country"><summary>México · Puerto Escondido <span>5 experiencias</span></summary><div class="honeymoon-experience-grid"><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Atardecer en velero por la costa</h5><small>Puerto Escondido · Oaxaca</small></div></div><p>Navegar en pareja frente a la costa oaxaqueña y contemplar el atardecer.</p><button class="honeymoon-choose" type="button" data-experience="Atardecer en velero por la costa" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Atardecer en velero por la costa">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Clase de cocina oaxaqueña para dos</h5><small>Puerto Escondido</small></div></div><p>Preparar recetas tradicionales, conocer ingredientes regionales y disfrutar lo cocinado.</p><button class="honeymoon-choose" type="button" data-experience="Clase de cocina oaxaqueña para dos" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Clase de cocina oaxaqueña para dos">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Liberación responsable de tortugas</h5><small>Costa de Oaxaca</small></div></div><p>Conocer un proyecto autorizado de conservación y participar en una actividad guiada, sujeto a temporada.</p><button class="honeymoon-choose" type="button" data-experience="Liberación responsable de tortugas" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Liberación responsable de tortugas">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Experiencia de surf en pareja</h5><small>Playa Carrizalillo / Puerto Escondido</small></div></div><p>Tomar una clase de surf con instructor en una playa apropiada para su nivel.</p><button class="honeymoon-choose" type="button" data-experience="Experiencia de surf en pareja" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Experiencia de surf en pareja">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Cena romántica frente al Pacífico</h5><small>Puerto Escondido</small></div></div><p>Disfrutar mariscos y cocina local en una cena especial junto al mar.</p><button class="honeymoon-choose" type="button" data-experience="Cena romántica frente al Pacífico" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Cena romántica frente al Pacífico">Elegir esta experiencia</button></article></div></details></div><div class="honeymoon-selection" id="honeymoonSelection" hidden><strong>Tu experiencia elegida</strong><p id="honeymoonSelectionName"></p><p>Para regalarnos esta experiencia puedes aportar lo que tú quieras. Realiza la transferencia a nuestra cuenta BBVA y utiliza esta referencia para ayudarnos a identificarla:</p><code id="honeymoonConcept"></code><button type="button" class="secondary-btn registry-action" id="copyHoneymoonConcept">Copiar concepto</button><p class="form-hint" id="honeymoonCopyStatus" aria-live="polite"></p><p class="registry-setup"><strong>BBVA</strong> · Karen Andrea Nuñez Olmedo<br><strong>CLABE:</strong> <span id="experienceClabe">012320004560740228</span></p><button type="button" class="secondary-btn registry-action" id="copyExperienceClabe">Copiar CLABE</button><p class="form-hint" id="experienceClabeStatus" aria-live="polite"></p><form id="honeymoonContributionForm" name="aportaciones-luna-miel" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="aportaciones-luna-miel">
+<p hidden><label>No llenar <input name="bot-field"></label></p>
+<input type="hidden" name="experience" id="contributionExperience" value="">
+<input type="hidden" name="country" id="contributionCountry" value="">
+<input type="hidden" name="reference" id="contributionReference" value="">
+<label>Tu nombre<input name="guestName" required maxlength="100" autocomplete="name" placeholder="Para poder agradecerte"></label>
+<label>¿Cuánto te gustaría aportar? (MXN)<input name="amountMXN" id="contributionAmount" type="number" inputmode="numeric" min="1" step="1" placeholder="El monto que tú elijas" required></label>
 
-<div class="gift-filters gift-filters-dialog" id="giftFilters">
-<button class="active" data-filter="Todos">Todos</button>
-<button data-filter="Hogar">Hogar</button>
-<button data-filter="Luna de miel">Luna de miel</button>
-<button data-filter="Aportaciones">Aportaciones</button>
-</div>
-<div class="gift-grid" id="giftGrid"></div>
-<p class="fineprint">Los datos bancarios mostrados en este prototipo son de ejemplo.</p>
-</div>
-<div class="gift-dialog-inner" hidden="" id="giftDetailView">
-<p class="eyebrow">DETALLE ELEGIDO</p>
-<h3 id="giftTitle"></h3>
-<p class="gift-description" id="giftDescription"></p>
-<div class="gift-summary">
-<div><span>Regalo</span><strong id="giftSummaryTitle"></strong></div>
-<div><span>Monto sugerido</span><strong id="giftAmount"></strong></div>
-</div>
-<form id="giftForm">
-<label>
-          Tu nombre
-          <input name="giverName" placeholder="Nombre de quien envía el regalo" required="" type="text"/>
-</label>
-<label>
-          Mensaje para los novios
-          <textarea name="giftMessage" placeholder="Opcional" rows="4"></textarea>
-</label>
-<label hidden="" id="customAmountWrap">
-          Monto
-          <input min="100" name="customAmount" placeholder="Monto en MXN" step="100" type="number"/>
-</label>
-<div class="bank-box">
-<p class="eyebrow">DATOS BANCARIOS</p>
-<div class="bank-row"><span>Banco</span><strong>Banco Ejemplo</strong></div>
-<div class="bank-row"><span>Beneficiario</span><strong>Karen / Juan Pablo</strong></div>
-<div class="bank-row"><span>CLABE</span><strong id="clabeText">000 000 000000000000</strong></div>
-<div class="bank-row"><span>Concepto sugerido</span><strong id="conceptText">Regalo de boda</strong></div>
-</div>
-<button class="primary-btn" type="submit">Elegir este detalle</button>
-<button class="secondary-btn" id="copyClabe" type="button">Copiar CLABE</button>
+<label class="contribution-check"><input name="sentTransfer" type="checkbox" value="yes" required> Sé que debo hacer la transferencia por separado y que esta selección nos ayuda a identificar mi aportación.</label>
+<button class="secondary-btn registry-action" type="submit" id="sendContributionIntent">Compartir mi aportación</button>
+<p class="form-hint" id="contributionStatus" aria-live="polite"></p>
 </form>
-<div class="success-message" hidden="" id="giftSuccess">
-<strong>Gracias por el detalle ♡</strong>
-<p>Guardamos tu elección y tu mensaje en este prototipo.</p>
-<button class="secondary-btn" id="giftChooseAnother" type="button">Ver otras opciones</button>
+</div></article>
 </div>
+<p class="fineprint">Para las mesas externas, la compra se realiza directamente en la tienda. No solicitamos datos bancarios en esta invitación.</p>
 </div>
 </dialog>
 <script>
-const CONFIG = {
-  weddingDate: "2027-02-19T17:00:00-06:00",
-  demoClabe: "000000000000000000",
-  bank: "Banco Ejemplo",
-  beneficiary: "Karen / Juan Pablo"
-};
-
-const GIFTS = [
-  {id:1, category:"Luna de miel", icon:'<i class="fa-solid fa-plane-departure" aria-hidden="true"></i>', title:"Vuelos de avión", description:"Una aportación para ayudarnos a llegar a nuestro destino de luna de miel.", amount:"Monto libre", custom:true},
-  {id:2, category:"Luna de miel", icon:'<i class="fa-solid fa-house-chimney-window" aria-hidden="true"></i>', title:"Noche de Airbnb", description:"Una noche especial para seguir sumando recuerdos juntos.", amount:"Monto libre", custom:true},
-  {id:3, category:"Luna de miel", icon:'<i class="fa-solid fa-water" aria-hidden="true"></i>', title:"Avistamiento de delfines", description:"Una experiencia para disfrutar el mar y vivir algo distinto durante el viaje.", amount:"Monto libre", custom:true},
-  {id:4, category:"Luna de miel", icon:'<span class="gift-emoji" aria-hidden="true">🐢</span>', title:"Liberación de tortugas", description:"Una experiencia sencilla y especial que nos encantaría compartir durante la luna de miel.", amount:"Monto libre", custom:true},
-  {id:5, category:"Luna de miel", icon:'<i class="fa-solid fa-person-swimming" aria-hidden="true"></i>', title:"Clases de surf", description:"Una aventura nueva para intentar juntos durante el viaje.", amount:"Monto libre", custom:true},
-  {id:6, category:"Luna de miel", icon:'<i class="fa-solid fa-utensils" aria-hidden="true"></i>', title:"Comida típica oaxaqueña", description:"Un momento para conocer sabores locales y disfrutar una comida especial.", amount:"Monto libre", custom:true},
-  {id:7, category:"Hogar", icon:'<i class="fa-solid fa-snowflake" aria-hidden="true"></i>', title:"Refrigerador", description:"Para nuestro hogar y todo lo que iremos construyendo juntos.", amount:"Monto libre", custom:true},
-  {id:8, category:"Hogar", icon:'<i class="fa-solid fa-bed" aria-hidden="true"></i>', title:"Colchón", description:"Un básico importante para nuestra nueva etapa.", amount:"Monto libre", custom:true},
-  {id:9, category:"Hogar", icon:'<i class="fa-solid fa-couch" aria-hidden="true"></i>', title:"Recámara", description:"Cabecera y burós para completar nuestra habitación.", amount:"Monto libre", custom:true},
-  {id:10, category:"Hogar", icon:'<i class="fa-solid fa-blender" aria-hidden="true"></i>', title:"Licuadora", description:"Un detalle práctico para el día a día.", amount:"Monto libre", custom:true},
-  {id:11, category:"Hogar", icon:'<span class="gift-emoji" aria-hidden="true">♨️</span>', title:"Microondas", description:"Para hacer más sencillo nuestro día a día en casa.", amount:"Monto libre", custom:true},
-  {id:12, category:"Hogar", icon:"◯", title:"Sartenes", description:"Para cocinar juntos muchas historias nuevas.", amount:"Monto libre", custom:true},
-  {id:13, category:"Hogar", icon:'<span class="gift-emoji" aria-hidden="true">🍟</span>', title:"AirFryer", description:"Un pequeño gusto práctico para nuestra cocina.", amount:"Monto libre", custom:true},
-  {id:14, category:"Hogar", icon:"○", title:"Vajilla", description:"Para compartir comidas, sobremesas y visitas.", amount:"Monto libre", custom:true},
-  {id:15, category:"Hogar", icon:'<span class="gift-emoji" aria-hidden="true">📺</span>', title:"Televisión", description:"Para tardes y noches en casa.", amount:"Monto libre", custom:true},
-  {id:16, category:"Hogar", icon:'<span class="gift-emoji" aria-hidden="true">🛋️</span>', title:"Sala", description:"Para crear un espacio cómodo para convivir y recibir a quienes queremos.", amount:"Monto libre", custom:true},
-  {id:17, category:"Hogar", icon:'<span class="gift-emoji" aria-hidden="true">🍽️</span>', title:"Comedor", description:"Para las comidas y reuniones que vendrán.", amount:"Monto libre", custom:true},
-  {id:18, category:"Hogar", icon:'<span class="gift-emoji" aria-hidden="true">🛏️</span>', title:"Colcha", description:"Un detalle para hacer nuestra habitación más acogedora.", amount:"Monto libre", custom:true},
-  {id:19, category:"Hogar", icon:'<span class="gift-emoji" aria-hidden="true">🛌</span>', title:"Sábanas", description:"Un básico para nuestro hogar.", amount:"Monto libre", custom:true},
-  {id:20, category:"Aportaciones", icon:"♡", title:"Aportación libre", description:"Si prefieres elegir el monto, puedes dejarnos un detalle libre.", amount:"Monto libre", custom:true}
-];
-
+// Configuración indispensable para inicializar la portada y el contador.
+const CONFIG = { weddingDate: "2027-02-19T17:00:00-06:00" };
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 
@@ -4173,6 +4164,7 @@ const observer = new IntersectionObserver(entries => {
   });
 },{threshold:.12});
 $$(".reveal").forEach(el => observer.observe(el));
+document.documentElement.classList.add("wedding-enhanced");
 
 
 
@@ -4180,57 +4172,74 @@ $$(".reveal").forEach(el => observer.observe(el));
 
 const soundtrackCompactToggle = document.getElementById("soundtrackCompactToggle");
 const soundtrackCompactPanel = document.getElementById("soundtrackCompactPanel");
-if(soundtrackCompactToggle && soundtrackCompactPanel){
-  soundtrackCompactToggle.addEventListener("click",()=>{
-    const sp = document.getElementById("spotifyInlinePlayer");
-    if(sp && sp.src === "about:blank" && sp.dataset.src){
-      sp.src = sp.dataset.src;
-    }
+if (soundtrackCompactToggle && soundtrackCompactPanel) {
+  soundtrackCompactToggle.addEventListener("click", () => {
     const open = soundtrackCompactPanel.hidden;
     soundtrackCompactPanel.hidden = !open;
     soundtrackCompactToggle.setAttribute("aria-expanded", String(open));
   });
 }
 
-const soundtrackFloat = document.getElementById("soundtrackFloat");
-const spotifyInlinePlayer = document.getElementById("spotifyInlinePlayer");
-let soundtrackPaused = false;
-let activeTrackId = "1cS6quzGhImyJPMiNxfxkA";
-
-function spotifyUrl(track){
-  return `https://open.spotify.com/embed/track/${track}?utm_source=generator&theme=0&autoplay=1`;
-}
-function syncMusicButton(){
-  const icon = document.getElementById("musicFloatIcon");
-  const label = document.getElementById("musicFloatLabel");
-  if(icon) icon.textContent = soundtrackPaused ? "▶" : "❚❚";
-  if(label) label.textContent = soundtrackPaused ? "Reproducir" : "Pausar";
-  soundtrackFloat?.setAttribute("aria-label", soundtrackPaused ? "Reproducir música" : "Pausar música");
-}
-if(soundtrackFloat && spotifyInlinePlayer){
-  soundtrackFloat.addEventListener("click",()=>{
-    soundtrackPaused = !soundtrackPaused;
-    spotifyInlinePlayer.src = soundtrackPaused ? "about:blank" : spotifyUrl(activeTrackId);
-    syncMusicButton();
+const weddingAudio=document.getElementById("weddingAudio");
+const soundtrackFloat=document.getElementById("soundtrackFloat");
+const weddingAudioStatus=document.getElementById("weddingAudioStatus");
+const weddingTracks=[{src:"cancion-01.mp3",title:"Dying Breed"},{src:"cancion-02.mp3",title:"Ordinary · Wedding Version"}];
+let currentWeddingTrack=0;
+let musicPausedByVisitor=false;
+let musicPlayPending=false;
+function syncWeddingMusicUI(){
+  if(!weddingAudio)return;
+  const playing=!weddingAudio.paused&&!weddingAudio.ended;
+  const icon=document.getElementById("musicFloatIcon");
+  const label=document.getElementById("musicFloatLabel");
+  if(icon)icon.textContent=playing?"❚❚":"▶";
+  if(label)label.textContent=playing?"Pausar":"Escuchar";
+  if(soundtrackFloat)soundtrackFloat.setAttribute("aria-label",playing?"Pausar música":"Escuchar música");
+  if(weddingAudioStatus)weddingAudioStatus.textContent=weddingAudio.error?"La música no está disponible en este momento.":playing?"Reproduciendo: "+weddingTracks[currentWeddingTrack].title:"Toca ▶ para escuchar nuestra música";
+  document.querySelectorAll(".soundtrack-choice-inline").forEach((button,index)=>{
+    button.classList.toggle("active",index===currentWeddingTrack);
+    button.classList.toggle("is-playing",index===currentWeddingTrack&&playing);
   });
 }
-
-document.querySelectorAll(".soundtrack-choice-inline").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    document.querySelectorAll(".soundtrack-choice-inline").forEach(x=>x.classList.remove("active"));
-    btn.classList.add("active");
-    const track = btn.dataset.track;
-    if(spotifyInlinePlayer && track){
-      activeTrackId = track;
-      soundtrackPaused = false;
-      spotifyInlinePlayer.src = spotifyUrl(track);
-      spotifyInlinePlayer.dataset.src = spotifyInlinePlayer.src;
-      syncMusicButton();
-    }
+function loadWeddingTrack(index){
+  if(!weddingAudio)return;
+  currentWeddingTrack=(index+weddingTracks.length)%weddingTracks.length;
+  weddingAudio.src=weddingTracks[currentWeddingTrack].src;
+  weddingAudio.load();
+  syncWeddingMusicUI();
+}
+async function playWeddingMusic(){
+  if(!weddingAudio||musicPlayPending)return;
+  musicPausedByVisitor=false;musicPlayPending=true;
+  try{await weddingAudio.play();}
+  catch(_){/* Audible autoplay may require a gesture. */}
+  finally{musicPlayPending=false;syncWeddingMusicUI();}
+}
+function selectWeddingTrack(index){loadWeddingTrack(index);void playWeddingMusic();}
+if(weddingAudio){
+  for(const e of ["play","pause","loadedmetadata","error"])weddingAudio.addEventListener(e,syncWeddingMusicUI);
+  weddingAudio.addEventListener("ended",()=>selectWeddingTrack(currentWeddingTrack+1));
+  loadWeddingTrack(0);
+  void playWeddingMusic();
+  window.addEventListener("load",()=>{if(weddingAudio.paused&&!musicPausedByVisitor)void playWeddingMusic();},{once:true});
+  // Do not also play from pointerdown when the visitor pressed a music button.
+  document.addEventListener("pointerdown",event=>{
+    if(event.target.closest(".soundtrack-float,.soundtrack-choice-inline"))return;
+    if(weddingAudio.paused&&!musicPausedByVisitor)void playWeddingMusic();
+  },{capture:true});
+  document.addEventListener("keydown",event=>{
+    if(event.target.closest(".soundtrack-float,.soundtrack-choice-inline"))return;
+    if(weddingAudio.paused&&!musicPausedByVisitor)void playWeddingMusic();
+  },{capture:true});
+  soundtrackFloat?.addEventListener("click",()=>{
+    if(weddingAudio.paused){void playWeddingMusic();}
+    else{musicPausedByVisitor=true;weddingAudio.pause();syncWeddingMusicUI();}
   });
-});
-syncMusicButton();
-
+  document.querySelectorAll(".soundtrack-choice-inline").forEach((button,index)=>{
+    button.addEventListener("click",()=>selectWeddingTrack(index));
+  });
+}
+syncWeddingMusicUI();
 
 /* Ajuste universal para ventanas emergentes en móvil */
 ["detailDialog","giftDialog"].forEach(id=>{
@@ -4381,7 +4390,7 @@ const DETAIL_PANELS = {
       <details><summary>¿Puedo llevar acompañante?</summary><div class="faq-answer">Hemos reservado especialmente para ti los lugares indicados en tu invitación. Al confirmar podrás ver cuántos lugares tienes asignados.</div></details>
       <details><summary>¿Hay estacionamiento?</summary><div class="faq-answer">Sí. Contaremos con servicio de <strong>valet parking</strong> en Hacienda Benazuza.</div></details>
       <details><summary>¿Tienes alergia o restricción alimentaria?</summary><div class="faq-answer">Puedes indicárnosla directamente al <a href="#rsvp" onclick="document.querySelector('#detailDialog').close()">confirmar tu asistencia</a>. Así podremos considerarla con anticipación.</div></details>
-      <details><summary>¿Puedo modificar mi confirmación?</summary><div class="faq-answer">Sí. Puedes volver a ingresar desde tu invitación y actualizar tu respuesta si tus planes cambian.</div></details>
+      <details><summary>¿Cuál es el código de vestimenta?</summary><div class="faq-answer">El código es <strong>formal / etiqueta</strong>: smoking o traje formal y vestido formal o de noche. Si lo prefieres, puedes cambiarte a tenis para estar más cómodo al avanzar la fiesta.</div></details>
       <details><summary>¿Dónde puedo hospedarme?</summary><div class="faq-answer">Preparamos algunas opciones cercanas para parejas, familias y grupos. Cierra este panel y entra a <strong>Hospedaje</strong> dentro de Detalles.</div></details>
     </div>`
 };
@@ -4463,122 +4472,11 @@ function captureDietaryPeople(){
 }
 refreshDietaryLimits();
 
-const giftGrid = $("#giftGrid");
 const giftDialog = $("#giftDialog");
-const giftCatalogView = $("#giftCatalogView");
-const giftDetailView = $("#giftDetailView");
-const giftBack = $("#giftBack");
-let selectedGift = null;
-let activeGiftFilter = "Todos";
-
-function renderGifts(filter=activeGiftFilter){
-  activeGiftFilter = filter;
-  const visible = filter === "Todos" ? GIFTS : GIFTS.filter(g => g.category === filter);
-  giftGrid.innerHTML = visible.map(g => `
-    <button class="gift-card" data-id="${g.id}">
-      <div class="gift-card-visual">${g.icon}</div>
-      <div class="gift-card-body">
-        <span class="gift-category">${g.category}</span>
-        <strong>${g.title}</strong>
-        <small>${g.description}</small>
-        <b>${g.amount}</b>
-      </div>
-    </button>
-  `).join("");
-
-  $$(".gift-card").forEach(btn =>
-    btn.addEventListener("click", () => openGift(Number(btn.dataset.id)))
-  );
-}
-
-function showGiftCatalog(){
-  giftDetailView.hidden = true;
-  giftCatalogView.hidden = false;
-  giftBack.hidden = true;
-  selectedGift = null;
-
-  $$(".gift-filters button").forEach(b =>
-    b.classList.toggle("active", b.dataset.filter === activeGiftFilter)
-  );
-  renderGifts(activeGiftFilter);
-  giftCatalogView.scrollTop = 0;
-}
-
-function openGiftCatalog(){
-  showGiftCatalog();
-  if(!giftDialog.open) openCenteredDialog(giftDialog);
-}
-
-function openGift(id){
-  selectedGift = GIFTS.find(g => g.id === id);
-  if(!selectedGift) return;
-
-  $("#giftTitle").textContent = selectedGift.title;
-  $("#giftDescription").textContent = selectedGift.description;
-  $("#giftSummaryTitle").textContent = selectedGift.title;
-  $("#giftAmount").textContent = selectedGift.amount;
-  $("#conceptText").textContent = `Boda - ${selectedGift.title}`;
-  $("#customAmountWrap").hidden = !selectedGift.custom;
-  $("#giftForm").hidden = false;
-  $("#giftSuccess").hidden = true;
-  $("#giftForm").reset();
-
-  giftCatalogView.hidden = true;
-  giftDetailView.hidden = false;
-  giftBack.hidden = false;
-  giftDetailView.scrollTop = 0;
-}
-
-renderGifts();
-
-$("#openGiftCatalog").addEventListener("click", openGiftCatalog);
-
-$$(".gift-filters button").forEach(btn => {
-  btn.addEventListener("click", () => {
-    activeGiftFilter = btn.dataset.filter;
-    $$(".gift-filters button").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    renderGifts(activeGiftFilter);
-  });
+$("#openGiftCatalog").addEventListener("click", () => {
+  if (!giftDialog.open) openCenteredDialog(giftDialog);
 });
-
-giftBack.addEventListener("click", showGiftCatalog);
 $("#closeGift").addEventListener("click", () => giftDialog.close());
-$("#giftChooseAnother").addEventListener("click", showGiftCatalog);
-
-$("#copyClabe").addEventListener("click", async () => {
-  try{
-    await navigator.clipboard.writeText(CONFIG.demoClabe);
-    $("#copyClabe").textContent = "CLABE copiada";
-    setTimeout(() => $("#copyClabe").textContent = "Copiar CLABE", 1800);
-  }catch{
-    alert("CLABE de ejemplo: " + CONFIG.demoClabe);
-  }
-});
-
-$("#giftForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  captureDietaryPeople();
-  const form = new FormData(e.currentTarget);
-  const payload = Object.fromEntries(form.entries());
-
-  const giftLog = JSON.parse(localStorage.getItem("wedding_gifts_demo") || "[]");
-  giftLog.push({
-    giverName: payload.giverName,
-    message: payload.giftMessage || "",
-    gift: selectedGift?.title,
-    category: selectedGift?.category,
-    amount: selectedGift?.custom
-      ? (payload.customAmount ? `$${Number(payload.customAmount).toLocaleString("es-MX")} MXN` : "Monto libre")
-      : selectedGift?.amount,
-    createdAt: new Date().toISOString()
-  });
-  localStorage.setItem("wedding_gifts_demo", JSON.stringify(giftLog));
-
-  e.currentTarget.hidden = true;
-  $("#giftSuccess").hidden = false;
-});
-
 
 /* RSVP personalizado. Cada invitación usa una URL con su código: ?i=CODIGO */
 const RSVP_GUESTS = {
@@ -5252,12 +5150,21 @@ function stopMemories(){
   memoryTimer = null;
 }
 function syncMemories(){
-  if(!memoryOnScreen || document.hidden || reducedMemoryMotion || memorySlides.length < 2){
+  if(!memoryOnScreen || document.hidden || memorySlides.length < 2){
     stopMemories();
     return;
   }
-  if(memoryTimer === null) memoryTimer = window.setInterval(() => showMemory(nextMemoryIndex()), 7000);
+  if(memoryTimer === null) memoryTimer = window.setInterval(() => showMemory(nextMemoryIndex()), 4000);
 }
+memorySlides.forEach(slide => {
+  const img = slide.querySelector("img");
+  if (!img) return;
+  img.addEventListener("error", () => {
+    if (img.dataset.fallbackAttempted) return;
+    img.dataset.fallbackAttempted = "true";
+    img.src = "assets/fotos/" + img.getAttribute("src").split("/").pop();
+  });
+});
 if(memoryCarousel && memorySlides.length){
   const memoryObserver = new IntersectionObserver(entries => {
     memoryOnScreen = entries[0].isIntersecting;
@@ -5269,6 +5176,82 @@ if(memoryCarousel && memorySlides.length){
 
 
 
+</script>
+<script>
+(function(){
+ const btn=document.getElementById('copyGiftClabe');
+ const status=document.getElementById('copyGiftClabeStatus');
+ if(!btn)return;
+ btn.addEventListener('click',async function(){
+  const clabe=document.getElementById('giftClabe').textContent.trim();
+  try {
+   await navigator.clipboard.writeText(clabe);
+   if(status)status.textContent='CLABE copiada';
+  }catch(err){
+   if(status)status.textContent='Selecciona y copia la CLABE que aparece arriba.';
+  }
+ });
+})();
+</script>
+<script>
+// Seleccion de experiencia: no cobra ni registra pagos.
+(function(){
+  const panel=document.getElementById('honeymoonSelection');
+  const name=document.getElementById('honeymoonSelectionName');
+  const concept=document.getElementById('honeymoonConcept');
+  const copyButton=document.getElementById('copyHoneymoonConcept');
+  const status=document.getElementById('honeymoonCopyStatus');
+  document.querySelectorAll('.honeymoon-choose').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const selected=button.dataset.experience;
+      const country=button.dataset.country;
+      name.textContent=selected+' · '+country;
+      const prefix=country.startsWith('México')?'OAX':(country==='Grecia'?'GR':(country==='Turquía'?'TR':'IT'));
+      const i=Array.from(document.querySelectorAll('.honeymoon-choose')).filter(b=>b.dataset.country===country).indexOf(button)+1;
+      const reference='LM-'+prefix+String(i).padStart(2,'0');
+      concept.textContent=reference;
+      document.getElementById('contributionReference').value=reference;
+      status.textContent='';
+      document.getElementById('contributionExperience').value=selected;
+      document.getElementById('contributionCountry').value=country;
+      document.getElementById('contributionStatus').textContent='';
+      panel.hidden=false;
+      panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+  });
+  const contributionForm=document.getElementById('honeymoonContributionForm');
+  contributionForm?.addEventListener('submit',async(event)=>{
+    event.preventDefault();
+    const formStatus=document.getElementById('contributionStatus');
+    if (!contributionForm.reportValidity()) return;
+    const amount=Number(document.getElementById('contributionAmount').value);
+    if(!Number.isFinite(amount)||amount<=0){formStatus.textContent='Escribe el monto que deseas aportar.';return;}
+    const send=document.getElementById('sendContributionIntent');send.disabled=true;
+    formStatus.textContent='Guardando tu elección…';
+    try{
+      const body=new URLSearchParams(new FormData(contributionForm));
+      const response=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()});
+      if(!response.ok)throw new Error('Respuesta '+response.status);
+      formStatus.textContent='¡Gracias por ser parte de nuestra aventura! Si todavía no realizaste la transferencia, puedes usar los datos de BBVA de arriba.';
+      contributionForm.reset();
+      document.getElementById('contributionAmount').value='';
+      document.getElementById('contributionExperience').value=name.textContent.split(' · ')[0];
+      document.getElementById('contributionCountry').value=name.textContent.split(' · ').slice(1).join(' · ');
+      document.getElementById('contributionReference').value=concept.textContent;
+    }catch(e){formStatus.textContent='No pudimos guardar tu elección. Inténtalo nuevamente o avísanos directamente. No repitas ninguna transferencia por este mensaje.';}
+    finally{send.disabled=false;}
+  });
+  const copyClabe=document.getElementById('copyExperienceClabe');
+  copyClabe?.addEventListener('click',async()=>{
+    const message=document.getElementById('experienceClabeStatus');
+    try{await navigator.clipboard.writeText('012320004560740228');message.textContent='CLABE copiada.';}
+    catch(_){message.textContent='Mantén presionada la CLABE de arriba para copiarla.';}
+  });
+  copyButton?.addEventListener('click',async()=>{
+    try {await navigator.clipboard.writeText(concept.textContent);status.textContent='Concepto copiado.';}
+    catch(_){status.textContent='Selecciona y copia el concepto mostrado arriba.';}
+  });
+})();
 </script>
 </body>
 </html>
