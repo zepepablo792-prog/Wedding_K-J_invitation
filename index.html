@@ -3732,6 +3732,29 @@ body,p,li,label,small,time,button,a,.section *{color:var(--v8-ink)!important}
 html:not(.wedding-enhanced) .reveal { opacity: 1 !important; transform: none !important; }
 .soundtrack-float #musicFloatIcon { display:grid !important; place-items:center!important; width:36px!important; height:36px!important; border-radius:50%!important; background:#2f2b24!important; color:#f4ead8!important; font-size:16px!important; }
 .soundtrack-float #musicFloatLabel { display:inline!important; width:auto!important; height:auto!important; border-radius:0!important; background:transparent!important; color:#24231f!important; font-size:10px!important; font-family:inherit!important; line-height:1.2!important; }
+
+/* Ajustes de regalos de luna de miel - 02 nov 2026 */
+.honeymoon-selection{scroll-margin-top:18px;gap:12px}
+.honeymoon-selection h5{font-size:21px;line-height:1.3;color:#3c372f;margin:0}
+.honeymoon-selection .chosen-experience{font-weight:650;color:#584737;font-size:16px}
+.experience-transfer-card{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:16px;border:1px solid #e0d2c1;background:#fffefb;border-radius:12px}
+.experience-transfer-card>div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.experience-transfer-card small{font-size:12px;color:#817466}
+.experience-transfer-card strong{font-size:14px;overflow-wrap:anywhere;color:#3e3830;font-weight:600}
+.experience-transfer-actions{display:flex;flex-wrap:wrap;gap:9px}
+.experience-transfer-actions .registry-action{flex:0 1 auto}
+.experience-copy-primary{background:#415a4b!important;color:#fff!important;border-color:#415a4b!important}
+.experience-notify{margin-top:4px;border-top:1px solid #d7c7b7;padding-top:14px}
+.experience-notify summary{cursor:pointer;color:#415a4b;font-weight:650;font-size:15px;list-style-position:inside;padding:9px 0}
+.experience-notify>p{margin:5px 0 9px;font-size:13px;color:#6c6056}
+#honeymoonContributionForm{gap:12px}
+@media(max-width:530px){.experience-transfer-card{grid-template-columns:1fr}.experience-transfer-actions{display:grid}.experience-transfer-actions .registry-action{width:100%;max-width:none;text-align:center}}
+
+/* Dos bancos, con Actinver como opción principal */
+.wedding-bank-label{display:block;font-size:13px;font-weight:600;color:#6a5a4a;margin:11px 0 7px}
+.wedding-bank-select{display:block;width:100%;max-width:330px;margin:0 0 10px;padding:11px 13px;border-radius:10px;border:1px solid #d8c5b0;background:#fffefa;color:#433e34;font:inherit;font-size:14px;appearance:auto}
+.wedding-bank-select:focus-visible{outline:2px solid #476a54;outline-offset:3px}
+.honeymoon-selection .wedding-bank-select{max-width:100%;margin-bottom:13px}
 </style>
 </head>
 <body id="top">
@@ -4035,36 +4058,6 @@ html:not(.wedding-enhanced) .reveal { opacity: 1 !important; transform: none !im
 </div>
 </div>
 </section>
-<section class="soundtrack-compact" id="soundtrack">
-<button aria-expanded="false" class="soundtrack-compact-toggle" id="soundtrackCompactToggle" type="button">
-<span class="soundtrack-compact-icon">♪</span>
-<span>
-<small>NUESTRO SOUNDTRACK</small>
-<strong>Dos canciones para acompañarte</strong>
-</span>
-<b>＋</b>
-</button>
-<div class="soundtrack-compact-panel" hidden="" id="soundtrackCompactPanel">
-<p class="soundtrack-inline-copy">Escúchalas aquí mismo, sin salir de la invitación.</p>
-<div class="soundtrack-compact-list">
-<button class="soundtrack-choice-inline active" data-artist="The Killers" data-title="Dying Breed" data-track="cancion-01.mp3" type="button">
-<span>01</span>
-<div><strong>Dying Breed</strong><small>The Killers</small></div>
-<b>▶</b>
-</button>
-<button class="soundtrack-choice-inline" data-artist="Alex Warren" data-title="Ordinary · Wedding Version" data-track="cancion-02.mp3" type="button">
-<span>02</span>
-<div><strong>Ordinary · Wedding Version</strong><small>Alex Warren</small></div>
-<b>▶</b>
-</button>
-</div>
-<div class="native-audio-shell">
-<audio id="weddingAudio" preload="auto" autoplay playsinline></audio>
-<div class="native-audio-status" id="weddingAudioStatus" aria-live="polite">Toca ▶ para escuchar nuestra música</div>
-</div>
-<p class="soundtrack-inline-note">Nuestra música para acompañarte. Pulsa ▶ para escucharla cuando quieras.</p>
-</div>
-</section>
 <section class="closing">
   <div class="closing-content reveal">
     <span class="closing-ornament" aria-hidden="true">♡</span>
@@ -4077,6 +4070,7 @@ html:not(.wedding-enhanced) .reveal { opacity: 1 !important; transform: none !im
   </div>
 </section>
 </main>
+<audio id="weddingAudio" preload="auto" autoplay playsinline hidden></audio>
 <button aria-label="Reproducir música" class="soundtrack-float" id="soundtrackFloat" type="button">
 <span id="musicFloatIcon">▶</span><span class="music-state" id="musicFloatLabel">Reproducir</span>
 </button>
@@ -4107,20 +4101,40 @@ html:not(.wedding-enhanced) .reveal { opacity: 1 !important; transform: none !im
 <div class="registry-four-grid">
   <article class="registry-option"><span class="registry-symbol">♡</span><h4>Mesa de regalos Liverpool</h4><p>Encuentra nuestra lista en Liverpool y elige un detalle para nuestro hogar.</p><p class="registry-setup"><strong>Número de evento: 60057016</strong><br>Ingresa a Mesa de Regalos de Liverpool y busca el evento con este número.</p><a href="https://mesaderegalos.liverpool.com.mx/" target="_blank" rel="noopener noreferrer" class="secondary-btn registry-action">Buscar en Liverpool ↗</a></article>
   <article class="registry-option"><span class="registry-symbol">✦</span><h4>Mesa de regalos Amazon</h4><p>Una selección de regalos que nos ayudarán en esta nueva etapa.</p><p class="registry-setup">Nuestra lista de bodas en Amazon.</p><a href="https://www.amazon.com.mx/wedding/guest-view/364SMX2EENM3N" target="_blank" rel="noopener noreferrer" class="secondary-btn registry-action">Ver mesa de regalos en Amazon ↗</a></article>
-  <article class="registry-option"><span class="registry-symbol">↗</span><h4>Transferencia electrónica</h4><p>Si prefieres hacer una aportación de cualquier monto, será recibida con mucho cariño.</p><p class="registry-setup"><strong>Banco:</strong> BBVA<br><strong>Titular:</strong> Karen Andrea Nuñez Olmedo<br><strong>CLABE:</strong> <span id="giftClabe">012320004560740228</span></p><button type="button" class="secondary-btn registry-action" id="copyGiftClabe">Copiar CLABE</button><p class="form-hint" id="copyGiftClabeStatus" aria-live="polite"></p></article>
-  <article class="registry-option registry-honeymoon"><span class="registry-symbol">☼</span><h4>Experiencias para nuestra luna de miel</h4><p>Ayúdanos a escribir nuestra primera aventura como esposos: historia, mitología, gastronomía y momentos inolvidables en Grecia, Turquía, Italia y Puerto Escondido.</p><p class="honeymoon-explainer">Elige la experiencia que te gustaría regalarnos y aporta la cantidad que tú prefieras. Cada detalle será parte de nuestra historia.</p><div class="honeymoon-countries"><details class="honeymoon-country" open><summary>Grecia <span>7 experiencias</span></summary><div class="honeymoon-experience-grid"><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>El laberinto del Minotauro</h5><small>Creta · Palacio de Cnosos</small></div></div><p>Recorrer el antiguo palacio minoico y descubrir los relatos del laberinto y el Minotauro.</p><button class="honeymoon-choose" type="button" data-experience="El laberinto del Minotauro" data-country="Grecia" data-concept="Luna de miel - Grecia - El laberinto del Minotauro">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Nuestra propia Odisea</h5><small>Ítaca</small></div></div><p>Navegar por la isla vinculada al regreso de Odiseo y descubrir sus calas.</p><button class="honeymoon-choose" type="button" data-experience="Nuestra propia Odisea" data-country="Grecia" data-concept="Luna de miel - Grecia - Nuestra propia Odisea">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>El oráculo de Apolo</h5><small>Delfos</small></div></div><p>Explorar el santuario y sus misterios con un guía especializado.</p><button class="honeymoon-choose" type="button" data-experience="El oráculo de Apolo" data-country="Grecia" data-concept="Luna de miel - Grecia - El oráculo de Apolo">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Tras las huellas de Atenea</h5><small>Atenas · Acrópolis</small></div></div><p>Visitar el Partenón y conocer el mundo de la antigua Atenas.</p><button class="honeymoon-choose" type="button" data-experience="Tras las huellas de Atenea" data-country="Grecia" data-concept="Luna de miel - Grecia - Tras las huellas de Atenea">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Un atardecer sobre el Egeo</h5><small>Santorini</small></div></div><p>Navegar juntos en un catamarán mientras cae el sol sobre la caldera.</p><button class="honeymoon-choose" type="button" data-experience="Un atardecer sobre el Egeo" data-country="Grecia" data-concept="Luna de miel - Grecia - Un atardecer sobre el Egeo">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Una cena bajo el cielo de Oía</h5><small>Santorini · Oía</small></div></div><p>Compartir una cena romántica con vistas al mar Egeo.</p><button class="honeymoon-choose" type="button" data-experience="Una cena bajo el cielo de Oía" data-country="Grecia" data-concept="Luna de miel - Grecia - Una cena bajo el cielo de Oía">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Los sabores de una isla griega</h5><small>Naxos</small></div></div><p>Descubrir pueblos y probar quesos, dulces y especialidades locales.</p><button class="honeymoon-choose" type="button" data-experience="Los sabores de una isla griega" data-country="Grecia" data-concept="Luna de miel - Grecia - Los sabores de una isla griega">Elegir esta experiencia</button></article></div></details><details class="honeymoon-country" ><summary>Turquía <span>7 experiencias</span></summary><div class="honeymoon-experience-grid"><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Los secretos bajo tierra</h5><small>Capadocia · Derinkuyu</small></div></div><p>Explorar túneles y cámaras de una antigua ciudad subterránea.</p><button class="honeymoon-choose" type="button" data-experience="Los secretos bajo tierra" data-country="Turquía" data-concept="Luna de miel - Turquía - Los secretos bajo tierra">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Una ciudad de mármol</h5><small>Selçuk · Éfeso</small></div></div><p>Pasear por las calles y monumentos de la antigua ciudad grecorromana.</p><button class="honeymoon-choose" type="button" data-experience="Una ciudad de mármol" data-country="Turquía" data-concept="Luna de miel - Turquía - Una ciudad de mármol">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Entre dos imperios</h5><small>Estambul</small></div></div><p>Recorrer monumentos bizantinos y otomanos con un guía histórico.</p><button class="honeymoon-choose" type="button" data-experience="Entre dos imperios" data-country="Turquía" data-concept="Luna de miel - Turquía - Entre dos imperios">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Sabores y especias de Estambul</h5><small>Estambul</small></div></div><p>Conocer mercados, puestos locales y la gastronomía tradicional turca.</p><button class="honeymoon-choose" type="button" data-experience="Sabores y especias de Estambul" data-country="Turquía" data-concept="Luna de miel - Turquía - Sabores y especias de Estambul">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Las terrazas de algodón</h5><small>Pamukkale</small></div></div><p>Admirar las terrazas blancas y recorrer la antigua Hierápolis.</p><button class="honeymoon-choose" type="button" data-experience="Las terrazas de algodón" data-country="Turquía" data-concept="Luna de miel - Turquía - Las terrazas de algodón">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Un amanecer entre las nubes</h5><small>Capadocia</small></div></div><p>Sobrevolar los valles en globo al amanecer, si el tiempo lo permite.</p><button class="honeymoon-choose" type="button" data-experience="Un amanecer entre las nubes" data-country="Turquía" data-concept="Luna de miel - Turquía - Un amanecer entre las nubes">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Una travesía entre continentes</h5><small>Estambul · Bósforo</small></div></div><p>Navegar en privado entre Europa y Asia al atardecer.</p><button class="honeymoon-choose" type="button" data-experience="Una travesía entre continentes" data-country="Turquía" data-concept="Luna de miel - Turquía - Una travesía entre continentes">Elegir esta experiencia</button></article></div></details><details class="honeymoon-country" ><summary>Italia <span>7 experiencias</span></summary><div class="honeymoon-experience-grid"><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Los pasadizos de los gladiadores</h5><small>Roma · Coliseo</small></div></div><p>Descender a los espacios subterráneos del anfiteatro romano.</p><button class="honeymoon-choose" type="button" data-experience="Los pasadizos de los gladiadores" data-country="Italia" data-concept="Luna de miel - Italia - Los pasadizos de los gladiadores">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Un viaje a Pompeya</h5><small>Campania</small></div></div><p>Explorar una ciudad romana preservada por la erupción del Vesubio.</p><button class="honeymoon-choose" type="button" data-experience="Un viaje a Pompeya" data-country="Italia" data-concept="Luna de miel - Italia - Un viaje a Pompeya">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Nuestra primera pizza napolitana</h5><small>Nápoles</small></div></div><p>Aprender juntos el arte de preparar una auténtica pizza napolitana.</p><button class="honeymoon-choose" type="button" data-experience="Nuestra primera pizza napolitana" data-country="Italia" data-concept="Luna de miel - Italia - Nuestra primera pizza napolitana">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>El tesoro escondido de Toscana</h5><small>Toscana</small></div></div><p>Buscar trufas con un guía y su perro y disfrutar una degustación.</p><button class="honeymoon-choose" type="button" data-experience="El tesoro escondido de Toscana" data-country="Italia" data-concept="Luna de miel - Italia - El tesoro escondido de Toscana">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Amor entre canales</h5><small>Venecia</small></div></div><p>Compartir un paseo tradicional en góndola por los canales.</p><button class="honeymoon-choose" type="button" data-experience="Amor entre canales" data-country="Italia" data-concept="Luna de miel - Italia - Amor entre canales">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Los secretos de los Médici</h5><small>Florencia · Uffizi y Corredor de Vasari</small></div></div><p>Descubrir las obras del Renacimiento y un corredor histórico de la familia Médici; requiere disponibilidad y reserva.</p><button class="honeymoon-choose" type="button" data-experience="Los secretos de los Médici" data-country="Italia" data-concept="Luna de miel - Italia - Los secretos de los Médici">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>En lo alto del Renacimiento</h5><small>Florencia · Cúpula de Brunelleschi</small></div></div><p>Subir a la cúpula de Santa María del Fiore y contemplar Florencia desde las alturas; hay numerosos escalones.</p><button class="honeymoon-choose" type="button" data-experience="En lo alto del Renacimiento" data-country="Italia" data-concept="Luna de miel - Italia - En lo alto del Renacimiento">Elegir esta experiencia</button></article></div></details><details class="honeymoon-country"><summary>México · Puerto Escondido <span>5 experiencias</span></summary><div class="honeymoon-experience-grid"><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Atardecer en velero por la costa</h5><small>Puerto Escondido · Oaxaca</small></div></div><p>Navegar en pareja frente a la costa oaxaqueña y contemplar el atardecer.</p><button class="honeymoon-choose" type="button" data-experience="Atardecer en velero por la costa" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Atardecer en velero por la costa">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Clase de cocina oaxaqueña para dos</h5><small>Puerto Escondido</small></div></div><p>Preparar recetas tradicionales, conocer ingredientes regionales y disfrutar lo cocinado.</p><button class="honeymoon-choose" type="button" data-experience="Clase de cocina oaxaqueña para dos" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Clase de cocina oaxaqueña para dos">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Liberación responsable de tortugas</h5><small>Costa de Oaxaca</small></div></div><p>Conocer un proyecto autorizado de conservación y participar en una actividad guiada, sujeto a temporada.</p><button class="honeymoon-choose" type="button" data-experience="Liberación responsable de tortugas" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Liberación responsable de tortugas">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Experiencia de surf en pareja</h5><small>Playa Carrizalillo / Puerto Escondido</small></div></div><p>Tomar una clase de surf con instructor en una playa apropiada para su nivel.</p><button class="honeymoon-choose" type="button" data-experience="Experiencia de surf en pareja" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Experiencia de surf en pareja">Elegir esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Cena romántica frente al Pacífico</h5><small>Puerto Escondido</small></div></div><p>Disfrutar mariscos y cocina local en una cena especial junto al mar.</p><button class="honeymoon-choose" type="button" data-experience="Cena romántica frente al Pacífico" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Cena romántica frente al Pacífico">Elegir esta experiencia</button></article></div></details></div><div class="honeymoon-selection" id="honeymoonSelection" hidden><strong>Tu experiencia elegida</strong><p id="honeymoonSelectionName"></p><p>Para regalarnos esta experiencia puedes aportar lo que tú quieras. Realiza la transferencia a nuestra cuenta BBVA y utiliza esta referencia para ayudarnos a identificarla:</p><code id="honeymoonConcept"></code><button type="button" class="secondary-btn registry-action" id="copyHoneymoonConcept">Copiar concepto</button><p class="form-hint" id="honeymoonCopyStatus" aria-live="polite"></p><p class="registry-setup"><strong>BBVA</strong> · Karen Andrea Nuñez Olmedo<br><strong>CLABE:</strong> <span id="experienceClabe">012320004560740228</span></p><button type="button" class="secondary-btn registry-action" id="copyExperienceClabe">Copiar CLABE</button><p class="form-hint" id="experienceClabeStatus" aria-live="polite"></p><form id="honeymoonContributionForm" name="aportaciones-luna-miel" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-<input type="hidden" name="form-name" value="aportaciones-luna-miel">
-<p hidden><label>No llenar <input name="bot-field"></label></p>
-<input type="hidden" name="experience" id="contributionExperience" value="">
-<input type="hidden" name="country" id="contributionCountry" value="">
-<input type="hidden" name="reference" id="contributionReference" value="">
-<label>Tu nombre<input name="guestName" required maxlength="100" autocomplete="name" placeholder="Para poder agradecerte"></label>
-<label>¿Cuánto te gustaría aportar? (MXN)<input name="amountMXN" id="contributionAmount" type="number" inputmode="numeric" min="1" step="1" placeholder="El monto que tú elijas" required></label>
-
-<label class="contribution-check"><input name="sentTransfer" type="checkbox" value="yes" required> Sé que debo hacer la transferencia por separado y que esta selección nos ayuda a identificar mi aportación.</label>
-<button class="secondary-btn registry-action" type="submit" id="sendContributionIntent">Compartir mi aportación</button>
-<p class="form-hint" id="contributionStatus" aria-live="polite"></p>
-</form>
+  <article class="registry-option"><span class="registry-symbol">↗</span><h4>Transferencia electrónica</h4><p>Si prefieres hacer una aportación de cualquier monto, será recibida con mucho cariño.</p><label class="wedding-bank-label" for="giftBankChoice">Elige tu banco</label><select id="giftBankChoice" class="wedding-bank-select" aria-label="Banco para transferencia"><option value="actinver">Actinver (opción principal)</option><option value="bbva">BBVA (otra opción)</option></select><p class="registry-setup"><strong>CLABE:</strong> <span id="giftClabe">133320000076651933</span></p><button type="button" class="secondary-btn registry-action" id="copyGiftClabe">Copiar CLABE</button><p class="form-hint" id="copyGiftClabeStatus" aria-live="polite"></p></article>
+  <article class="registry-option registry-honeymoon"><span class="registry-symbol">☼</span><h4>Experiencias para nuestra luna de miel</h4><p>Ayúdanos a escribir nuestra primera aventura como esposos: historia, mitología, gastronomía y momentos inolvidables en Puerto Escondido, Grecia, Turquía e Italia.</p><p class="honeymoon-explainer">Elige la experiencia que te gustaría regalarnos y aporta la cantidad que tú prefieras. Cada detalle será parte de nuestra historia.</p><div class="honeymoon-countries"><details class="honeymoon-country" open><summary>México · Puerto Escondido <span>5 experiencias</span></summary><div class="honeymoon-experience-grid"><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Atardecer en velero por la costa</h5><small>Puerto Escondido · Oaxaca</small></div></div><p>Navegar en pareja frente a la costa oaxaqueña y contemplar el atardecer.</p><button class="honeymoon-choose" type="button" data-experience="Atardecer en velero por la costa" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Atardecer en velero por la costa">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Clase de cocina oaxaqueña para dos</h5><small>Puerto Escondido</small></div></div><p>Preparar recetas tradicionales, conocer ingredientes regionales y disfrutar lo cocinado.</p><button class="honeymoon-choose" type="button" data-experience="Clase de cocina oaxaqueña para dos" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Clase de cocina oaxaqueña para dos">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Liberación responsable de tortugas</h5><small>Costa de Oaxaca</small></div></div><p>Conocer un proyecto autorizado de conservación y participar en una actividad guiada, sujeto a temporada.</p><button class="honeymoon-choose" type="button" data-experience="Liberación responsable de tortugas" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Liberación responsable de tortugas">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Experiencia de surf en pareja</h5><small>Playa Carrizalillo / Puerto Escondido</small></div></div><p>Tomar una clase de surf con instructor en una playa apropiada para su nivel.</p><button class="honeymoon-choose" type="button" data-experience="Experiencia de surf en pareja" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Experiencia de surf en pareja">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Cena romántica frente al Pacífico</h5><small>Puerto Escondido</small></div></div><p>Disfrutar mariscos y cocina local en una cena especial junto al mar.</p><button class="honeymoon-choose" type="button" data-experience="Cena romántica frente al Pacífico" data-country="México · Puerto Escondido" data-concept="Luna de miel - Puerto Escondido - Cena romántica frente al Pacífico">Regalar esta experiencia</button></article></div></details><details class="honeymoon-country"><summary>Grecia <span>7 experiencias</span></summary><div class="honeymoon-experience-grid"><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>El laberinto del Minotauro</h5><small>Creta · Palacio de Cnosos</small></div></div><p>Recorrer el antiguo palacio minoico y descubrir los relatos del laberinto y el Minotauro.</p><button class="honeymoon-choose" type="button" data-experience="El laberinto del Minotauro" data-country="Grecia" data-concept="Luna de miel - Grecia - El laberinto del Minotauro">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Nuestra propia Odisea</h5><small>Ítaca</small></div></div><p>Navegar por la isla vinculada al regreso de Odiseo y descubrir sus calas.</p><button class="honeymoon-choose" type="button" data-experience="Nuestra propia Odisea" data-country="Grecia" data-concept="Luna de miel - Grecia - Nuestra propia Odisea">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>El oráculo de Apolo</h5><small>Delfos</small></div></div><p>Explorar el santuario y sus misterios con un guía especializado.</p><button class="honeymoon-choose" type="button" data-experience="El oráculo de Apolo" data-country="Grecia" data-concept="Luna de miel - Grecia - El oráculo de Apolo">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Tras las huellas de Atenea</h5><small>Atenas · Acrópolis</small></div></div><p>Visitar el Partenón y conocer el mundo de la antigua Atenas.</p><button class="honeymoon-choose" type="button" data-experience="Tras las huellas de Atenea" data-country="Grecia" data-concept="Luna de miel - Grecia - Tras las huellas de Atenea">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Un atardecer sobre el Egeo</h5><small>Santorini</small></div></div><p>Navegar juntos en un catamarán mientras cae el sol sobre la caldera.</p><button class="honeymoon-choose" type="button" data-experience="Un atardecer sobre el Egeo" data-country="Grecia" data-concept="Luna de miel - Grecia - Un atardecer sobre el Egeo">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Una cena bajo el cielo de Oía</h5><small>Santorini · Oía</small></div></div><p>Compartir una cena romántica con vistas al mar Egeo.</p><button class="honeymoon-choose" type="button" data-experience="Una cena bajo el cielo de Oía" data-country="Grecia" data-concept="Luna de miel - Grecia - Una cena bajo el cielo de Oía">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Los sabores de una isla griega</h5><small>Naxos</small></div></div><p>Descubrir pueblos y probar quesos, dulces y especialidades locales.</p><button class="honeymoon-choose" type="button" data-experience="Los sabores de una isla griega" data-country="Grecia" data-concept="Luna de miel - Grecia - Los sabores de una isla griega">Regalar esta experiencia</button></article></div></details><details class="honeymoon-country" ><summary>Turquía <span>7 experiencias</span></summary><div class="honeymoon-experience-grid"><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Los secretos bajo tierra</h5><small>Capadocia · Derinkuyu</small></div></div><p>Explorar túneles y cámaras de una antigua ciudad subterránea.</p><button class="honeymoon-choose" type="button" data-experience="Los secretos bajo tierra" data-country="Turquía" data-concept="Luna de miel - Turquía - Los secretos bajo tierra">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Una ciudad de mármol</h5><small>Selçuk · Éfeso</small></div></div><p>Pasear por las calles y monumentos de la antigua ciudad grecorromana.</p><button class="honeymoon-choose" type="button" data-experience="Una ciudad de mármol" data-country="Turquía" data-concept="Luna de miel - Turquía - Una ciudad de mármol">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Entre dos imperios</h5><small>Estambul</small></div></div><p>Recorrer monumentos bizantinos y otomanos con un guía histórico.</p><button class="honeymoon-choose" type="button" data-experience="Entre dos imperios" data-country="Turquía" data-concept="Luna de miel - Turquía - Entre dos imperios">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Sabores y especias de Estambul</h5><small>Estambul</small></div></div><p>Conocer mercados, puestos locales y la gastronomía tradicional turca.</p><button class="honeymoon-choose" type="button" data-experience="Sabores y especias de Estambul" data-country="Turquía" data-concept="Luna de miel - Turquía - Sabores y especias de Estambul">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Las terrazas de algodón</h5><small>Pamukkale</small></div></div><p>Admirar las terrazas blancas y recorrer la antigua Hierápolis.</p><button class="honeymoon-choose" type="button" data-experience="Las terrazas de algodón" data-country="Turquía" data-concept="Luna de miel - Turquía - Las terrazas de algodón">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Un amanecer entre las nubes</h5><small>Capadocia</small></div></div><p>Sobrevolar los valles en globo al amanecer, si el tiempo lo permite.</p><button class="honeymoon-choose" type="button" data-experience="Un amanecer entre las nubes" data-country="Turquía" data-concept="Luna de miel - Turquía - Un amanecer entre las nubes">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Una travesía entre continentes</h5><small>Estambul · Bósforo</small></div></div><p>Navegar en privado entre Europa y Asia al atardecer.</p><button class="honeymoon-choose" type="button" data-experience="Una travesía entre continentes" data-country="Turquía" data-concept="Luna de miel - Turquía - Una travesía entre continentes">Regalar esta experiencia</button></article></div></details><details class="honeymoon-country" ><summary>Italia <span>7 experiencias</span></summary><div class="honeymoon-experience-grid"><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Los pasadizos de los gladiadores</h5><small>Roma · Coliseo</small></div></div><p>Descender a los espacios subterráneos del anfiteatro romano.</p><button class="honeymoon-choose" type="button" data-experience="Los pasadizos de los gladiadores" data-country="Italia" data-concept="Luna de miel - Italia - Los pasadizos de los gladiadores">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Un viaje a Pompeya</h5><small>Campania</small></div></div><p>Explorar una ciudad romana preservada por la erupción del Vesubio.</p><button class="honeymoon-choose" type="button" data-experience="Un viaje a Pompeya" data-country="Italia" data-concept="Luna de miel - Italia - Un viaje a Pompeya">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Nuestra primera pizza napolitana</h5><small>Nápoles</small></div></div><p>Aprender juntos el arte de preparar una auténtica pizza napolitana.</p><button class="honeymoon-choose" type="button" data-experience="Nuestra primera pizza napolitana" data-country="Italia" data-concept="Luna de miel - Italia - Nuestra primera pizza napolitana">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>El tesoro escondido de Toscana</h5><small>Toscana</small></div></div><p>Buscar trufas con un guía y su perro y disfrutar una degustación.</p><button class="honeymoon-choose" type="button" data-experience="El tesoro escondido de Toscana" data-country="Italia" data-concept="Luna de miel - Italia - El tesoro escondido de Toscana">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Amor entre canales</h5><small>Venecia</small></div></div><p>Compartir un paseo tradicional en góndola por los canales.</p><button class="honeymoon-choose" type="button" data-experience="Amor entre canales" data-country="Italia" data-concept="Luna de miel - Italia - Amor entre canales">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>Los secretos de los Médici</h5><small>Florencia · Uffizi y Corredor de Vasari</small></div></div><p>Descubrir las obras del Renacimiento y un corredor histórico de la familia Médici; requiere disponibilidad y reserva.</p><button class="honeymoon-choose" type="button" data-experience="Los secretos de los Médici" data-country="Italia" data-concept="Luna de miel - Italia - Los secretos de los Médici">Regalar esta experiencia</button></article><article class="honeymoon-experience"><div class="honeymoon-experience-head"><div><h5>En lo alto del Renacimiento</h5><small>Florencia · Cúpula de Brunelleschi</small></div></div><p>Subir a la cúpula de Santa María del Fiore y contemplar Florencia desde las alturas; hay numerosos escalones.</p><button class="honeymoon-choose" type="button" data-experience="En lo alto del Renacimiento" data-country="Italia" data-concept="Luna de miel - Italia - En lo alto del Renacimiento">Regalar esta experiencia</button></article></div></details><div class="honeymoon-selection" id="honeymoonSelection" hidden>
+<p class="eyebrow">UN REGALO PARA NUESTRA LUNA DE MIEL</p>
+<h5>¡Gracias por elegir esta experiencia! ♡</h5>
+<p id="honeymoonSelectionName" class="chosen-experience"></p>
+<p>Puedes aportar la cantidad que tú prefieras. Para regalarnos esta experiencia, copia los datos y realiza tu transferencia desde la aplicación de tu banco.</p>
+<label class="wedding-bank-label" for="experienceBankChoice">Elige tu banco</label>
+<select id="experienceBankChoice" class="wedding-bank-select" aria-label="Banco para regalar esta experiencia"><option value="actinver">Actinver (opción principal)</option><option value="bbva">BBVA (otra opción)</option></select>
+<div class="experience-transfer-card">
+  <div><small>Banco</small><strong id="experienceBank">Actinver</strong></div>
+  <div><small>CLABE</small><strong id="experienceClabe">133320000076651933</strong></div>
+  <div><small>Concepto sugerido</small><strong id="honeymoonConcept"></strong></div>
+</div>
+<div class="experience-transfer-actions">
+  <button type="button" class="secondary-btn registry-action experience-copy-primary" id="copyAllExperienceDetails">Copiar datos para transferir</button>
+  <button type="button" class="secondary-btn registry-action" id="copyExperienceClabe">Copiar CLABE</button>
+  <button type="button" class="secondary-btn registry-action" id="copyHoneymoonConcept">Copiar concepto</button>
+</div>
+<p class="form-hint" id="experienceCopyStatus" aria-live="polite"></p>
+<details class="experience-notify" id="experienceNotifyDetails">
+  <summary>Ya hice mi transferencia</summary>
+  <p>Cuéntanos quién nos regaló esta experiencia, para identificar tu aportación y darte las gracias. Este aviso no realiza ningún cobro.</p>
+  <form id="honeymoonContributionForm" name="aportaciones-luna-miel" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="aportaciones-luna-miel">
+    <p hidden><label>No llenar <input name="bot-field"></label></p>
+    <input type="hidden" name="experience" id="contributionExperience" value="">
+    <input type="hidden" name="country" id="contributionCountry" value="">
+    <input type="hidden" name="reference" id="contributionReference" value="">
+    <label>Tu nombre<input name="guestName" required maxlength="100" autocomplete="name" placeholder="Tu nombre"></label>
+    <label>Monto que transferiste (MXN)<input name="amountMXN" id="contributionAmount" type="number" inputmode="numeric" min="1" step="1" placeholder="Monto" required></label>
+    <button class="secondary-btn registry-action" type="submit" id="sendContributionIntent">Avisar que ya transferí</button>
+    <p class="form-hint" id="contributionStatus" role="status" aria-live="polite"></p>
+  </form>
+</details>
 </div></article>
 </div>
 <p class="fineprint">Para las mesas externas, la compra se realiza directamente en la tienda. No solicitamos datos bancarios en esta invitación.</p>
@@ -4517,7 +4531,7 @@ const RSVP_GUESTS = {
     "option": "A"
   },
   "JP-HP06": {
-    "name": "Fam. Garcia",
+    "name": "Fam. Garcia Calzadillas",
     "seats": 2,
     "host": "Juan Pablo",
     "option": "A"
@@ -4553,7 +4567,7 @@ const RSVP_GUESTS = {
     "option": "A"
   },
   "JP-GO12": {
-    "name": "Fam. Gonzalez",
+    "name": "Fam. Gonzalez Vasquez",
     "seats": 2,
     "host": "Juan Pablo",
     "option": "A"
@@ -4584,7 +4598,7 @@ const RSVP_GUESTS = {
   },
   "JP-SP17": {
     "name": "Sebastian Perez",
-    "seats": 1,
+    "seats": 2,
     "host": "Juan Pablo",
     "option": "A"
   },
@@ -4596,7 +4610,7 @@ const RSVP_GUESTS = {
   },
   "JP-EC19": {
     "name": "Edgar Caratachea",
-    "seats": 1,
+    "seats": 2,
     "host": "Juan Pablo",
     "option": "A"
   },
@@ -4694,19 +4708,19 @@ const RSVP_GUESTS = {
     "name": "Rafael Correa",
     "seats": 2,
     "host": "Juan Pablo",
-    "option": "B"
+    "option": "A"
   },
   "JP-AD37": {
     "name": "Arat Duran",
-    "seats": 1,
+    "seats": 2,
     "host": "Juan Pablo",
-    "option": "B"
+    "option": "A"
   },
   "JP-GO38": {
     "name": "Gabi Ortiz",
     "seats": 2,
     "host": "Juan Pablo",
-    "option": "B"
+    "option": "A"
   },
   "JP-ML39": {
     "name": "Micky y Lucila",
@@ -5008,9 +5022,15 @@ const RSVP_GUESTS = {
     "host": "Karen",
     "option": "B"
   },
-  "KA-048": {
-    "name": "Arturo Calderon",
-    "seats": 2,
+  "KA-049": {
+    "name": "Laura Rodriguez",
+    "seats": 1,
+    "host": "Karen",
+    "option": "B"
+  },
+  "KA-050": {
+    "name": "Lupita Guzman",
+    "seats": 1,
     "host": "Karen",
     "option": "B"
   }
@@ -5178,6 +5198,29 @@ if(memoryCarousel && memorySlides.length){
 
 </script>
 <script>
+// La pareja ha elegido Actinver como opción principal y BBVA como alternativa.
+(function(){
+  const bankDetails={
+    actinver:{bank:'Actinver',clabe:'133320000076651933'},
+    bbva:{bank:'BBVA',clabe:'012320004560740228'}
+  };
+  const selectors=['giftBankChoice','experienceBankChoice'].map(id=>document.getElementById(id));
+  function selectBank(id){
+    const detail=bankDetails[id] || bankDetails.actinver;
+    selectors.forEach(s=>{if(s) s.value=id;});
+    document.getElementById('giftClabe').textContent=detail.clabe;
+    document.getElementById('experienceClabe').textContent=detail.clabe;
+    document.getElementById('experienceBank').textContent=detail.bank;
+    for(const statusId of ['copyGiftClabeStatus','experienceCopyStatus']){
+      const s=document.getElementById(statusId);
+      if(s) s.textContent='';
+    }
+  }
+  selectors.forEach(s=>s?.addEventListener('change',()=>selectBank(s.value)));
+  selectBank('actinver');
+})();
+</script>
+<script>
 (function(){
  const btn=document.getElementById('copyGiftClabe');
  const status=document.getElementById('copyGiftClabeStatus');
@@ -5194,62 +5237,79 @@ if(memoryCarousel && memorySlides.length){
 })();
 </script>
 <script>
-// Seleccion de experiencia: no cobra ni registra pagos.
+// Regalos de luna de miel: la selección muestra datos para transferir; no procesa pagos.
 (function(){
   const panel=document.getElementById('honeymoonSelection');
   const name=document.getElementById('honeymoonSelectionName');
   const concept=document.getElementById('honeymoonConcept');
-  const copyButton=document.getElementById('copyHoneymoonConcept');
-  const status=document.getElementById('honeymoonCopyStatus');
-  document.querySelectorAll('.honeymoon-choose').forEach(button=>{
-    button.addEventListener('click',()=>{
-      const selected=button.dataset.experience;
-      const country=button.dataset.country;
-      name.textContent=selected+' · '+country;
-      const prefix=country.startsWith('México')?'OAX':(country==='Grecia'?'GR':(country==='Turquía'?'TR':'IT'));
-      const i=Array.from(document.querySelectorAll('.honeymoon-choose')).filter(b=>b.dataset.country===country).indexOf(button)+1;
-      const reference='LM-'+prefix+String(i).padStart(2,'0');
-      concept.textContent=reference;
-      document.getElementById('contributionReference').value=reference;
-      status.textContent='';
-      document.getElementById('contributionExperience').value=selected;
-      document.getElementById('contributionCountry').value=country;
-      document.getElementById('contributionStatus').textContent='';
-      panel.hidden=false;
-      panel.scrollIntoView({behavior:'smooth',block:'nearest'});
-    });
-  });
-  const contributionForm=document.getElementById('honeymoonContributionForm');
-  contributionForm?.addEventListener('submit',async(event)=>{
-    event.preventDefault();
-    const formStatus=document.getElementById('contributionStatus');
-    if (!contributionForm.reportValidity()) return;
-    const amount=Number(document.getElementById('contributionAmount').value);
-    if(!Number.isFinite(amount)||amount<=0){formStatus.textContent='Escribe el monto que deseas aportar.';return;}
-    const send=document.getElementById('sendContributionIntent');send.disabled=true;
-    formStatus.textContent='Guardando tu elección…';
+  const status=document.getElementById('experienceCopyStatus');
+  const notify=document.getElementById('experienceNotifyDetails');
+  const buttons=Array.from(document.querySelectorAll('.honeymoon-choose'));
+  if(!panel || !name || !concept) return;
+  const attr=(id)=>document.getElementById(id)?.textContent?.trim() || '';
+  function transferDetails(){
+    return 'Banco: '+attr('experienceBank')+'\n'+
+      'CLABE: '+attr('experienceClabe')+'\n'+
+      'Concepto: '+attr('honeymoonConcept');
+  }
+  async function copy(text,done){
     try{
-      const body=new URLSearchParams(new FormData(contributionForm));
-      const response=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()});
-      if(!response.ok)throw new Error('Respuesta '+response.status);
-      formStatus.textContent='¡Gracias por ser parte de nuestra aventura! Si todavía no realizaste la transferencia, puedes usar los datos de BBVA de arriba.';
-      contributionForm.reset();
+      if(navigator.clipboard && window.isSecureContext){ await navigator.clipboard.writeText(text); }
+      else{
+        const input=document.createElement('textarea');
+        input.value=text; input.style.position='fixed'; input.style.opacity='0';
+        document.body.appendChild(input); input.select();
+        const ok=document.execCommand('copy'); input.remove();
+        if(!ok) throw new Error('Copiado no disponible');
+      }
+      status.textContent=done;
+    }catch(_){
+      status.textContent='No fue posible copiar automáticamente. Mantén presionado el dato para copiarlo.';
+    }
+  }
+  buttons.forEach(button=>button.addEventListener('click',()=>{
+    const selected=button.dataset.experience || '';
+    const country=button.dataset.country || '';
+    name.textContent=selected+' · '+country;
+    const prefix=country.startsWith('México')?'OAX':(country==='Grecia'?'GR':(country==='Turquía'?'TR':'IT'));
+    const idx=buttons.filter(b=>b.dataset.country===country).indexOf(button)+1;
+    const reference='LM-'+prefix+String(idx).padStart(2,'0');
+    concept.textContent=reference;
+    document.getElementById('contributionExperience').value=selected;
+    document.getElementById('contributionCountry').value=country;
+    document.getElementById('contributionReference').value=reference;
+    document.getElementById('contributionStatus').textContent='';
+    status.textContent='';
+    notify.open=false;
+    panel.hidden=false;
+    panel.scrollIntoView({behavior:'smooth',block:'start'});
+  }));
+  document.getElementById('copyAllExperienceDetails')?.addEventListener('click',()=>
+    copy(transferDetails(),'Datos copiados. Ya puedes abrir tu aplicación bancaria.'));
+  document.getElementById('copyExperienceClabe')?.addEventListener('click',()=>
+    copy(attr('experienceClabe'),'CLABE copiada.'));
+  document.getElementById('copyHoneymoonConcept')?.addEventListener('click',()=>
+    copy(attr('honeymoonConcept'),'Concepto copiado.'));
+
+  const form=document.getElementById('honeymoonContributionForm');
+  form?.addEventListener('submit',async(event)=>{
+    event.preventDefault();
+    if(!form.reportValidity()) return;
+    const feedback=document.getElementById('contributionStatus');
+    const submit=document.getElementById('sendContributionIntent');
+    const amount=Number(document.getElementById('contributionAmount').value);
+    if(!Number.isFinite(amount) || amount<=0){feedback.textContent='Escribe el monto que transferiste.';return;}
+    submit.disabled=true;
+    feedback.textContent='Enviando tu aviso…';
+    try{
+      const data=new URLSearchParams(new FormData(form));
+      const response=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()});
+      if(!response.ok) throw new Error('Respuesta '+response.status);
+      feedback.textContent='¡Muchas gracias! Recibimos tu aviso. Revisaremos la transferencia para confirmarla.';
       document.getElementById('contributionAmount').value='';
-      document.getElementById('contributionExperience').value=name.textContent.split(' · ')[0];
-      document.getElementById('contributionCountry').value=name.textContent.split(' · ').slice(1).join(' · ');
-      document.getElementById('contributionReference').value=concept.textContent;
-    }catch(e){formStatus.textContent='No pudimos guardar tu elección. Inténtalo nuevamente o avísanos directamente. No repitas ninguna transferencia por este mensaje.';}
-    finally{send.disabled=false;}
-  });
-  const copyClabe=document.getElementById('copyExperienceClabe');
-  copyClabe?.addEventListener('click',async()=>{
-    const message=document.getElementById('experienceClabeStatus');
-    try{await navigator.clipboard.writeText('012320004560740228');message.textContent='CLABE copiada.';}
-    catch(_){message.textContent='Mantén presionada la CLABE de arriba para copiarla.';}
-  });
-  copyButton?.addEventListener('click',async()=>{
-    try {await navigator.clipboard.writeText(concept.textContent);status.textContent='Concepto copiado.';}
-    catch(_){status.textContent='Selecciona y copia el concepto mostrado arriba.';}
+    }catch(_){
+      feedback.textContent='No pudimos recibir tu aviso. Puedes contactarnos directamente; no repitas la transferencia.';
+    }finally{submit.disabled=false;}
   });
 })();
 </script>
