@@ -2968,6 +2968,10 @@ footer,footer *{
 .contribution-preset{display:flex;flex-wrap:wrap;gap:7px}
 .contribution-preset button{border:1px solid #a18b78;background:#fff;border-radius:7px;padding:8px 12px;cursor:pointer}
 @media(max-width:650px){.honeymoon-experience-grid{grid-template-columns:1fr;padding:8px}.honeymoon-experience-head{flex-wrap:wrap}}
+
+/* Preguntas frecuentes: acceso claro a la mesa de regalos */
+.faq-gift-button{margin-top:22px;min-height:48px;font-size:16px;line-height:1.35}
+@media(max-width:720px){.faq-gift-button{width:100%;font-size:16px}}
 </style>
 <style>
 /* v13.2 — jerarquía tipográfica minimalista */
@@ -3771,6 +3775,72 @@ html:not(.wedding-enhanced) .reveal { opacity: 1 !important; transform: none !im
 .selected-gift-meter strong{color:#415a4b}
 @media(max-width:530px){.gift-meter{padding:11px 10px}.gift-meter-bottom{font-size:11px}}
 </style>
+
+<style id="guest-readability-nov-2026">
+/* Readable body copy and labels on phone and desktop. */
+html{font-size:18px}
+body{font-size:18px;line-height:1.7}
+.section-copy p,.section-heading p,.detail-lead,.detail-dialog p,
+.stay-more p,.thoughtful-grid p,.registry-option p,.honeymoon-experience p,
+.honeymoon-selection>p,.experience-notify>p,.closing-copy,
+.registry-explainer,.gift-source-list p,.rsvp-invitation-note,
+.faq-answer,.gift-intro p,.gift-invitation p{
+  font-size:18px!important;line-height:1.7!important;
+}
+/* Smaller descriptive paragraphs and card copy: never tiny. */
+.stay-card small,.detail-access-card small,.registry-option small,
+.gift-card-body small,.registry-experiences span,.honeymoon-explainer,
+.gift-meter-explainer,.gift-card b,.hotel-stay-card small{
+  font-size:16px!important;line-height:1.6!important;
+}
+/* Compact metadata and all-caps labels. */
+.nav a,.hero .date,.date,.eyebrow,.section-heading .eyebrow,
+.scroll-cue,.countdown span,.text-link,.photo-placeholder,
+.gift-card .gift-category,.gift-summary span,.gift-filters button,
+.bank-row span,.fineprint,footer,.stay-group-label,
+.dress-minimal-line span,.dress-icon-item span,.dress-icon-item small,
+.dietary-options span,.form-hint,.guest-identity span,
+.rsvp-edit-btn,.rsvp-invitation-note span,.closing-date,.closing-top,
+.honeymoon-country summary span,.honeymoon-experience small,
+.honeymoon-selection small,.experience-transfer-card small,
+.gift-meter-label,.gift-meter-bottom,.selected-gift-meter,
+.gift-meter-goal,.soundtrack-float .music-state,
+.soundtrack-float #musicFloatLabel,
+.gift-card-body b,.stay-card a,.detail-link,.gift-card .gift-category,
+.gift-source-list figcaption{
+  font-size:15px!important;line-height:1.5!important;
+}
+/* Buttons, forms, selected experience and transfer details. */
+button,.primary-btn,.secondary-btn,.registry-action,.honeymoon-choose,
+.honeymoon-selection button,.gift-filters button,
+.experience-notify summary,.wedding-bank-label,
+.wedding-bank-select,.experience-transfer-card strong,
+#honeymoonContributionForm label,label,input,select,textarea,
+.gift-card-visual,.gift-menu-item{
+  font-size:16px!important;
+}
+button,.primary-btn,.secondary-btn,.registry-action,.honeymoon-choose{
+  line-height:1.35!important;
+}
+input,select,textarea{line-height:1.5!important}
+/* Allow bank concept copy to wrap nicely on narrow devices. */
+.experience-transfer-card strong{overflow-wrap:anywhere}
+.experience-name-help{margin:12px 0 15px}
+.experience-name-help label{display:block;font-size:16px!important;font-weight:600;color:#554b42;margin:0 0 7px;line-height:1.5}
+.experience-name-help label{text-transform:none!important;letter-spacing:normal!important}
+.experience-name-help label span{font-size:15px;font-weight:400;color:#72695f}
+.experience-name-help input{display:block;width:100%;padding:12px 14px;min-height:46px;
+  border:1px solid #d7c7b6;border-radius:9px;color:#312d29;background:#fffefa;font-family:inherit}
+.experience-name-help input:focus-visible{outline:2px solid #476a54;outline-offset:2px}
+.experience-name-help p{font-size:15px!important;line-height:1.6!important;color:#655c52;margin:7px 0 0}
+@media(max-width:720px){
+  body{font-size:18px}
+  .countdown span{font-size:14px!important;letter-spacing:.09em}
+  .nav a{font-size:17px!important}
+  .story-gallery .memory-carousel{max-width:100%}
+  .experience-transfer-card{min-width:0}
+}
+</style>
 </head>
 <body id="top">
 <header class="site-header">
@@ -3972,8 +4042,8 @@ html:not(.wedding-enhanced) .reveal { opacity: 1 !important; transform: none !im
 </button>
 <button class="detail-access-card" id="openTransport" type="button">
 <span class="detail-access-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 30h28l-3-10H15z"/><path d="M13 30v6m22-6v6"/><circle cx="17" cy="36" r="2"/><circle cx="31" cy="36" r="2"/><path d="M18 20l3-6h10l3 6"/></svg></span>
-<strong>Transporte</strong>
-<small>Cómo llegar y moverse</small>
+<strong>Cómo llegar</strong>
+<small>Ubicación y estacionamiento</small>
 </button>
 <button class="detail-access-card" id="openFaq" type="button">
 <span class="detail-access-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 12h28v21H22l-8 6v-6h-4z"/><path d="M20 20c0-3 2-5 5-5s5 2 5 5c0 4-5 4-5 8"/><path d="M25 31h.01"/></svg></span>
@@ -4129,6 +4199,11 @@ html:not(.wedding-enhanced) .reveal { opacity: 1 !important; transform: none !im
   <div><small>CLABE</small><strong id="experienceClabe">133320000076651933</strong></div>
   <div><small>Concepto sugerido</small><strong id="honeymoonConcept"></strong></div>
 </div>
+<div class="experience-name-help">
+  <label for="experienceGiftName">Tu nombre <span>(opcional)</span></label>
+  <input id="experienceGiftName" type="text" autocomplete="name" maxlength="24" placeholder="Ej. Ana Pérez" aria-describedby="experienceNameNote">
+  <p id="experienceNameNote">Lo añadiremos al código de la experiencia para identificar tu regalo.</p>
+</div>
 <div class="experience-transfer-actions">
   <button type="button" class="secondary-btn registry-action experience-copy-primary" id="copyAllExperienceDetails">Copiar datos para transferir</button>
   <button type="button" class="secondary-btn registry-action" id="copyExperienceClabe">Copiar CLABE</button>
@@ -4212,7 +4287,7 @@ if (soundtrackCompactToggle && soundtrackCompactPanel) {
 const weddingAudio=document.getElementById("weddingAudio");
 const soundtrackFloat=document.getElementById("soundtrackFloat");
 const weddingAudioStatus=document.getElementById("weddingAudioStatus");
-const weddingTracks=[{src:"cancion-01.mp3",title:"Dying Breed"},{src:"cancion-02.mp3",title:"Ordinary · Wedding Version"}];
+const weddingTracks=[{src:"audio_extraido_7.mp3",title:"Canción 1"},{src:"audio_extraido_5.mp3",title:"Canción 2"},{src:"audio_extraido_3.mp3",title:"Canción 3"}];
 let currentWeddingTrack=0;
 let musicPausedByVisitor=false;
 let musicPlayPending=false;
@@ -4352,7 +4427,7 @@ const DETAIL_PANELS = {
   stay: `
     <p class="eyebrow">PARA QUIENES VIENEN DE FUERA</p>
     <h2>Cerca de nosotros, también esa noche.</h2>
-    <p class="detail-lead">Seleccionamos primero algunas opciones de <strong>hotel</strong> y después alternativas en <strong>Airbnb</strong>, todas cercanas a Hacienda Benazuza. Para Airbnb y La Escoba dejamos preparada la estancia del <strong>19 al 20 de febrero de 2027</strong>. En Hacienda La Magdalena, el sitio oficial abre su motor de reserva directo para elegir esas mismas fechas.</p>
+    <p class="detail-lead">Si necesitas hospedaje, te compartimos algunas opciones de hoteles y Airbnb cercanas a Hacienda Benazuza. Puedes consultar precios, disponibilidad y reservar por tu cuenta.</p>
     <div class="stay-list">
       <div class="stay-group-label">HOTELES</div>
 
@@ -4360,7 +4435,7 @@ const DETAIL_PANELS = {
         <div class="stay-icon">✦</div>
         <div>
           <strong>Hotel Boutique & Spa Hacienda La Escoba</strong>
-          <small>Sobre Carretera a Colotlán · opción cómoda si prefieres servicios de hotel. Enlace preparado para la noche del 19 al 20 de febrero de 2027.</small>
+          <small>Sobre Carretera a Colotlán · opción cómoda si prefieres servicios de hotel. Consulta disponibilidad y precios directamente con el alojamiento.</small>
         </div>
         <a href="${BOOKING_ESCOBA}" target="_blank" rel="noreferrer">Ver disponibilidad ↗</a>
       </article>
@@ -4406,7 +4481,6 @@ const DETAIL_PANELS = {
     <div class="transport-list">
       <div class="transport-row"><div class="stay-icon">⌖</div><div><b>Ubicación</b><p>Abre la ruta directamente en Google Maps.</p><a class="detail-link" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/?api=1&query=Hacienda+Benazuza+Zapopan+Jalisco">Abrir mapa ↗</a></div></div>
       <div class="transport-row"><div class="stay-icon">P</div><div><b>¿Vienes en auto?</b><p>Habrá servicio de valet parking para nuestros invitados.</p></div></div>
-      <div class="transport-row"><div class="stay-icon">↗</div><div><b>Taxi o aplicación</b><p>También puedes llegar en servicio de transporte por aplicación. Para el regreso, recomendamos solicitarlo con anticipación.</p></div></div>
     </div>`,
   faq: `
     <p class="eyebrow">DUDAS RÁPIDAS</p>
@@ -4421,6 +4495,13 @@ const DETAIL_PANELS = {
       <details><summary>¿Tienes alergia o restricción alimentaria?</summary><div class="faq-answer">Puedes indicárnosla directamente al <a href="#rsvp" onclick="document.querySelector('#detailDialog').close()">confirmar tu asistencia</a>. Así podremos considerarla con anticipación.</div></details>
       <details><summary>¿Cuál es el código de vestimenta?</summary><div class="faq-answer">El código es <strong>formal / etiqueta</strong>: smoking o traje formal y vestido formal o de noche. Si lo prefieres, puedes cambiarte a tenis para estar más cómodo al avanzar la fiesta.</div></details>
       <details><summary>¿Dónde puedo hospedarme?</summary><div class="faq-answer">Preparamos algunas opciones cercanas para parejas, familias y grupos. Cierra este panel y entra a <strong>Hospedaje</strong> dentro de Detalles.</div></details>
+
+      <details><summary>¿Cómo funciona la mesa de regalos?</summary><div class="faq-answer">Si quieres tener un detalle con nosotros, puedes elegir un regalo en <strong>Liverpool</strong> o <strong>Amazon</strong>, hacer una transferencia de la cantidad que prefieras o aportar a una experiencia de nuestra luna de miel. Todo es opcional.</div></details>
+      <details><summary>¿Cómo regalo una experiencia de la luna de miel?</summary><div class="faq-answer">Abre la mesa de regalos, elige una experiencia y pulsa <strong>«Regalar esta experiencia»</strong>. Verás cuánto falta para completar su meta. Selecciona Actinver o BBVA, escribe tu nombre si lo deseas y usa <strong>«Copiar datos para transferir»</strong>. Después, realiza la transferencia desde la aplicación de tu banco y pulsa <strong>«Ya hice mi transferencia»</strong> para avisarnos.</div></details>
+      <details><summary>¿Cómo hago una transferencia?</summary><div class="faq-answer">Selecciona <strong>Actinver</strong> (principal) o <strong>BBVA</strong>, copia la CLABE y pégala como cuenta destino en tu aplicación bancaria. Indica el monto que quieras regalar, agrega un concepto y revisa los datos antes de confirmar. <strong>La invitación no realiza ningún cobro.</strong></div></details>
+      <details><summary>¿Qué escribo en el concepto de transferencia?</summary><div class="faq-answer">Para una experiencia, utiliza su clave, por ejemplo <strong>LM-OAX01</strong>, y agrega tu nombre si es posible: <strong>LM-OAX01 ANA PEREZ</strong>. La página puede preparar ese concepto para copiarlo. Para un regalo por transferencia sin experiencia, puedes escribir <strong>BODA K JP</strong> seguido de tu nombre. Así nos será más fácil identificar y agradecer tu regalo.</div></details>
+      <details><summary>¿Cómo compro un regalo en Liverpool o Amazon?</summary><div class="faq-answer">En <strong>Liverpool</strong>, pulsa «Buscar en Liverpool» y busca el evento <strong>60057016</strong>. En <strong>Amazon</strong>, pulsa «Ver mesa de regalos en Amazon» para abrir nuestra lista. Elige el producto que prefieras y completa la compra directamente en la tienda.</div></details>
+      <button type="button" class="secondary-btn faq-gift-button" data-open-registry>Ver mesa de regalos</button>
     </div>`
 };
 
@@ -4433,6 +4514,12 @@ function openDetailPanel(type, mark){
 $("#openStay").addEventListener("click",()=>openDetailPanel("stay","⌂"));
 $("#openTransport").addEventListener("click",()=>openDetailPanel("transport","⌖"));
 $("#openFaq").addEventListener("click",()=>openDetailPanel("faq","?"));
+// Open the existing gift catalog directly from the FAQ, without opening a second dialog over the first.
+detailDialogBody.addEventListener("click", (event) => {
+  if (!event.target.closest("[data-open-registry]")) return;
+  detailDialog.close();
+  document.getElementById("openGiftCatalog")?.click();
+});
 $("#closeDetailDialog").addEventListener("click",()=>detailDialog.close());
 
 // Restricciones alimentarias por asistente, manteniendo campos compatibles con Netlify Forms.
@@ -5262,11 +5349,27 @@ if(memoryCarousel && memorySlides.length){
   const panel=document.getElementById('honeymoonSelection');
   const name=document.getElementById('honeymoonSelectionName');
   const concept=document.getElementById('honeymoonConcept');
+  const giftNameInput=document.getElementById('experienceGiftName');
   const status=document.getElementById('experienceCopyStatus');
   const notify=document.getElementById('experienceNotifyDetails');
   const buttons=Array.from(document.querySelectorAll('.honeymoon-choose'));
   if(!panel || !name || !concept) return;
   const attr=(id)=>document.getElementById(id)?.textContent?.trim() || '';
+  // Preserve the experience code. The name is optional and stays editable.
+  function displayGiftConcept(){
+    const code=concept.dataset.reference || '';
+    const guest=(giftNameInput?.value || '')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .replace(/[^a-zA-Z0-9 ]/g,' ').replace(/\s+/g,' ').trim()
+      .toUpperCase().slice(0,20);
+    concept.textContent=code + (guest ? ' '+guest : '');
+  }
+  giftNameInput?.addEventListener('input',displayGiftConcept);
+  giftNameInput?.addEventListener('change',()=>{
+    const form=document.getElementById('honeymoonContributionForm');
+    const guestName=form?.querySelector('[name="guestName"]');
+    if(guestName && giftNameInput.value.trim()) guestName.value=giftNameInput.value.trim();
+  });
   function transferDetails(){
     return 'Banco: '+attr('experienceBank')+'\n'+
       'CLABE: '+attr('experienceClabe')+'\n'+
@@ -5294,7 +5397,9 @@ if(memoryCarousel && memorySlides.length){
     const prefix=country.startsWith('México')?'OAX':(country==='Grecia'?'GR':(country==='Turquía'?'TR':'IT'));
     const idx=buttons.filter(b=>b.dataset.country===country).indexOf(button)+1;
     const reference='LM-'+prefix+String(idx).padStart(2,'0');
-    concept.textContent=reference;
+    concept.dataset.reference=reference;
+    if(giftNameInput) giftNameInput.value='';
+    displayGiftConcept();
     document.getElementById('contributionExperience').value=selected;
     document.getElementById('contributionCountry').value=country;
     document.getElementById('contributionReference').value=reference;
@@ -5312,6 +5417,12 @@ if(memoryCarousel && memorySlides.length){
     copy(attr('honeymoonConcept'),'Concepto copiado.'));
 
   const form=document.getElementById('honeymoonContributionForm');
+  notify?.addEventListener('toggle',()=>{
+    if(notify.open && giftNameInput?.value.trim()){
+      const guestName=form?.querySelector('[name="guestName"]');
+      if(guestName && !guestName.value.trim()) guestName.value=giftNameInput.value.trim();
+    }
+  });
   form?.addEventListener('submit',async(event)=>{
     event.preventDefault();
     if(!form.reportValidity()) return;
