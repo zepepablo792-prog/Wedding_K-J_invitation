@@ -2969,9 +2969,11 @@ footer,footer *{
 .contribution-preset button{border:1px solid #a18b78;background:#fff;border-radius:7px;padding:8px 12px;cursor:pointer}
 @media(max-width:650px){.honeymoon-experience-grid{grid-template-columns:1fr;padding:8px}.honeymoon-experience-head{flex-wrap:wrap}}
 
-/* Preguntas frecuentes: acceso claro a la mesa de regalos */
-.faq-gift-button{margin-top:22px;min-height:48px;font-size:16px;line-height:1.35}
-@media(max-width:720px){.faq-gift-button{width:100%;font-size:16px}}
+
+/* Galería: la primera imagen siempre es visible al cargar; el carrusel
+   puede mostrar después cualquiera de las otras seis. */
+.story-gallery .memory-slide:first-child:not(.is-active) { pointer-events:none; }
+.story-gallery .memory-slide.is-active { display:block; opacity:1; visibility:visible; z-index:2; }
 </style>
 <style>
 /* v13.2 — jerarquía tipográfica minimalista */
@@ -3864,6 +3866,36 @@ input,select,textarea{line-height:1.5!important}
   .detail-dialog-body .stay-more-cta{width:100%;min-height:50px}
 }
 </style>
+
+<style id="faq-tipografia-unificada">
+/* Preguntas prácticas, con las mismas familias tipográficas de la invitación. */
+#detailDialogBody .faq-minimal summary {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(22px, 4vw, 26px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+#detailDialogBody .faq-answer {
+  /* Misma tipografía que el texto de la invitación; no usar sans-serif en las respuestas. */
+  font-family: "Higuen Elegant", "Cormorant Garamond", Georgia, serif !important;
+  font-size: 19px !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  letter-spacing: normal !important;
+}
+#detailDialogBody .faq-answer strong,
+#detailDialogBody .faq-answer a {
+  font-family: "Higuen Elegant", "Cormorant Garamond", Georgia, serif !important;
+}
+#detailDialogBody:has(.faq-minimal) h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+}
+@media (max-width: 720px) {
+  #detailDialogBody .faq-minimal summary {font-size: 23px;}
+}
+</style>
 </head>
 <body id="top">
 <header class="site-header">
@@ -4042,13 +4074,13 @@ input,select,textarea{line-height:1.5!important}
 <section class="section gallery story-gallery" id="galeria">
 <h2 class="sr-only">Fotografías de Karen y Juan Pablo</h2>
 <div class="memory-carousel" aria-label="Fotografías de Karen y Juan Pablo">
-<figure class="memory-slide is-active"><img alt="Fotografía 1 de Karen y Juan Pablo" src="foto-01.webp" decoding="async" fetchpriority="high"/></figure>
-<figure class="memory-slide"><img alt="Fotografía 2 de Karen y Juan Pablo" src="foto-02.webp" decoding="async"/></figure>
-<figure class="memory-slide"><img alt="Fotografía 3 de Karen y Juan Pablo" src="foto-03.webp" decoding="async"/></figure>
-<figure class="memory-slide"><img alt="Fotografía 4 de Karen y Juan Pablo" src="foto-04.webp" decoding="async"/></figure>
-<figure class="memory-slide"><img alt="Fotografía 5 de Karen y Juan Pablo" src="foto-05.webp" decoding="async"/></figure>
-<figure class="memory-slide"><img alt="Fotografía 6 de Karen y Juan Pablo" src="foto-06.webp" decoding="async"/></figure>
-<figure class="memory-slide"><img alt="Fotografía 7 de Karen y Juan Pablo" src="foto-07.webp" decoding="async"/></figure>
+<figure class="memory-slide is-active"><img alt="Fotografía 1 de Karen y Juan Pablo" src="https://karen-juan-pablo-boda.netlify.app/foto-01.webp" decoding="async" fetchpriority="high"/></figure>
+<figure class="memory-slide"><img alt="Fotografía 2 de Karen y Juan Pablo" src="https://karen-juan-pablo-boda.netlify.app/foto-02.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Fotografía 3 de Karen y Juan Pablo" src="https://karen-juan-pablo-boda.netlify.app/foto-03.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Fotografía 4 de Karen y Juan Pablo" src="https://karen-juan-pablo-boda.netlify.app/foto-04.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Fotografía 5 de Karen y Juan Pablo" src="https://karen-juan-pablo-boda.netlify.app/foto-05.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Fotografía 6 de Karen y Juan Pablo" src="https://karen-juan-pablo-boda.netlify.app/foto-06.webp" decoding="async"/></figure>
+<figure class="memory-slide"><img alt="Fotografía 7 de Karen y Juan Pablo" src="https://karen-juan-pablo-boda.netlify.app/foto-07.webp" decoding="async"/></figure>
 </div>
 </section>
 <section class="section discreet-details" id="detalles">
@@ -4444,59 +4476,96 @@ const STAY_GROUP = "https://www.airbnb.mx/rooms/1457286207499339539?check_in=202
 const STAY_PAIR = "https://www.airbnb.mx/rooms/934086632334812488?check_in=2027-02-19&check_out=2027-02-20&guests=2&adults=2";
 const STAY_FAMILY = "https://www.airbnb.mx/rooms/1177790290043095933?check_in=2027-02-19&check_out=2027-02-20";
 const BOOKING_ESCOBA = "https://www.booking.com/hotel/mx/boutique-amp-spa-hacienda-la-escoba.es-mx.html?checkin=2027-02-19&checkout=2027-02-20&group_adults=2&group_children=0&no_rooms=1";
-const BOOKING_MAGDALENA = "https://www.haciendalamagdalena.com/";
+const BOOKING_MAJAM = "https://www.booking.com/hotel/mx/quinta-majam-cabana-1.es-mx.html?checkin=2027-02-19&checkout=2027-02-20&group_adults=2&no_rooms=1";
+const STAY_CAMPO_PADEL = "https://www.airbnb.mx/rooms/1476487055784380779?check_in=2027-02-19&check_out=2027-02-20";
+const STAY_QUINTA_REINAS = "https://www.airbnb.mx/rooms/10209243?check_in=2027-02-19&check_out=2027-02-20";
+const STAY_PALOMA = "https://www.airbnb.mx/rooms/1482125113272043709?check_in=2027-02-19&check_out=2027-02-20";
+const STAY_ROOF = "https://www.airbnb.mx/rooms/1608900365768711606?check_in=2027-02-19&check_out=2027-02-20";
+const STAY_ALMATERRA = "https://www.airbnb.mx/rooms/1348642036388153176?check_in=2027-02-19&check_out=2027-02-20";
 
 const DETAIL_PANELS = {
   stay: `
     <p class="eyebrow">PARA QUIENES VIENEN DE FUERA</p>
-    <h2>Cerca de nosotros, también esa noche.</h2>
-    <p class="detail-lead">Si necesitas hospedaje, te compartimos algunas opciones de hoteles y Airbnb cercanas a Hacienda Benazuza. Puedes consultar precios, disponibilidad y reservar por tu cuenta.</p>
+    <h2>Opciones para hospedarte cerca.</h2>
+    <p class="detail-lead">Te compartimos algunos alojamientos en la zona de Hacienda Benazuza. Consulta el precio y la disponibilidad para el 19 y 20 de febrero de 2027, y reserva directamente por tu cuenta.</p>
     <div class="stay-more stay-more-visible">
       <div class="stay-more-copy">
         <strong>¿Buscas algo diferente?</strong>
-        <p>Explora otras opciones cercanas para reservar por tu cuenta.</p>
+        <p>Explora otros Airbnb por Tesistán y La Magdalena.</p>
       </div>
-      <a class="stay-more-cta" href="${STAY_AIRBNB_SEARCH}" target="_blank" rel="noopener noreferrer" aria-label="Buscar otros alojamientos en Airbnb, abre en una pestaña nueva">Ver más opciones en Airbnb ↗</a>
+      <a class="stay-more-cta" href="${STAY_AIRBNB_SEARCH}" target="_blank" rel="noopener noreferrer" aria-label="Buscar más opciones en Airbnb, abre una pestaña nueva">Ver más opciones en Airbnb ↗</a>
     </div>
     <div class="stay-list">
-      <div class="stay-group-label">HOTELES</div>
+      <div class="stay-group-label">HOTELES Y CABAÑAS</div>
 
       <article class="stay-card hotel-stay-card">
         <div class="stay-icon">✦</div>
         <div>
-          <strong>Hotel Boutique & Spa Hacienda La Escoba</strong>
-          <small>Sobre Carretera a Colotlán · opción cómoda si prefieres servicios de hotel. Consulta disponibilidad y precios directamente con el alojamiento.</small>
+          <strong>Hotel Boutique &amp; Spa Hacienda La Escoba</strong>
+          <small>Hotel tipo hacienda sobre Carretera a Colotlán · para quienes prefieren una habitación con servicios de hotel. Confirma disponibilidad directamente.</small>
         </div>
-        <a href="${BOOKING_ESCOBA}" target="_blank" rel="noreferrer">Ver disponibilidad ↗</a>
+        <a href="${BOOKING_ESCOBA}" target="_blank" rel="noopener noreferrer">Consultar habitaciones ↗</a>
       </article>
 
       <article class="stay-card hotel-stay-card">
         <div class="stay-icon">✦</div>
         <div>
-          <strong>Hacienda La Magdalena</strong>
-          <small>Hotel boutique tipo hacienda en la misma zona. Su sitio oficial permite reservar directamente con el hotel; selecciona entrada 19 feb 2027 y salida 20 feb 2027.</small>
+          <strong>Quinta Majam Resort</strong>
+          <small>Cabañas y alojamiento rodeado de naturaleza en Villas de Monticello, Zapopan. Consulta disponibilidad y condiciones de hospedaje para la fecha de nuestra boda.</small>
         </div>
-        <a href="${BOOKING_MAGDALENA}" target="_blank" rel="noreferrer">Reservar directo ↗</a>
+        <a href="${BOOKING_MAJAM}" target="_blank" rel="noopener noreferrer">Ver alojamiento ↗</a>
       </article>
 
-      <div class="stay-group-label stay-group-label-airbnb">AIRBNB</div>
+      <div class="stay-group-label stay-group-label-airbnb">AIRBNB · PAREJAS Y GRUPOS PEQUEÑOS</div>
 
       <article class="stay-card">
         <div class="stay-icon">♡</div>
-        <div><strong>Ideal para pareja</strong><small>Departamento con vista increíble · a unos 5 min de Hacienda Benazuza · ideal para 1–2 parejas.</small></div>
-        <a href="${STAY_PAIR}" target="_blank" rel="noreferrer">Ver alojamiento ↗</a>
+        <div><strong>Casa La Paloma · 2 huéspedes</strong><small>Una recámara, patio privado y jacuzzi. Una opción tranquila para una pareja.</small></div>
+        <a href="${STAY_PALOMA}" target="_blank" rel="noopener noreferrer">Ver Airbnb ↗</a>
+      </article>
+
+      <article class="stay-card">
+        <div class="stay-icon">♡</div>
+        <div><strong>Departamento con vista · hasta 4 huéspedes</strong><small>Una recámara y sofá cama; según el anfitrión, a unos 5 minutos de salones como Benazuza.</small></div>
+        <a href="${STAY_PAIR}" target="_blank" rel="noopener noreferrer">Ver Airbnb ↗</a>
       </article>
 
       <article class="stay-card">
         <div class="stay-icon">⌂</div>
-        <div><strong>Familia o amigos</strong><small>Casa Hacienda Mexicana · alberca climatizada y espacios amplios · aproximadamente 6 min de la hacienda.</small></div>
-        <a href="${STAY_FAMILY}" target="_blank" rel="noreferrer">Ver alojamiento ↗</a>
+        <div><strong>Departamento con roof garden · 4 huéspedes</strong><small>Dos recámaras, estacionamiento y terraza privada; anunciado cerca de las haciendas de Tesistán.</small></div>
+        <a href="${STAY_ROOF}" target="_blank" rel="noopener noreferrer">Ver Airbnb ↗</a>
       </article>
 
       <article class="stay-card">
+        <div class="stay-icon">⌂</div>
+        <div><strong>Departamento en Almaterra · 4 huéspedes</strong><small>Dos habitaciones y estacionamiento, en un conjunto residencial de Zapopan; el anuncio menciona Benazuza a menos de 15 min.</small></div>
+        <a href="${STAY_ALMATERRA}" target="_blank" rel="noopener noreferrer">Ver Airbnb ↗</a>
+      </article>
+
+      <div class="stay-group-label stay-group-label-airbnb">AIRBNB · FAMILIAS Y GRUPOS GRANDES</div>
+
+      <article class="stay-card">
         <div class="stay-icon">◇</div>
-        <div><strong>Para grupos grandes</strong><small>Casa de 3 habitaciones en Parques de Tesistán · hasta 11 huéspedes · práctica para dividir entre varios invitados.</small></div>
-        <a href="${STAY_GROUP}" target="_blank" rel="noreferrer">Ver Airbnb ↗</a>
+        <div><strong>Casa de 3 recámaras · hasta 11 huéspedes</strong><small>En Parques de Tesistán, con dos baños y estacionamiento; práctica para compartir entre familiares o amigos.</small></div>
+        <a href="${STAY_GROUP}" target="_blank" rel="noopener noreferrer">Ver Airbnb ↗</a>
+      </article>
+
+      <article class="stay-card">
+        <div class="stay-icon">⌂</div>
+        <div><strong>Casa Hacienda Mexicana · grupo grande</strong><small>Seis recámaras y alberca climatizada; el anuncio la sitúa aproximadamente a 6 min de Benazuza. Confirma la capacidad final con el anfitrión.</small></div>
+        <a href="${STAY_FAMILY}" target="_blank" rel="noopener noreferrer">Ver Airbnb ↗</a>
+      </article>
+
+      <article class="stay-card">
+        <div class="stay-icon">⌂</div>
+        <div><strong>Casa de Campo Monte, Cielo y Pádel · hasta 13 huéspedes</strong><small>Casa completa con alberca climatizada y cancha de pádel, sobre Carretera a Colotlán km 13.5. Ideal para organizarse en grupo; verifica el trayecto a Benazuza.</small></div>
+        <a href="${STAY_CAMPO_PADEL}" target="_blank" rel="noopener noreferrer">Ver Airbnb ↗</a>
+      </article>
+
+      <article class="stay-card">
+        <div class="stay-icon">⌂</div>
+        <div><strong>Quinta Tres Reinas · hasta 18 huéspedes</strong><small>Quinta privada en Lomas de Tesistán, con cinco habitaciones, alberca y jardines. Ideal para familias o amigos; confirma el número de personas y el precio total antes de reservar.</small></div>
+        <a href="${STAY_QUINTA_REINAS}" target="_blank" rel="noopener noreferrer">Ver Airbnb ↗</a>
       </article>
     </div>
 `,
@@ -4521,13 +4590,7 @@ const DETAIL_PANELS = {
       <details><summary>¿Tienes alergia o restricción alimentaria?</summary><div class="faq-answer">Puedes indicárnosla directamente al <a href="#rsvp" onclick="document.querySelector('#detailDialog').close()">confirmar tu asistencia</a>. Así podremos considerarla con anticipación.</div></details>
       <details><summary>¿Cuál es el código de vestimenta?</summary><div class="faq-answer">El código es <strong>formal / etiqueta</strong>: smoking o traje formal y vestido formal o de noche. Si lo prefieres, puedes cambiarte a tenis para estar más cómodo al avanzar la fiesta.</div></details>
       <details><summary>¿Dónde puedo hospedarme?</summary><div class="faq-answer">Preparamos algunas opciones cercanas para parejas, familias y grupos. Cierra este panel y entra a <strong>Hospedaje</strong> dentro de Detalles.</div></details>
-
-      <details><summary>¿Cómo funciona la mesa de regalos?</summary><div class="faq-answer">Si quieres tener un detalle con nosotros, puedes elegir un regalo en <strong>Liverpool</strong> o <strong>Amazon</strong>, hacer una transferencia de la cantidad que prefieras o aportar a una experiencia de nuestra luna de miel. Todo es opcional.</div></details>
-      <details><summary>¿Cómo regalo una experiencia de la luna de miel?</summary><div class="faq-answer">Abre la mesa de regalos, elige una experiencia y pulsa <strong>«Regalar esta experiencia»</strong>. Verás cuánto falta para completar su meta. Selecciona Actinver o BBVA, escribe tu nombre si lo deseas y usa <strong>«Copiar datos para transferir»</strong>. Después, realiza la transferencia desde la aplicación de tu banco y pulsa <strong>«Ya hice mi transferencia»</strong> para avisarnos.</div></details>
-      <details><summary>¿Cómo hago una transferencia?</summary><div class="faq-answer">Selecciona <strong>Actinver</strong> (principal) o <strong>BBVA</strong>, copia la CLABE y pégala como cuenta destino en tu aplicación bancaria. Indica el monto que quieras regalar, agrega un concepto y revisa los datos antes de confirmar. <strong>La invitación no realiza ningún cobro.</strong></div></details>
-      <details><summary>¿Qué escribo en el concepto de transferencia?</summary><div class="faq-answer">Para una experiencia, utiliza su clave, por ejemplo <strong>LM-OAX01</strong>, y agrega tu nombre si es posible: <strong>LM-OAX01 ANA PEREZ</strong>. La página puede preparar ese concepto para copiarlo. Para un regalo por transferencia sin experiencia, puedes escribir <strong>BODA K JP</strong> seguido de tu nombre. Así nos será más fácil identificar y agradecer tu regalo.</div></details>
-      <details><summary>¿Cómo compro un regalo en Liverpool o Amazon?</summary><div class="faq-answer">En <strong>Liverpool</strong>, pulsa «Buscar en Liverpool» y busca el evento <strong>60057016</strong>. En <strong>Amazon</strong>, pulsa «Ver mesa de regalos en Amazon» para abrir nuestra lista. Elige el producto que prefieras y completa la compra directamente en la tienda.</div></details>
-      <button type="button" class="secondary-btn faq-gift-button" data-open-registry>Ver mesa de regalos</button>
+      <details><summary>¿Cómo identificamos una transferencia?</summary><div class="faq-answer">Si decides hacer una aportación, escribe tu <strong>nombre</strong> en el concepto. Si es para una experiencia, añade también su <strong>clave</strong> (por ejemplo, <strong>LM-OAX01 ANA PEREZ</strong>). Así podremos identificarla y agradecerte.</div></details>
     </div>`
 };
 
@@ -4540,12 +4603,6 @@ function openDetailPanel(type, mark){
 $("#openStay").addEventListener("click",()=>openDetailPanel("stay","⌂"));
 $("#openTransport").addEventListener("click",()=>openDetailPanel("transport","⌖"));
 $("#openFaq").addEventListener("click",()=>openDetailPanel("faq","?"));
-// Open the existing gift catalog directly from the FAQ, without opening a second dialog over the first.
-detailDialogBody.addEventListener("click", (event) => {
-  if (!event.target.closest("[data-open-registry]")) return;
-  detailDialog.close();
-  document.getElementById("openGiftCatalog")?.click();
-});
 $("#closeDetailDialog").addEventListener("click",()=>detailDialog.close());
 
 // Restricciones alimentarias por asistente, manteniendo campos compatibles con Netlify Forms.
@@ -4867,6 +4924,12 @@ const RSVP_GUESTS = {
     "seats": 2,
     "host": "Juan Pablo",
     "option": "B"
+  },
+  "JP-GE42": {
+    "name": "Gerson Mejía",
+    "seats": 2,
+    "host": "Juan Pablo",
+    "option": "A"
   },
   "KA-001": {
     "name": "Erika Olmedo",
@@ -5309,13 +5372,20 @@ function syncMemories(){
   }
   if(memoryTimer === null) memoryTimer = window.setInterval(() => showMemory(nextMemoryIndex()), 4000);
 }
-memorySlides.forEach(slide => {
+// Las fotos se sirven desde la misma URL publicada, incluso al abrir este HTML en local.
+// Si una imagen falla, continúa el carrusel con otra foto sin usar rutas antiguas.
+memorySlides.forEach((slide, index) => {
   const img = slide.querySelector("img");
   if (!img) return;
   img.addEventListener("error", () => {
-    if (img.dataset.fallbackAttempted) return;
-    img.dataset.fallbackAttempted = "true";
-    img.src = "assets/fotos/" + img.getAttribute("src").split("/").pop();
+    slide.dataset.imageUnavailable = "true";
+    if (index === memoryIndex) {
+      const next = memorySlides.findIndex((candidate, idx) =>
+        idx !== index && candidate.dataset.imageUnavailable !== "true" &&
+        candidate.querySelector("img")?.complete &&
+        candidate.querySelector("img")?.naturalWidth > 0);
+      if (next >= 0) showMemory(next);
+    }
   });
 });
 if(memoryCarousel && memorySlides.length){
