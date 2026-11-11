@@ -3763,6 +3763,15 @@ html:not(.wedding-enhanced) .reveal { opacity: 1 !important; transform: none !im
 .honeymoon-selection .wedding-bank-select{max-width:100%;margin-bottom:13px}
 </style>
 
+
+<style id="experience-completion-styles">
+/* Los regalos confirmados permanecen a la vista, pero sin posibilidad de volver a elegirlos. */
+.honeymoon-experience.is-completed{border-color:#9fb7a0;background:#f7faf5}
+.honeymoon-completed-label{display:inline-block;margin:9px 0 3px;padding:6px 10px;border:1px solid #9eb6a6;border-radius:999px;background:#e7f2e9;color:#365942;font-size:13px;font-weight:650;line-height:1.35}
+.honeymoon-experience.is-completed .gift-meter-progress-fill{background:#476a54}
+.honeymoon-experience .honeymoon-choose:disabled{cursor:not-allowed!important;opacity:1!important;background:#e7e9e2!important;color:#445748!important;border:1px solid #abc3ae!important;box-shadow:none!important;transform:none!important}
+</style>
+
 <style id="experience-gift-meters-styles">
 .gift-meter{display:grid;gap:6px;margin:3px 0 7px;padding:10px 11px 9px;background:#f9f6ef;border-radius:9px;border:1px solid #ece3d5;font-variant-numeric:tabular-nums}
 .gift-meter-label,.gift-meter-bottom{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
@@ -5297,6 +5306,30 @@ if(savedRsvp){
   try { showFinalRsvp(JSON.parse(savedRsvp)); } catch(_error) { localStorage.removeItem(`wedding_rsvp_live_v1_${inviteCode}`); }
 }
 
+// Estado compartido: consulta SEGURA al servidor; no se incluyen tokens en este archivo.
+// Si la función todavía no está configurada, se conserva el flujo de RSVP en Netlify Forms.
+async function checkSharedRsvp(){
+  if(!invitedGuest || !inviteCode) return;
+  try{
+    const result=await fetch('/.netlify/functions/rsvp-status?code='+encodeURIComponent(inviteCode),
+      {cache:'no-store',headers:{Accept:'application/json'}});
+    if(!result.ok) return; // La configuración puede estar pendiente; nunca bloqueamos el RSVP.
+    const state=await result.json();
+    if(state && state.found && (state.attendance==='Sí'||state.attendance==='No')){
+      const saved={guestName:invitedGuest.name,guestCode:inviteCode,
+        attendance:state.attendance,guests:String(state.guests ?? '')};
+      localStorage.setItem(`wedding_rsvp_live_v1_${inviteCode}`,JSON.stringify(saved));
+      showFinalRsvp(saved);
+    }
+  }catch(_error){
+    // Sin conexión: el formulario todavía funciona y guarda la respuesta en Netlify.
+  }
+}
+checkSharedRsvp();
+document.addEventListener('visibilitychange',()=>{
+  if(!document.hidden) checkSharedRsvp();
+});
+
 rsvpForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -5524,6 +5557,12 @@ if(memoryCarousel && memorySlides.length){
     if(!form.reportValidity()) return;
     const feedback=document.getElementById('contributionStatus');
     const submit=document.getElementById('sendContributionIntent');
+    const selectedExperience=document.getElementById('contributionExperience')?.value || '';
+    const chosenButton=buttons.find(b=>b.dataset.experience===selectedExperience);
+    if(chosenButton?.disabled){
+      feedback.textContent='Esta experiencia ya está completada. Gracias por pensar en nosotros.';
+      return;
+    }
     const amount=Number(document.getElementById('contributionAmount').value);
     if(!Number.isFinite(amount) || amount<=0){feedback.textContent='Escribe el monto que transferiste.';return;}
     submit.disabled=true;
@@ -5558,6 +5597,7 @@ if(memoryCarousel && memorySlides.length){
     meter.querySelector('.gift-meter-progress-fill').style.width=percentage+'%';
   }
   meters.forEach(updateMeter);
+  document.addEventListener('wedding-gift-state-updated',()=>meters.forEach(updateMeter));
   // Keep selection status independent of bank and copying functions.
   const selected=document.getElementById('selectedGiftMeter');
   document.querySelectorAll('.honeymoon-choose').forEach(button=>{
@@ -5571,6 +5611,65 @@ if(memoryCarousel && memorySlides.length){
         (remaining>0?'Faltan '+fmt(remaining)+' para completarla.':'¡Ya alcanzamos la meta!')+
         '<br>Puedes aportar libremente lo que tú prefieras.';
     });
+  });
+})();
+</script>
+
+<script id="wedding-shared-gift-state">
+// Fuente pública de montos confirmados por los novios. Nunca leer avisos de pago como pagos efectivos.
+(function(){
+  const meters=Array.from(document.querySelectorAll('.gift-meter[data-gift-id]'));
+  const panel=document.getElementById('honeymoonSelection');
+  if(!meters.length) return;
+  const currentStatusUrl=new URL('estado-boda.json',document.baseURI);
+  const currency=n=>'$'+Math.round(n).toLocaleString('es-MX');
+  async function refreshConfirmedGifts(){
+    try{
+      const url=new URL(currentStatusUrl);
+      url.searchParams.set('t',String(Date.now()));
+      const response=await fetch(url.toString(),{cache:'no-store'});
+      if(!response.ok) return;
+      const shared=await response.json();
+      if(shared.schemaVersion!==1 || !shared.experiences || typeof shared.experiences!=='object')return;
+      for(const meter of meters){
+        const id=meter.dataset.giftId;
+        const entry=shared.experiences[id];
+        if(!entry)continue;
+        const goal=Math.max(1,Number(meter.dataset.goalMxn)||1);
+        const confirmed=Number(entry.confirmedMXN);
+        if(!Number.isFinite(confirmed) || confirmed<0)continue;
+        meter.dataset.confirmedMxn=String(confirmed);
+        const completed=entry.status==='completed' || confirmed>=goal;
+        const card=meter.closest('.honeymoon-experience');
+        const button=card?.querySelector('.honeymoon-choose');
+        card?.classList.toggle('is-completed',completed);
+        if(button){
+          button.disabled=completed;
+          button.textContent=completed ? 'Experiencia completada · Ya no disponible' : 'Regalar esta experiencia';
+          button.setAttribute('aria-disabled',String(completed));
+        }
+        let label=card?.querySelector('.honeymoon-completed-label');
+        if(completed && card && !label){
+          label=document.createElement('span');
+          label.className='honeymoon-completed-label';
+          label.textContent='♡ Experiencia completada';
+          meter.insertAdjacentElement('beforebegin',label);
+        }else if(!completed && label){label.remove();}
+        if(completed && panel && !panel.hidden &&
+           document.getElementById('contributionExperience')?.value===button?.dataset.experience){
+          panel.hidden=true;
+        }
+      }
+      document.dispatchEvent(new Event('wedding-gift-state-updated'));
+    }catch(_error){
+      // Fallo temporal de red: nunca sustituir montos confirmados por avisos sin verificar.
+    }
+  }
+  refreshConfirmedGifts();
+  // Actualizar también si una invitación permanece abierta o el visitante regresa a ella.
+  setInterval(()=>{if(!document.hidden)refreshConfirmedGifts();},90000);
+  document.addEventListener('visibilitychange',()=>{
+    if(!document.hidden)refreshConfirmedGifts();
   });
 })();
 </script>
