@@ -5333,6 +5333,8 @@ document.addEventListener('visibilitychange',()=>{
 rsvpForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  // Pasar los datos alimentarios individuales a campos que Netlify Forms sí envía.
+  captureDietaryPeople();
   const form = new FormData(e.currentTarget);
   const response = Object.fromEntries(form.entries());
   response.guestCode = inviteCode;
